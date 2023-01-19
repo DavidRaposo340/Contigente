@@ -5,6 +5,7 @@
 *{
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -49,3 +50,79 @@ nav{
   float: right;
 }
 
+/*--------------- Accordion Button  ---------------**/
+
+.accordion {
+  background-color: #0d2137;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 18px;
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 19px;
+  transition: 0.4s;
+}
+
+.accordion:hover {
+  background-color: #2e77ae; 
+}
+
+.panel {
+  padding: 0 0px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.sub_accordion {
+  background-color: #2e77ae;;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  transition: 0.4s;
+}
+.sub_accordion:hover {
+  background-color: #e0eaf5; 
+  color: rgb(0, 0, 0);
+}
+
+/*--------------- Collumns Index pag  ---------------**/
+
+/* Create unequal columns that floats next to each other */
+
+.row {
+  margin-top: 100px;
+}
+
+.column_intro {
+  float: left;
+  
+  padding-left: 150px;
+  padding-right: 150px;
+  
+  width: 65%;
+}
+
+.column_about {
+  float: left;
+  padding: 10px;
+  padding-bottom: 50%;
+  margin-right: 5%;
+  width: 30%;
+  height: 100%;
+  background-color: #e0eaf5; 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
