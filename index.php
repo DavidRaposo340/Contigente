@@ -14,7 +14,7 @@
     <div class="row">
 
       <div class="column_intro">
-        
+      
         <h1> CONTIGENTE </h1>
 
         <p> 
@@ -31,9 +31,7 @@
         </p>
 
         <!-- SLIDESHOW -->
-        <p> 
-          SLIDESHOW
-        </p>
+        <?php include("javascript/slideshow_receitas.php"); ?> 
  
       </div>
 
