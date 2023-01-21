@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <?php include("includes/navbar.php"); ?>
+    <?php
+        $path2root = "";
+        include("includes/navbar.php"); 
+    ?>
 
     <div class="row">
 
@@ -49,32 +52,14 @@
             <button class="sub_accordion"> Relatório   </button>  
             <button class="sub_accordion"> Código Zip  </button>  
             <button class="sub_accordion"> CSS         </button>  
-            <button class="sub_accordion"> Outro??     </button>  
-            
+            <button class="sub_accordion"> Outro??     </button>    
           </div>
-
-          <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
-
-            for (i = 0; i < acc.length; i++) {
-              acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                  panel.style.display = "none";
-                } else {
-                  panel.style.display = "block";
-                }
-              });
-            }
-          </script>
-
       </div>
-
-
+      
     </div>
-    
+
+    <!-- Boa pratica executar os scripts mesmo antes do fim do body -->
+    <script src="javascript\accordion_button.js"></script>
 </body>
 
 </html>

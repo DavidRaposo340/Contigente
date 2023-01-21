@@ -8,7 +8,10 @@
 
 <body>
 
-    <?php include("../../includes/navbar.php"); ?>
+    <?php
+        $path2root = "../../";
+        include("../../includes/navbar.php"); 
+    ?>
     <br>
     <br>
     <br>
