@@ -25,7 +25,7 @@
             <br>
             <br>
             
-            É na mesma um Lorem mas com um commit do Tiago CLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            OLAAAAAAAA É na mesma um Lorem mas com um commit do Tiago CLorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Quisque finibus dapibus purus, id rhoncus nisi commodo et. 
             Phasellus ut facilisis metus, in accumsan ante. 
             Duis ultricies et purus ullamcorper rutrum. 
