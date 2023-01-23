@@ -9,6 +9,7 @@
 <body>
 
     <?php
+        session_start();
         $path2root = "../../";
         include("../../includes/navbar.php"); 
 
@@ -17,17 +18,20 @@
         if (!empty($_SESSION['idade'])) 		$idade = $_SESSION['idade']; 			else $idade = "";
         if (!empty($_SESSION['email'])) 	    $email = $_SESSION['email']; 		    else $email = "";
         if (!empty($_SESSION['password'])) 	    $password = $_SESSION['password']; 	    else $password = "";
-        if (!empty($_SESSION['conf_pass'])) 	$temperatura = $_SESSION['conf_pass']; 	else $conf_pass = "";
+        if (!empty($_SESSION['conf_pass'])) 	$conf_pass = $_SESSION['conf_pass']; 	else $conf_pass = "";
 
         $_SESSION['nome'] = NULL;
         $_SESSION['idade'] = NULL;
         $_SESSION['email'] = NULL;
         $_SESSION['password'] = NULL;
         $_SESSION['conf_pass'] = NULL;
-        ?>
+
+    ?>
+
     <br>
     <br>
     <br>
+    
 
     <h2>Criar Conta:</h2>
 
@@ -49,27 +53,17 @@
             <label for="vegan"> Vegan</label><br><br>
 
             <p><input type="submit" value="Criar Conta" /> </p>
-    </form>
 
-    <?php
-    /*
-        //validar qual foi o erro que aconteceu
-        if (isset($_GET["erro"])) {
-            $msg_erro = "";
-            switch ($_GET["erro"]) {
-                case 1:
-                    $msg_erro = "Erro. username ou password inexistente.";
-                    break;
-                //Neste switch poderão ser acrescentadas mais mensagens de erro
+            <?php
+            //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+            if (!empty($_SESSION['msgErro'])) {
+                echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
+                $_SESSION['msgErro'] = NULL;
             }
+            ?>
+        
 
-            if ($msg_erro != "")
-                echo "<h3>$msg_erro</h3>";
-        }
-
-            echo "Username: username; Password: password";
-    */
-    ?>
+    </form>
 
 </body>
 </html>

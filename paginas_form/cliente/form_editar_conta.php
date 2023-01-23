@@ -49,25 +49,5 @@
             <p><input type="submit" value="Criar Conta" /> </p>
     </form>
 
-    <?php
-    /*
-        //validar qual foi o erro que aconteceu
-        if (isset($_GET["erro"])) {
-            $msg_erro = "";
-            switch ($_GET["erro"]) {
-                case 1:
-                    $msg_erro = "Erro. username ou password inexistente.";
-                    break;
-                //Neste switch poderão ser acrescentadas mais mensagens de erro
-            }
-
-            if ($msg_erro != "")
-                echo "<h3>$msg_erro</h3>";
-        }
-
-            echo "Username: username; Password: password";
-    */
-    ?>
-
 </body>
 </html>
