@@ -9,7 +9,7 @@
 <body>
 
     <?php
-        session_start();
+        //session_start();
         $path2root = "../../";
         include("../../includes/navbar.php"); 
 

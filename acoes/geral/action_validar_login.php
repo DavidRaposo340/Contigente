@@ -33,7 +33,7 @@ else{
       $_SESSION['msgErro'] = "Erro ao iniciar sessão <p>";     
       header("Location: ".$path2root."paginas_form\geral\form_login.php");
   } else{
-      $_SESSION['username'] = $user;
+      $_SESSION['user'] = $user;
       header("Location: ".$path2root."index.php");
   }
 }
