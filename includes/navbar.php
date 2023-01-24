@@ -7,6 +7,8 @@
       return $current_dir . '/' . $page;
   }
 ?>
+
+<nav>
   <div class="nav_center">
     <a href="<?php echo $path2root; ?>index.php"> CONTIGENTE</a>
   </div>
@@ -22,4 +24,5 @@
       <a href="<?php echo $path2root; ?>proxima_page"> Conta</a>    
     </div>
   </div>
+</nav>
   

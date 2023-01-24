@@ -31,10 +31,18 @@ p{
 }
 
 /*--------------- Navegation Bar (MENU) ---------------**/
-
+nav {
+  width: 100%;
+  z-index: 2;
+  height: 60px;
+  background-color: #ffffff;
+  position: relative;
+  /*position: fixed; --> Para tapar o fundo da navbar mas depois ocorre coisas bastantes estranahas*/ 
+}
 .nav_block{
   background-color: #0d2137;
-  position: relative;
+  width: 100%;
+  position: fixed;
   overflow: hidden;
   top: 24px;
 }
@@ -47,7 +55,7 @@ p{
   font-size: 19px;
 }
 .nav_center{
-  position: absolute;
+  position: fixed;
   top: 60px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -60,7 +68,6 @@ p{
   border-width: 2px;* Se se alterar o border pensoq ue é melhor alterar a altura*/
 }
 .nav_center a{
-  overflow: visible;
   text-decoration: none;
   font-size: 36px;
   color: #ffffff;
@@ -69,7 +76,9 @@ p{
 .nav_right{
   float: right;
 }
-
+.navbar-separation{
+  display: block;
+}
 
 /*--------------- Accordion Button  ---------------**/
 
@@ -258,4 +267,10 @@ p{
   padding: 18px;
   width: 15%;
   font-size: 19px;
+}
+/*--------------- Form Login ---------------**/
+.form-login{
+  display: block;
+  text-align: center;
+  margin-top: 120px;
 }

@@ -1,40 +1,44 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
 <body>
-
+  <div class="navbar-separation">
     <?php
         $path2root = "../../";
         include("../../includes/navbar.php"); 
     ?>
-    <br>
-    <br>
-    <br>
+  </div>
 
+
+  <div class="form-login">
     <h2>Iniciar Sessão:</h2>
 
     <form method="post" action="../../acoes/action_validar_login.php">
-            <p><label for="username">Username:</label><input type="text" name="username"/> </p>
-            <p><label for="password">Password:</label><input type="password" name="password"/> </p>
-            <p><input type="submit" value="Login" /> </p>
+      <p><label for="username">Username:</label><input type="text" name="username"/> </p>
+      <p><label for="password">Password:</label><input type="password" name="password"/> </p>
+      <p><input type="submit" value="Login" /> </p>
     </form>
+  </div>
+    
+  <p> 
+    Não tem conta?
+    <br>
+    <br>
+    
+    Criar conta <a href="form_criar_conta.php"> aqui</a>
+    <br>
+    <br>
+  </p>
 
-    <p> 
-            Não tem conta?
-            <br>
-            <br>
-            
-            Criar conta <a href="form_criar_conta.php"> aqui</a>
-            <br>
-            <br>
-    </p>
-
-    <?php
+  <?php
     /*
         //validar qual foi o erro que aconteceu
         if (isset($_GET["erro"])) {
