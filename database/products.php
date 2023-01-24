@@ -1,25 +1,18 @@
 <?PHP
 
-	function getAllProducts(){
+	function getAllProducts($familia, $no_gluten, $no_lact, $vegan, $prec_min, $prec_max ){
+		//retorna vetor/lista com: img_path, nome, id e price de todos os produtos (conforme os filtros) 
 		global $conn;
-		$query = "select * from cities where 1=1";
-		if($city)	{
-			$query .= " AND name like '$city'";
-		}
 
-		if(!empty($countries) && sizeof($countries) > 0){
-			$query .= " AND ";
-
-			for($i=0; $i < sizeof($countries);$i++){
-					if($i>0){
-					$query .= " OR ";
-					}
-					$query .= "country = '". $countries[$i]."'";
-			}
-		}
-		$query .= " order by country;";
-		$result = pg_exec($conn, $query);
+		$result = "ola";
 		return $result;
 	}
 
+	function getProductByID($id){
+		//retorna img_path, nome, id, price, familia e restr (e descr) do produto 
+		global $conn;
+
+		$result = "ola";
+		return $result;
+	}
 ?>
