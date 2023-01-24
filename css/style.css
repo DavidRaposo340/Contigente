@@ -269,8 +269,61 @@ nav {
   font-size: 19px;
 }
 /*--------------- Form Login ---------------**/
+.container-login{
+  display: block;
+  align-items: center;
+  text-align: center;
+}
 .form-login{
   display: block;
+  align-items: center;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 120px;
+  width: 400px;
+  background-color: #e2e8ee;
+  border-radius: 20px;
+  padding-bottom: 10px;
+}
+.form-login h2{
+  padding: 40px;
+  padding-bottom: 20px;
+}
+.form-login p{
+  margin-top: 10px;
+}
+.form-login input[type=submit] {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  padding:10px 50px; 
+  background: #ff8e2b; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
+.form-login input[type=text] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.form-login input[type=text]:focus {
+  border-color:rgb(51, 51, 51);
+}
+.form-login input[type=password] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.form-login input[type=password]:focus {
+  border-color:#333;
+}
+.form-login label{
+  
 }
