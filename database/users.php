@@ -1,30 +1,26 @@
 <?PHP
-
-	function createConta($nome, $idade, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan){
+		
+		//criar conta do tipo Cliente
+		function createConta($nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan){ 
 		global $conn;
-        ///mudar pls!!
-			$query = "select * from cities where 1=1";
-			if($city)	{
-				$query .= " AND name like '$city'";
-			}
 
-			if(!empty($countries) && sizeof($countries) > 0){
-				$query .= " AND ";
-
-				for($i=0; $i < sizeof($countries);$i++){
-						if($i>0){
-						$query .= " OR ";
-						}
-						$query .= "country = '". $countries[$i]."'";
-				}
-			}
-			$query .= " order by country;";
-			$result = pg_exec($conn, $query);
-			return $result;
-	}
-
-	function getUserByEmailAndPass($email, $pass){
-		$result = "david";
+		$insertQuery = "INSERT INTO users (type, name, address, email, password, no_gluten, no_lacti, vegan)
+						VALUES ('3','".$nome."','".$address."','".$email."','".$encrypt_pass."','".$no_gluten."', '".$no_lact."', '".$vegan."')"; 
+			
+		$result = pg_exec($conn, $insertQuery);
 		return $result;
 	}
+
+	function getUserByEmailAndPass($email, $pass){ //se existir dou o id, se nao existir NULL
+		global $conn;
+
+		$query = "	SELECT users.name AS name
+					FROM users
+					WHERE users.email='".$email."' AND users.password='".$pass."'
+					";
+
+		$result = pg_exec($conn, $query);
+		return $result;
+	}
+
 ?>
