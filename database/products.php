@@ -3,12 +3,12 @@
 	function getAllProducts($familia, $no_gluten, $no_lact, $vegan, $prec_min, $prec_max ){ //query confirmada na DB
 		//retorna vetor/lista com: img_path, nome, id e price de todos os produtos (conforme os filtros) 
 		global $conn;
-		$query = "	SELECT  products.id 			As   product_id, 
-							products.family_id 		As   product_familyid, 
-							products.quantity		As   product_quantity, 
-							products.price   		As   product_price, 
-							products.image_name 	AS 	 product_image,
-							products.name 			AS 	 product_name 
+		$query = "	SELECT  products.id 			As   id, 
+							products.family_id 		As   familyid, 
+							products.quantity		As   quantity, 
+							products.price   		As   price 
+							products.image_name 	AS 	 img_path,
+							products.name 			AS 	 nome 
 					FROM products INNER JOIN family_products
 					ON products.family_id=family_products.id
 					WHERE family_products.name='".$familia."'
@@ -24,13 +24,13 @@
 	function getProductByID($id){ //query confirmada na DB
 		//retorna img_path, nome, id, price, familia e restr (e descr) do produto 
 		global $conn;
-		$query = "	SELECT  products.id 			As   product_id, 
-							products.family_id 		As   product_familyid, 
-							products.quantity		As   product_quantity, 
-							products.price   		As   product_price, 
-							products.image_name 	AS 	 product_image,
-							products.name 			AS 	 product_name,
-							family_products.name    AS   product_familyname 
+		$query = "	SELECT  products.id 			As   id, 
+							products.family_id 		As   familiaid,
+							products.quantity		As   quantity, 
+							products.price   		As   price, 
+							products.image_name 	AS 	 img_path,
+							products.name 			AS 	 nome,
+							family_products.name    AS   familia
 					FROM products INNER JOIN family_products
 					ON products.family_id=family_products.id
 					WHERE products.id='".$id."'
