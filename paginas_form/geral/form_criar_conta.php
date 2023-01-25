@@ -41,25 +41,30 @@
             <!--CHECKBOXS-->
             <div class="form-register-checkbox">
                 <input type="checkbox" id="gluten" name="gluten" value="1">
-                <label for="gluten"> Intoletante ao gluten</label><br>
+                <label for="gluten"> Intolerante ao glúten</label><br>
                 
                 <input type="checkbox" id="lactose" name="lactose" value="1">
-                <label for="lactose"> Intoletante ao lactose</label><br>
+                <label for="lactose"> Intolerante ao lactose</label><br>
                 
                 <input type="checkbox" id="vegan" name="vegan" value="1">
                 <label for="vegan"> Vegan</label><br><br>
             </div>
+
+            <div class="error_msg-form">
+                <?php
+                //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+                
+                    if (!empty($_SESSION['msgErro'])) {
+                        echo "<p style=\"color:red\">".$_SESSION['msgErro']."</p>";
+                        $_SESSION['msgErro'] = NULL;
+                    }
+                ?>
+            </div>  
             
             <p><input type="submit" value="Criar Conta" /> </p>
     </div>
-    <?php
-    //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
-    if (!empty($_SESSION['msgErro'])) {
-        echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
-        $_SESSION['msgErro'] = NULL;
-    }
-    ?>
-        
+    
+  
 
     </form>
 

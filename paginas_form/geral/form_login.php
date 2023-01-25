@@ -33,6 +33,17 @@
       <form method="post" action="<?php echo $path2root; ?>acoes/geral/action_validar_login.php">
         <p><label for="email">E-mail:</label><input type="text" name="email" value= "<?php echo $email; ?>" /></p> 
         <p><label for="password">Password:</label><input type="password" name="password" value= "<?php echo $password; ?>" /> </p>
+        
+        <div class="error_msg-form">
+        <?php
+        //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+          if (!empty($_SESSION['msgErro'])) {
+            echo "<p style=\"color:red\">".$_SESSION['msgErro']."</p>";
+            $_SESSION['msgErro'] = NULL;
+          }
+        ?>
+        </div>
+
         <p><input type="submit" value="Login" /> </p>
       </form>
       
@@ -46,13 +57,6 @@
       
       Criar conta <a href="form_criar_conta.php"> aqui</a>
     </p>
-    <?php
-        //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
-          if (!empty($_SESSION['msgErro'])) {
-              echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
-              $_SESSION['msgErro'] = NULL;
-          }
-        ?>
   </div>
 
 
