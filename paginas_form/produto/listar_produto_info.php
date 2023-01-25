@@ -28,16 +28,16 @@
         $row['id']=1;
         $row['descr']="dwqdwqdw212dd";
         $row['img_path']="produtos\img_prod_azeite.jpg";
-        $row['nome']="NOMEMEMEMEM";
-        $row['price']=9999991;
-        $row['familia']="1tyty";
+        $row['nome']="Azeite";
+        $row['price']=4;
+        $row['familia']="Alimento";
         $row['restr']=16;
         
     ?>
     
-        <div class="row">
+        <div class="container-prodinfo">
 
-            <div class="collumn_prod_img_info">
+            <div class="container-prodinfo-imginfo">
                 <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="AZEITE">
                 <p>
                     Descriçao:
@@ -47,16 +47,18 @@
                 </p>
             </div>
 
-            <div class="collumn_prod_details">
+            <div class="container-prodinfo-details">
                     <h2> <?php echo $row['nome'] ?> </h2>
-                    <h3> <?php echo $row['price'] ?> </h2>  
+                    <h3> <?php echo $row['price'] ?> </h3>  
                     <button onclick="location.href='<?php echo $path2root ?>acoes/produto/action_add_carrinho.php?id=<?php echo $row['id'] ?>;'"\"> Adicionar ao carrinho</button>      
-                    <h3> Família de Produto: </h2> 
-                    <p> <?php echo $row['familia'] ?> </p>
-                    <h3> Restrições alimentares: </h2> 
-                    <p> <?php echo $row['restr'] ?> </p>
-                    <p> <?php echo $row['restr'] ?> </p>
-                    <p> <?php echo $row['restr'] ?> </p>   
+                    <div class="container-prodinfo-details-fam">
+                        <h4> Família de Produto: </h4> 
+                        <p> <?php echo $row['familia'] ?> </p>
+                        <h4> Restrições alimentares: </h4> 
+                        <p> <?php echo $row['restr'] ?> </p>
+                        <p> <?php echo $row['restr'] ?> </p>
+                        <p> <?php echo $row['restr'] ?> </p>   
+                    </div>
             </div>
 
         </div>

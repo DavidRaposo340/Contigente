@@ -28,39 +28,37 @@
 
     ?>
 
-    <br>
-    <br>
-    <br>
-    
+    <div class="form-register">
+        <h2>Criar Conta:</h2>
 
-    <h2>Criar Conta:</h2>
-
-    <form method="post" action="<?php echo $path2root; ?>acoes/geral/action_criar_conta.php">
+        <form method="post" action="<?php echo $path2root; ?>acoes/geral/action_criar_conta.php">
             <p><label for="nome">       Nome:</label>                <input type="text" name=nome value= "<?php echo $nome; ?>" /> </p>
             <p><label for="idade">      Idade:</label>               <input type="text" name="idade" value= "<?php echo $idade; ?>" /> </p>
             <p><label for="email">      E-Mail:</label>              <input type="text" name="email" value= "<?php echo $email; ?>" /> </p>
             <p><label for="password">   Password:</label>            <input type="password" name="password" value= "<?php echo $password; ?>" /> </p>
             <p><label for="conf_pass">  Confirmar Password:</label>  <input type="password" name="conf_pass" value= "<?php echo $conf_pass; ?>" /> </p>
-                        
+                      
             <!--CHECKBOXS-->
-            <input type="checkbox" id="gluten" name="gluten" value="1">
-            <label for="gluten"> Intoletante ao gluten</label><br>
+            <div class="form-register-checkbox">
+                <input type="checkbox" id="gluten" name="gluten" value="1">
+                <label for="gluten"> Intoletante ao gluten</label><br>
+                
+                <input type="checkbox" id="lactose" name="lactose" value="1">
+                <label for="lactose"> Intoletante ao lactose</label><br>
+                
+                <input type="checkbox" id="vegan" name="vegan" value="1">
+                <label for="vegan"> Vegan</label><br><br>
+            </div>
             
-            <input type="checkbox" id="lactose" name="lactose" value="1">
-            <label for="lactose"> Intoletante ao lactose</label><br>
-            
-            <input type="checkbox" id="vegan" name="vegan" value="1">
-            <label for="vegan"> Vegan</label><br><br>
-
             <p><input type="submit" value="Criar Conta" /> </p>
-
-            <?php
-            //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
-            if (!empty($_SESSION['msgErro'])) {
-                echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
-                $_SESSION['msgErro'] = NULL;
-            }
-            ?>
+    </div>
+    <?php
+    //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+    if (!empty($_SESSION['msgErro'])) {
+        echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
+        $_SESSION['msgErro'] = NULL;
+    }
+    ?>
         
 
     </form>

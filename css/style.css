@@ -30,7 +30,7 @@ p{
   font-weight: bold;
 }
 
-/*--------------- Navegation Bar (MENU) ---------------**/
+/*--------------- Navegation Bar (MENU) ---------------*/
 nav {
   width: 100%;
   z-index: 2;
@@ -80,8 +80,12 @@ nav {
 }
 .nav_block a:hover{
   background-color: #2E77AE;
+  transition: 0.4s;
 }
-/*--------------- Accordion Button  ---------------**/
+.nav_block a:active{
+  background-color: #2E77AE;
+}
+/*--------------- Accordion Button  ---------------*/
 
 .accordion {
   background-color: #0d2137;
@@ -125,7 +129,7 @@ nav {
 }
 
 
-/*--------------- Collumns Index pag  ---------------**/
+/*--------------- Collumns Index pag  ---------------*/
 
 /* Create unequal columns that floats next to each other */
 
@@ -157,7 +161,7 @@ nav {
 }
 
 
-/*--------------- Loja Produtos Pag  ---------------**/
+/*--------------- Loja Produtos Pag  ---------------*/
 .flex-box {
   display: flex;
   justify-content: center;
@@ -215,7 +219,7 @@ nav {
   font-weight: bold;
 }
 
-/*--------------- Filtros Produtos  ---------------**/
+/*--------------- Filtros Produtos  ---------------*/
 .filtros {
 
   height: 1080px;
@@ -269,7 +273,7 @@ nav {
   width: 15%;
   font-size: 19px;
 }
-/*----------------- Form Login -----------------**/
+/*----------------- Form Login -----------------*/
 .container-login{
   display: block;
   align-items: center;
@@ -327,6 +331,142 @@ nav {
 .form-login input[type=password]:focus {
   border-color:#333;
 }
-.form-login label{
-  
+
+/*----------------- Form Criar Conta -----------------*/
+
+.form-register{
+  display: block;
+  align-items: center;
+  text-align: center;
+  display: block;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  width: 600px;
+  background-color: #e2e8ee;
+  border-radius: 20px;
+  padding-bottom: 10px;
 }
+.form-register h2{
+  padding: 40px;
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+.form-register p{
+  margin: 5px;
+  padding: 20px;
+}
+.form-register-checkbox {
+  margin-top: 30px;
+}
+.form-register-checkbox label{
+  margin-left: -100px;
+}
+.form-register input[type=submit] {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  padding:10px 50px; 
+  background: #ff8e2b; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
+.form-register input[type=text] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float:right;
+  margin-right: 30px;
+  width: 240px;
+}
+
+.form-register input[type=text]:focus {
+  border-color:rgb(51, 51, 51);
+}
+.form-register input[type=password] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float:right;
+  margin-right: 30px;
+  width: 240px;
+}
+
+.form-register input[type=password]:focus {
+  border-color:#333;
+}
+.form-register input[type=checkbox] {
+  padding:10px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 9px;
+  border-radius: 9px;
+  float: left;
+  margin-left: 160px;
+  width: 15px;
+  height: 15px;
+}
+
+/*----------------- Products Info Page -----------------*/
+
+.container-prodinfo{
+  display: flex;
+  justify-content: center;
+}
+.container-prodinfo-imginfo{
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+.container-prodinfo-imginfo img{
+  width: 700px;
+}
+.container-prodinfo-details{
+  width: 50%;
+  justify-content: center;
+  text-align: center;
+  background-color: #e0eaf5;
+  border: 2px solid #0d2137;
+  height: 90vh;
+}
+.container-prodinfo-details h2{
+  margin-top: 100px;
+}
+.container-prodinfo-details h3{
+  margin-top: 30px;  
+}
+.container-prodinfo-details-fam{
+  margin-top: 130px;
+}
+.container-prodinfo-details-fam h4{
+  font-size: 19px;
+  text-decoration: underline 1px;
+  margin-top: 50px;
+}
+.container-prodinfo-details-fam p{
+  padding: 10px;
+  font-size: 15px;
+}
+.container-prodinfo-details button{
+  margin-top: 80px;
+  border: none 0px;
+  transition-duration: 0.4s;
+  font-weight: 700;
+  background-color: #ff8e2b;
+  color: #ffffff;
+  padding: 15px 40px;
+  border-radius: 10px;
+}
+.container-prodinfo-details button:hover{
+  transition-duration: 0.4s;
+  background-color:#0d2137;
+  font-weight: 700;
+  color: #ffffff;
+}
+
