@@ -20,7 +20,7 @@
       <a href="<?php echo $path2root; ?>paginas_form\receita\listar_sugestoes_receita.php"> Sugestões</a>    
       
     <div class="nav_right">
-      <a href="<?php echo $path2root; ?>proxima_page"> Carrinho</a>
+      <a href="<?php echo $path2root; ?>paginas_form\cliente\listar_carrinho.php"> Carrinho</a>
        
 
       <?php
