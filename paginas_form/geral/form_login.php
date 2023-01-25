@@ -1,13 +1,16 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
 <body>
-
+  <div class="navbar-separation">
     <?php
         //session_start();
         $path2root = "../../";
@@ -21,9 +24,7 @@
         $_SESSION['password'] = NULL;
 
     ?>
-    <br>
-    <br>
-    <br>
+  </div>
 
     <h2>Iniciar Sessão:</h2>
 
@@ -35,7 +36,22 @@
 
     </form>
 
+      <form method="post" action="../../acoes/action_validar_login.php">
+        <p>
+          <label for="username">Username:</label>
+          <input type="text" name="username"/> 
+        </p>
+        <p>
+          <label for="password">Password:</label>
+          <input type="password" name="password"/>
+        </p>
+        <p>
+          <input type="submit" value="Login" />
+        </p>
+      </form>
+    </div>
     <p> 
+
             Não tem conta?
             <br>
             <br>
