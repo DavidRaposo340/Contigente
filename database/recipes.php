@@ -14,9 +14,10 @@
 								recipes.no_person   As   n_doses, 
 								recipes.difficulty 	AS 	 difi,
 								recipes.total_price	AS 	 total_price,
-								recipes.image_name  AS   img_path
+								recipes.image_name  AS   img_path,
+								recipes.type        AS	 type
 						FROM recipes
-						WHERE recipes.name LIKE 'filtro_rec%' //confirmar
+						WHERE recipes.name LIKE 'filtro_rec%' 
 						";
 			$result = pg_exec($conn, $query);
 			return $result;
@@ -29,7 +30,8 @@
 								recipes.no_person   As   n_doses, 
 								recipes.difficulty 	AS 	 difi,
 								recipes.total_price	AS 	 total_price,
-								recipes.image_name  AS   img_path
+								recipes.image_name  AS   img_path,
+								recipes.type        AS   type
 						FROM recipes
 			";
 			$result = pg_exec($conn, $query);
@@ -44,14 +46,15 @@
 
 		//funciona na DB
         global $conn;
-		$query = "	SELECT  recipes.id 			As   id, 
+		$query = "	SELECT  recipes.image_name  AS   img_path
+							recipes.id 			As   id, 
 							recipes.name 		AS 	 nome,
 							recipes.description	As   descr, 
 							recipes.method		As   method, 
 							recipes.no_person   As   n_doses, 
 							recipes.difficulty 	AS 	 difi,
 							recipes.total_price	AS 	 total_price,
-							recipes.image_name  AS   img_path
+							recipes.type		AS   type
 					FROM recipes
 					WHERE recipes.id='".$id."'
 				";
