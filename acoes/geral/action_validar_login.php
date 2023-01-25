@@ -1,28 +1,45 @@
 <?php
+$path2root = "../../";
+
 session_start();
+include_once "../../includes/opendb.php";
+include_once "../../database/users.php";
 
-include_once "../includes/opendb.php";
-include_once "../database/user.php";
+print_r($_POST);
 
-if (isset($_POST["username"], $_POST["password"])) {
-    $user = $_POST["username"];
+$email = $_POST["email"];
+$password = $_POST['password'];
 
-    //A encriptação da password para contactar com a bass de dados
-    $pass = md5($_POST["password"]);
+if (empty($email) ||  empty($password)  ){
 
-    //falta criar esta funçao
-    $user = loadByUsernameAndPassword($user, $pass);
+  //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
+  $_SESSION['msgErro'] = "Pelo menos um dos campos em falta <p>"; 
 
-    if ($user == NULL) {
-        header("Location: ../pages/login.php?erro=1");
-    } else{
-        $_SESSION['username'] = $user;
-        header("Location: ../pages/listCities.php");
-    }
-  }
-else {
-  header("Location: ../pages/login.php?erro=2");
+  $_SESSION['email'] = $email;
+  $_SESSION['password'] = $password;
+
+  //Depois de criadas as variáveis de sessão, o script é redirecionado para o formulário que irá apresentar os dados que o utilizador tinha introduzido anteriormente
+  header("Location: ".$path2root."paginas_form/geral/form_login.php");
+
 }
+else{
+  //A encriptação da password para contactar com a bass de dados
+  $encrypt_pass = md5($password);
+
+  //falta criar esta funçao
+  $user = getUserByEmailAndPass($email, $encrypt_pass);
+
+  if ($user == NULL) {
+      $_SESSION['msgErro'] = "Erro ao iniciar sessão <p>";     
+      header("Location: ".$path2root."paginas_form\geral\form_login.php");
+  } else{
+      $_SESSION['user'] = $user;
+      header("Location: ".$path2root."index.php");
+  }
+}
+
+
+
 
 
 ?>
