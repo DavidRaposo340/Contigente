@@ -454,6 +454,7 @@ nav {
   font-size: 15px;
 }
 .container-prodinfo-details button{
+  font-size: 16px;
   margin-top: 80px;
   border: none 0px;
   transition-duration: 0.4s;
