@@ -310,6 +310,7 @@ nav {
   border:2px solid #ccc; 
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  float:right;
 }
 
 .form-login input[type=text]:focus {
@@ -320,6 +321,7 @@ nav {
   border:2px solid #ccc; 
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  float:right;
 }
 
 .form-login input[type=password]:focus {
