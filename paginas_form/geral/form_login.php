@@ -1,13 +1,16 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 
 <body>
-
+  <div class="navbar-separation">
     <?php
         //session_start();
         $path2root = "../../";
@@ -21,37 +24,46 @@
         $_SESSION['password'] = NULL;
 
     ?>
-    <br>
-    <br>
-    <br>
+  </div>
 
-    <h2>Iniciar Sessão:</h2>
+  <div class="container-login">
+    <div class="form-login">
+      <h2>Iniciar Sessão:</h2>
 
-    <form method="post" action="<?php echo $path2root; ?>acoes/geral/action_validar_login.php">
-            <p><label for="email">E-mail:</label><input type="text" name="email" value= "<?php echo $email; ?>" /> </p> 
-            <p><label for="password">Password:</label><input type="password" name="password" value= "<?php echo $password; ?>" /> </p>
-            <p><input type="submit" value="Login" /> </p>
+      <form method="post" action="<?php echo $path2root; ?>acoes/geral/action_validar_login.php">
+        <p>
+          <label for="email">E-mail:</label>
+          <input type="text" name="email" value= "<?php echo $email; ?>" /> 
+        </p> 
+        <p>
+          <label for="password">Password:</label>
+          <input type="password" name="password" value= "<?php echo $password; ?>" />
+        </p>
+        <p>
+          <input type="submit" value="Login" /> 
+        </p>
+      
+      </form>
+    </div>
 
-
-    </form>
-
-    <p> 
-            Não tem conta?
-            <br>
-            <br>
-            
-            Criar conta <a href="form_criar_conta.php"> aqui</a>
-            <br>
-            <br>
+    <p>
+      Não tem conta?
+      <br>
+      <br>
+      
+      Criar conta <a href="form_criar_conta.php"> aqui</a>
+      <br>
+      <br>
     </p>
-    <?php
-        //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
-        if (!empty($_SESSION['msgErro'])) {
-            echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
-            $_SESSION['msgErro'] = NULL;
-        }
-    ?>
+  </div>
 
+  <?php
+      //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+      if (!empty($_SESSION['msgErro'])) {
+          echo "<p style=\"color:red\">".$_SESSION['msgErro']."<p>";
+          $_SESSION['msgErro'] = NULL;
+      }
+  ?>
 
 </body>
 </html>
