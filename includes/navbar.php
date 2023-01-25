@@ -17,7 +17,7 @@
   <div class="nav_block">
 
       <a href="<?php echo $path2root; ?>paginas_form\produto\listar_loja_produtos.php"> Loja</a>
-      <a href="<?php echo $path2root; ?>proxima_page"> Sugestões</a>    
+      <a href="<?php echo $path2root; ?>paginas_form\receita\listar_sugestoes_receita.php"> Sugestões</a>    
       
     <div class="nav_right">
       <a href="<?php echo $path2root; ?>proxima_page"> Carrinho</a>
