@@ -1,9 +1,9 @@
 <?PHP
 
+	//retorna vetor/lista com: id, nome, difi, tempo e total_price de todas receitas
+	//input filtro_rec é o inicio do nome de uma receita. result deve apenas ter receitas com o nome a começar pelo filtro
+	//se filtro_rec NULL, retorna todas as receitas
 	function getAllReceitas($filtro_rec){ 
-        //retorna vetor/lista com: id, nome, difi, tempo e total_price de todas receitas
-		//input filtro_rec é o inicio do nome de uma receita. result deve apenas ter receitas com o nome a começar pelo filtro
-        //se filtro_rec NULL, retorna todas as receitas
         global $conn;
 
 		if ($filtro_rec != null && $filtro_rec != "") {
@@ -46,7 +46,6 @@
 		//ideia das 3 da manha: list_prods é uma lista de ids. que depois tu vais usar tal e qual para adicionar os produtos no carrinh 
         //depois pela funçao getProductByID tiro os nome dos produtos.~
 
-		//funciona na DB
         global $conn;
 		$query = "	SELECT  recipes.image_name  AS   img_path,
 							recipes.id 			As   id, 
