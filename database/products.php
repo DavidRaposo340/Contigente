@@ -105,10 +105,14 @@
 	}
 
 	function getPriceofProduct($id){
+		global $conn;
 		$query = "	SELECT  products.price   As   price, 
 						FROM products 
 						WHERE products.id='".$id."'
 				";
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_assoc($result);
+		return $row[0];
 	}
 
 	function getQuantityofProductbyID($id){ 
@@ -119,6 +123,8 @@
 					WHERE id ="  . $id .";";
 
 		$result = pg_exec($conn, $query);
+		$row = pg_fetch_assoc($result);
+		return $row[0];
 	}
 
 	function getRestrictionsofProductbyID($id){
