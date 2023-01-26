@@ -22,13 +22,6 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/products.php";    
-        /*echo "<br><br><br><br>";
-        echo $_SESSION['familia'];
-        echo $_SESSION['price_min'];
-        echo $_SESSION['price_max'];
-        echo $_SESSION['no_gluten'];
-        echo $_SESSION['no_lact'];
-        echo $_SESSION['vegan'];*/
 
         //Recuperar os campos do formulário guardados na variáveis de sessão, e depois limpar essas variáveis
         if (!empty($_SESSION['familia'])) 		 	$familia = $_SESSION['familia']; 			else $familia = "todas";
@@ -113,20 +106,14 @@
     </div>
 
 
-
     <div class="flex-box">
 
         <?php
-
             
             $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
-            
             $row = pg_fetch_assoc($list_products);
             
-
             while (isset($row['id'])) {
-                //echo $row['nome'];
-
                 echo "<div class=\"cartao_produto\">";
                 echo "<img src=" .$path2root. "images\\".$row['img_path']." alt=\"".$row['nome']."\">";
                 echo "<div class=\"cartao_nome_preco\">";   
@@ -134,15 +121,12 @@
                 echo "<h3> ".$row['price']."€ </h2>";
                 echo "</div>";
                 echo "<div class=\"cartao_botoes\">";
-                //echo "<button> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> Ver detalhes</button>";
-                //echo "<button> <a href=\"".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."\"> Adicionar ao carrinho</button>";
                 echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
                 echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."';\"> Adicionar ao carrinho</button>";
                
                 echo "</div>";  
                 echo "</div>";            
                 $row = pg_fetch_assoc($list_products);
-
             }
             
             /* 
@@ -156,15 +140,12 @@
                     <div class="cartao_botoes">
                         <button onclick="location.href='<?php echo $path2root ?>paginas_form/produto/listar_produto_info.php';"> Ver detalhes </button>
                         <button onclick="location.href='<?php echo $path2root ?>paginas_form/produto/listar_produto_info.php';"> Adicionar ao carrinho</button>
-               
-                        
                     </div>
                 </div>
             */
         ?>
 
     </div>
-
     
     <!-- Boa pratica executar os scripts mesmo antes do fim do body -->
     <script src="<?php echo $path2root ?>javascript\accordion_button.js"></script>

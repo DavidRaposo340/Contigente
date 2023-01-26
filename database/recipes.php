@@ -14,6 +14,7 @@
 								recipes.no_person   As   n_doses, 
 								recipes.difficulty 	AS 	 difi,
 								recipes.total_price	AS 	 total_price,
+								recipes.total_time	AS 	 total_time,
 								recipes.image_name  AS   img_path,
 								recipes.type        AS	 type
 						FROM recipes
@@ -30,6 +31,7 @@
 								recipes.no_person   As   n_doses, 
 								recipes.difficulty 	AS 	 difi,
 								recipes.total_price	AS 	 total_price,
+								recipes.total_time	AS 	 total_time,
 								recipes.image_name  AS   img_path,
 								recipes.type        AS   type
 						FROM recipes
@@ -45,7 +47,7 @@
         //depois pela funçao getProductByID tiro os nome dos produtos.~
 
         global $conn;
-		$query = "	SELECT  recipes.image_name  AS   img_path
+		$query = "	SELECT  recipes.image_name  AS   img_path,
 							recipes.id 			As   id, 
 							recipes.name 		AS 	 nome,
 							recipes.description	As   descr, 
@@ -53,9 +55,10 @@
 							recipes.no_person   As   n_doses, 
 							recipes.difficulty 	AS 	 difi,
 							recipes.total_price	AS 	 total_price,
+							recipes.total_time	AS 	 total_time,
 							recipes.type		AS   type
 					FROM recipes
-					WHERE recipes.id='".$id."'
+					WHERE recipes.id='".$id."';
 				";
 		$result = pg_exec($conn, $query);
 		return $result;
