@@ -21,11 +21,7 @@
       
     <div class="nav_right">
 
-      <a  href="<?php echo $path2root; ?>proxima_page"> Carrinho</a>
-
-
-
-      <?php
+    <?php
         
         //Se houver sessao inciada apresenta botao conta, senao apresenta iniciar sessao
         if (!empty($_SESSION['user'])) {
@@ -34,15 +30,17 @@
         else {
           echo '<a href="'.$path2root.'paginas_form\geral\form_login.php"> Iniciar sessão</a> ';
         }
-
-          /*    
-          <a href="<?php echo $path2root; ?>paginas_form\geral\form_login.php"> Conta</a>
-          <a href="<?php echo $path2root; ?>paginas_form\geral\form_login.php"> Iniciar sessão</a>
-          */
-        
       ?>
 
- 
+      <div class="dropdown">
+        <a class="dropdown-toggle" href="#">Carrinho</a>
+        <div class="dropdown-content">
+          <a href="<?php echo $path2root; ?>a_page">Dados Pessoais</a>
+          <a href="<?php echo $path2root; ?>b_page">Encomendas</a>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </nav>
