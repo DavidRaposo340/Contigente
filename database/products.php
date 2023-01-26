@@ -17,6 +17,7 @@
 					";
 
 		$result = pg_exec($conn, $query);
+
 		return $result;
 	}
 
