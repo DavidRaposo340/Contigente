@@ -12,7 +12,6 @@
 <body>
   <div class="navbar-separation">
     <?php
-        //session_start();
         $path2root = "../../";
         include("../../includes/navbar.php"); 
 

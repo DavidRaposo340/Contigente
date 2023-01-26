@@ -36,9 +36,7 @@
         if (!empty($_SESSION['price_max'])) 	    $price_max = $_SESSION['price_max']; 		else $price_max = 1000;
         if (!empty($_SESSION['no_gluten'])) 	    $no_gluten = $_SESSION['no_gluten']; 	    else $no_gluten = 0;
         if (!empty($_SESSION['no_lact'])) 	        $no_lact = $_SESSION['no_lact']; 	        else $no_lact = 0;
-        if (!empty($_SESSION['vegan'])) 	        $vegan = $_SESSION['vegan']; 	            else $vegan = 0;
-
-        $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+        if (!empty($_SESSION['vegan'])) 	        $vegan = $_SESSION['vegan']; 	            else $vegan = 0;       
         
     ?>
     
@@ -119,11 +117,13 @@
     <div class="flex-box">
 
         <?php
-            // à espera da funçao...
-            /*
+
+            
+            $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            
             $row = pg_fetch_assoc($list_products);
 
-            while (isset($row['nome'])) {
+            while (isset($row[0])) {
 
                 echo "<div class=\"cartao_produto\">";
                 echo "<img src=" .$path2root. "images\\".$row['img_path']." alt=\"".$row['nome']."\">";

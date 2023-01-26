@@ -5,7 +5,7 @@
 		global $conn;
 
 		$insertQuery = "INSERT INTO users (type, name, address, email, password, no_gluten, no_lacti, vegan)
-						VALUES ('3','".$nome."','".$address."','".$email."','".$encrypt_pass."','".$no_gluten."', '".$no_lact."', '".$vegan."')"; 
+						VALUES ('3','".$nome."','".$address."','".$email."','".$encrypt_pass."','".$no_gluten."', '".$no_lact."', '".$vegan."');"; 
 			
 		$result = pg_exec($conn, $insertQuery);
 		return $result;
@@ -20,7 +20,8 @@
 					";
 
 		$result = pg_exec($conn, $query);
-		return $result;
+		$row = pg_fetch_row($result);
+        return $row[0];
 	}
 
 ?>
