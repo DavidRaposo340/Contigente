@@ -9,7 +9,7 @@ print_r($_POST);
 
 
 $nome = $_POST['nome'];
-$idade = $_POST['idade'];
+$address = $_POST['address'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $conf_pass = $_POST['conf_pass'];
@@ -17,7 +17,7 @@ $conf_pass = $_POST['conf_pass'];
 
 //Validação dos dados
 //Assume-se que todos os campos são obrigatórios (a query insert apenas é executada se todos os campos  preenchidos)
-if (empty($nome) || empty($idade) || empty($email) ||  empty($password)||  empty($conf_pass)){
+if (empty($nome) || empty($address) || empty($email) ||  empty($password)||  empty($conf_pass)){
         $dadosValidos = false;
         //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
         $_SESSION['msgErro'] = "Pelo menos um dos campos em falta"; 
@@ -43,7 +43,7 @@ else {
 
         //são registados em variáveis de sessão os dados introduzidos pelo utilizador no formulário
         $_SESSION['nome'] = $nome;
-        $_SESSION['idade'] = $idade;
+        $_SESSION['address'] = $address;
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
         $_SESSION['conf_pass'] = $conf_pass;
@@ -62,7 +62,7 @@ else {
         else $vegan = false;
         
         $encrypt_pass = md5($password);
-        //$result = createConta($nome, $idade, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
+        //$result = createConta($nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
 
         //inicia sessão automaticamnte
         $user = getUserByEmailAndPass($email, $encrypt_pass);
