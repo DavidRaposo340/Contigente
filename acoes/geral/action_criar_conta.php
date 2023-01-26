@@ -9,7 +9,7 @@ print_r($_POST);
 
 
 $nome = $_POST['nome'];
-$idade = $_POST['idade'];
+$address = $_POST['address'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $conf_pass = $_POST['conf_pass'];
@@ -17,21 +17,21 @@ $conf_pass = $_POST['conf_pass'];
 
 //Validação dos dados
 //Assume-se que todos os campos são obrigatórios (a query insert apenas é executada se todos os campos  preenchidos)
-if (empty($nome) || empty($idade) || empty($email) ||  empty($password)||  empty($conf_pass)){
+if (empty($nome) || empty($address) || empty($email) ||  empty($password)||  empty($conf_pass)){
         $dadosValidos = false;
         //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
-        $_SESSION['msgErro'] = "Pelo menos um dos campos em falta <p>"; 
+        $_SESSION['msgErro'] = "Pelo menos um dos campos em falta!"; 
 }
 
 else if ( $password != $conf_pass ){
         $dadosValidos = false;
-        $_SESSION['msgErro'] = "Password e password de confirmação não correspondem <p>";
+        $_SESSION['msgErro'] = "Password e password de confirmação não correspondem!";
 }
 
 else if ( /*VERIFCAR SE JA EXISTE EMAIL*/ 0 ){
         $dadosValidos = false;
         //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
-        $_SESSION['msgErro'] = "Já existe uma conta com o e-mail introduzido <p>";     
+        $_SESSION['msgErro'] = "Já existe uma conta com o e-mail introduzido!";     
 }        
 
 else {
@@ -43,7 +43,7 @@ else {
 
         //são registados em variáveis de sessão os dados introduzidos pelo utilizador no formulário
         $_SESSION['nome'] = $nome;
-        $_SESSION['idade'] = $idade;
+        $_SESSION['address'] = $address;
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
         $_SESSION['conf_pass'] = $conf_pass;
@@ -52,17 +52,17 @@ else {
         header("Location: ".$path2root."paginas_form/geral/form_criar_conta.php");
     }
     else {
-        if (isset($_POST['gluten']) && $_POST['gluten'] == '1') $no_gluten = true; 
-        else $no_gluten = false;
+        if (isset($_POST['gluten']) && $_POST['gluten'] == '1') $no_gluten = 'true'; 
+        else $no_gluten = 'false';
 
-        if (isset($_POST['lactose']) && $_POST['lactose'] == '1') $no_lact = true;
-        else $no_lact = false;
+        if (isset($_POST['lactose']) && $_POST['lactose'] == '1') $no_lact = 'true';
+        else $no_lact = 'false';
         
-        if (isset($_POST['vegan']) && $_POST['vegan'] == '1') $vegan = true;
-        else $vegan = false;
+        if (isset($_POST['vegan']) && $_POST['vegan'] == '1') $vegan = 'true';
+        else $vegan = 'false';
         
         $encrypt_pass = md5($password);
-        //$result = createConta($nome, $idade, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
+        $result = createConta($nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
 
         //inicia sessão automaticamnte
         $user = getUserByEmailAndPass($email, $encrypt_pass);

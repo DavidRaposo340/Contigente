@@ -24,6 +24,7 @@
 		//retorna vetor/lista com: img_path, nome, id e price de todos os produtos (conforme os filtros) 
 		//falta fazer os filtros como no exemplo do Cities
 		global $conn;
+
 		$query = "    SELECT  	products.id             As   id, 
 									products.family_id      As   familyid, 
 									products.quantity       As   quantity, 
@@ -44,6 +45,7 @@
 		$result = pg_exec($conn, $query);
 		return $result;
 	}*/
+
 
 
 	//FUNÇAO PROFESSOR GET ALL CITIES

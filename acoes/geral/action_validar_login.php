@@ -13,7 +13,7 @@ $password = $_POST['password'];
 if (empty($email) ||  empty($password)  ){
 
   //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
-  $_SESSION['msgErro'] = "Pelo menos um dos campos em falta <p>"; 
+  $_SESSION['msgErro'] = "Pelo menos um dos campos em falta!"; 
 
   $_SESSION['email'] = $email;
   $_SESSION['password'] = $password;
@@ -25,8 +25,8 @@ if (empty($email) ||  empty($password)  ){
 else{
   //A encriptação da password para contactar com a bass de dados
   $encrypt_pass = md5($password);
+  
 
-  //falta criar esta funçao
   $user = getUserByEmailAndPass($email, $encrypt_pass);
 
   if ($user == NULL) {
