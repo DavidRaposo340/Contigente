@@ -20,18 +20,18 @@ $conf_pass = $_POST['conf_pass'];
 if (empty($nome) || empty($address) || empty($email) ||  empty($password)||  empty($conf_pass)){
         $dadosValidos = false;
         //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
-        $_SESSION['msgErro'] = "Pelo menos um dos campos em falta <p>"; 
+        $_SESSION['msgErro'] = "Pelo menos um dos campos em falta"; 
 }
 
 else if ( $password != $conf_pass ){
         $dadosValidos = false;
-        $_SESSION['msgErro'] = "Password e password de confirmação não correspondem <p>";
+        $_SESSION['msgErro'] = "Password e password de confirmação não correspondem";
 }
 
 else if ( /*VERIFCAR SE JA EXISTE EMAIL*/ 0 ){
         $dadosValidos = false;
         //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
-        $_SESSION['msgErro'] = "Já existe uma conta com o e-mail introduzido <p>";     
+        $_SESSION['msgErro'] = "Já existe uma conta com o e-mail introduzido";     
 }        
 
 else {
