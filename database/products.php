@@ -5,8 +5,8 @@
         global $conn;
 
         $query = "    SELECT  products.id             As   id, 
-                            products.family_id         As   familyid, 
-                            products.quantity        As   quantity, 
+                            products.family_id        As   familyid, 
+                            products.quantity        	As   quantity, 
                             products.price           As   price,
                             products.image_name     AS      img_path,
                             products.name             AS      nome 
@@ -86,8 +86,9 @@
 							family_products.name    AS   familia
 					FROM products INNER JOIN family_products
 					ON products.family_id=family_products.id
-					WHERE products.id='".$id."'
+					WHERE products.id='".$id."';
 				";
+
 		$result = pg_exec($conn, $query);
 		return $result;
 	}
