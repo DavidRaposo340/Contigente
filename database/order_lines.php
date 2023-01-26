@@ -13,7 +13,6 @@
         return $result;
     }
 
-
     function insertinOrderLines($idOrder, $id_product, $quantity){
         global $conn;
 
@@ -24,5 +23,16 @@
 						VALUES ('".$idOrder."','".$id_product."','".$quantity."','".$totalPrice."');"; 
 		pg_exec($conn, $insertQuery);
     }
+
+    function getProductsandQuantityofOrder($idOrder){
+        global $conn;
+        $query = "SELECT    orders_lines.id_product    AS id_product,
+                            orders_lines.quantity      AS quant
+                    FROM orders_lines
+                    WHERE orders_lines.id_order ="  . $idOrder .";";
+
+		$result = pg_exec($conn, $query);
+        return $result;
+	}
 
 ?>  
