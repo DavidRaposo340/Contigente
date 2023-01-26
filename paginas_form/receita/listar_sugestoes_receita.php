@@ -26,10 +26,9 @@
     
     <div>
         <p>
-            Lorem ipsum
+        
             <br>
-            Lorem ipsum UM POUCO CONTEXTO..
-            MOSTRAMOS RECEITAS PARA AJUDAR NA ALTURA DE IR AS COMPRAS ETC
+            Aqui encontra sugestões de algumas refeições deliciosas e simples e o melhor: caso queira fazer a receita e não tenha os ingredientes, basta clicar num botão para adicionar tudo o que precisa ao seu carrinho!
 
         </p>
 
