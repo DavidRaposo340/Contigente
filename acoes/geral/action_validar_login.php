@@ -25,8 +25,8 @@ if (empty($email) ||  empty($password)  ){
 else{
   //A encriptação da password para contactar com a bass de dados
   $encrypt_pass = md5($password);
+  
 
-  //falta criar esta funçao
   $user = getUserByEmailAndPass($email, $encrypt_pass);
 
   if ($user == NULL) {

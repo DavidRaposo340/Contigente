@@ -52,17 +52,17 @@ else {
         header("Location: ".$path2root."paginas_form/geral/form_criar_conta.php");
     }
     else {
-        if (isset($_POST['gluten']) && $_POST['gluten'] == '1') $no_gluten = true; 
-        else $no_gluten = false;
+        if (isset($_POST['gluten']) && $_POST['gluten'] == '1') $no_gluten = 'true'; 
+        else $no_gluten = 'false';
 
-        if (isset($_POST['lactose']) && $_POST['lactose'] == '1') $no_lact = true;
-        else $no_lact = false;
+        if (isset($_POST['lactose']) && $_POST['lactose'] == '1') $no_lact = 'true';
+        else $no_lact = 'false';
         
-        if (isset($_POST['vegan']) && $_POST['vegan'] == '1') $vegan = true;
-        else $vegan = false;
+        if (isset($_POST['vegan']) && $_POST['vegan'] == '1') $vegan = 'true';
+        else $vegan = 'false';
         
         $encrypt_pass = md5($password);
-        //$result = createConta($nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
+        $result = createConta($nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
 
         //inicia sessão automaticamnte
         $user = getUserByEmailAndPass($email, $encrypt_pass);
