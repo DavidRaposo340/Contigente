@@ -69,6 +69,7 @@
 		}
 		$query .= " order by country;";
 		$result = pg_exec($conn, $query);
+
 		return $result;
 	}
 	*/
