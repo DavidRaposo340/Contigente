@@ -39,7 +39,7 @@
 		}
 	}
 
-    function getReceitaByID($id){ //O QUE É O TYPE? NA DB ESTAO DIVIDIDOS: PEQUENA DESCRIÇAO E METODO (COM OS PASSOS). FALTA RETORNAR LIST_PRODUCTS
+    function getReceitaByID($id){ 
 		//retorna img_path, nome, id, type, difi, tempo, n_doses, total_price, descr e list_prods da receita 
 		//ideia das 3 da manha: list_prods é uma lista de ids. que depois tu vais usar tal e qual para adicionar os produtos no carrinh 
         //depois pela funçao getProductByID tiro os nome dos produtos.~
@@ -73,8 +73,54 @@
 		return $result;
 	}
 
-	function updateTotalPriceofRecipe($id){ //chamo aqui as funçoes do get price e assim? ou david é que chama e da me todos os parametros? acho que vou ter que chamar
-		
+	function getTotalPriceProductbyQuantity($id, $quantity){
+		global $conn;
+		$query = "	SELECT  products.price		As   price 
+					FROM products
+					WHERE products.id='".$id."'
+				";
+			$result = pg_exec($conn, $query);
+			$row = pg_fetch_row($result);
+			$total = $quantity * $row[0];
+			return $total;
+	}
+
+	function getTotalPriceofRecipe($id){
+		global $conn;
+		$query = "	SELECT recipes.total_price	AS 	 total_price
+					FROM recipes
+					WHERE recipes.id='".$id."'
+				";
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_row($result);
+		return $row[0];
+	}
+
+	function updateTotalPriceofRecipe($id){ //funcao testada
+		$totalprice=0;
+		global $conn;
+
+		$result=getProductsandQuantityofRecipe($id); 
+		$numRows = pg_numrows($result);
+
+		$i = 0;
+
+		while ($i < $numRows) {
+			$row = pg_fetch_row($result, $i);
+			$product_id=$row[0]; 
+			$quantity=$row[1]; 
+			$aux=getTotalPriceProductbyQuantity($product_id, $quantity); 
+			$totalprice = $totalprice + $aux;
+			echo $totalprice;
+		$i++;
+		}
+
+		//update do price - query confirmada na DB
+		$updateQuery = "UPDATE recipes
+						set total_price= ".$totalprice."
+						where id ="  . $id .";";
+
+		$result = pg_exec($conn, $updateQuery);
 	}
 ?>
 

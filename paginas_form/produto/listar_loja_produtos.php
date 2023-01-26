@@ -99,10 +99,10 @@
                         <!--  Range slider  -->
                         <div data-role="rangeslider">
                             <label for="price-min">Preço mínimo :</label>
-                            <input type="range" name="price-min" id="price-min" value=<?php echo $price_min;?> min="0" max="1000">
+                            <input type="range" name="price-min" id="price-min" value=<?php echo $price_min;?> min="0" max="50">
                             <br>
                             <label for="price-max">Preço máximo:</label>
-                            <input type="range" name="price-max" id="price-max" value=<?php echo $price_max;?> min="0" max="1000">
+                            <input type="range" name="price-max" id="price-max" value=<?php echo $price_max;?> min="0" max="50">
                         </div>    
                     </div> 
 
@@ -122,24 +122,27 @@
             $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
             
             $row = pg_fetch_assoc($list_products);
+            
 
-            while (isset($row[0])) {
+            while (isset($row['id'])) {
+                //echo $row['nome'];
 
                 echo "<div class=\"cartao_produto\">";
                 echo "<img src=" .$path2root. "images\\".$row['img_path']." alt=\"".$row['nome']."\">";
                 echo "<div class=\"cartao_nome_preco\">";   
                 echo "<h2> ".$row['nome']." </h2>";
-                echo "<h3> ".$row['price']." </h2>";
+                echo "<h3> ".$row['price']."€ </h2>";
                 echo "</div>";
                 echo "<div class=\"cartao_botoes\">";
                 //echo "<button> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> Ver detalhes</button>";
                 //echo "<button> <a href=\"".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."\"> Adicionar ao carrinho</button>";
-                echo "<button onclick=\"location.href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> Ver detalhes</button>";
-                echo "<button onclick=\"location.href=\"".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."\"> Adicionar ao carrinho</button>";
+                echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
+                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."';\"> Adicionar ao carrinho</button>";
                
-                
+                echo "</div>";  
                 echo "</div>";            
-                $row = pg_fetch_assoc($result);
+                $row = pg_fetch_assoc($list_products);
+
             }
             
             /* 
@@ -159,67 +162,6 @@
                 </div>
             */
         ?>
-
-
-      <div class="cartao_produto">
-            <img src="<?php echo $path2root ?>images\produtos\img_prod_azeite.jpg" alt="AZEITE">
-        <div class="cartao_nome_preco">    
-            <h2> NOME </h2>
-            <h3> PREÇO </h2>
-        </div>    
-        <div class="cartao_botoes">
-            <button onclick="location.href='<?php echo $path2root ?>paginas_form/produto/listar_produto_info.php';"> Ver detalhes </button>
-            <button onclick="location.href='<?php echo $path2root ?>acoes/produto/action_add_carrinho.php';"> Adicionar ao carrinho</button>
-        </div>
-      </div>
-
-      <div class="cartao_produto">
-            <img src="<?php echo $path2root ?>images\produtos\img_prod_azeite.jpg" alt="AZEITE">
-        <div class="cartao_nome_preco">    
-            <h2> Azeite </h2>
-            <h3> Preço </h2>
-        </div>    
-        <div class="cartao_botoes">
-            <button>Ver detalhes</button>
-            <button>Adicionar ao carrinho</button>
-        </div>
-      </div>
-
-      <div class="cartao_produto">
-            <img src="<?php echo $path2root ?>images\produtos\img_prod_azeite.jpg" alt="AZEITE">
-        <div class="cartao_nome_preco">    
-            <h2> Azeite </h2>
-            <h3> Preço </h2>
-        </div>    
-        <div class="cartao_botoes">
-            <button>Ver detalhes</button>
-            <button>Adicionar ao carrinho</button>
-        </div>
-      </div>
-      <div class="cartao_produto">
-            <img src="<?php echo $path2root ?>images\produtos\img_prod_azeite.jpg" alt="AZEITE">
-        <div class="cartao_nome_preco">    
-            <h2> Azeite </h2>
-            <h3> Preço </h2>
-        </div>    
-        <div class="cartao_botoes">
-            <button>Ver detalhes</button>
-            <button>Adicionar ao carrinho</button>
-        </div>
-      </div>
-
-      <div class="cartao_produto">
-            <img src="<?php echo $path2root ?>images\produtos\img_prod_azeite.jpg" alt="AZEITE">
-        <div class="cartao_nome_preco">    
-            <h2> Azeite </h2>
-            <h3> Preço </h2>
-        </div>    
-        <div class="cartao_botoes">
-            <button>Ver detalhes</button>
-            <button>Adicionar ao carrinho</button>
-        </div>
-      </div>
-      <!--  gerar TODOS os produtos dinamicamente  -->
 
     </div>
 
