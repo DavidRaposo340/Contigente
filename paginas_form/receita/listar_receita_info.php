@@ -19,25 +19,15 @@
         include_once "../../database/products.php";    
         include_once "../../database/recipes.php";    
         
-
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        
         $id = $_GET['id'];
-        //$receita=getProductByID($id);
-        //$row = pg_fetch_assoc($receita);
-
-        $row['id']=1;
-        $row['nome']="NOME_REC";
-        $row['difi']="dificil";
-        $row['tempo']=58;
-        $row['n_doses']=4;
-        $row['total_price']=58;
-        $row['type']="bolo";
-        $row['descr']="passo 999";
-
-        $row['list_prods']=1;
-        $list_prods=$row['list_prods'];
-        
-        
-        
+        $receita=getReceitaByID($id);
+        $row = pg_fetch_assoc($receita);
+               
     ?>
     
 
@@ -47,13 +37,14 @@
             <!-- Já tinha criado uma class para este tipo de titulo (é igual à pag1)-->
             <?php echo $row['nome'] ?>
         </h1>
-        <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>">
         <p>
             Descriçao:
             <br>
             <?php echo $row['descr'] ?>
-
         </p>
+
+        <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>">
+
     </div>
 
 
@@ -70,11 +61,11 @@
                 </tr>
                 <tr>
                     <th>Tempo de preparação</th>
-                    <td> <?php echo $row['tempo'] ?> </td>";
+                    <td> <?php echo $row['total_time'] ?> Minutos </td>";
                 </tr>
                 <tr>
                     <th>Nº Doses</th>
-                    <td> <?php echo $row['n_doses'] ?> </td>";
+                    <td> <?php echo $row['n_doses'] ?> Pessoas </td>";
                 </tr>
                 <tr>
                     <th>Preço total</th>
@@ -82,10 +73,11 @@
                 </tr>
             </table>
 
+
             <p>
-                Descriçao:
+                Metodo:
                 <br>
-                <?php echo $row['descr'] ?>
+                <?php echo $row['method'] ?>
             </p>
         </div>
 
