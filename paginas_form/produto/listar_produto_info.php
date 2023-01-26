@@ -38,7 +38,11 @@
 
             <div class="container-prodinfo-details">
                     <h2> <?php echo $row['nome'] ?> </h2>
-                    <h3> <?php echo $row['price'] ?> </h3>  
+                    <h3> <?php echo $row['price'] ?> €</h3>  
+
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $row['quantity'] ?>" step="1" value="1">
+                    
                     <button onclick="location.href='<?php echo $path2root ?>acoes/produto/action_add_carrinho.php?id=<?php echo $row['id'] ?>;'"\"> Adicionar ao carrinho</button>      
                     <div class="container-prodinfo-details-fam">
                         <h4> Família de Produto: </h4> 
