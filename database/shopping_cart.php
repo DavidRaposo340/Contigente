@@ -8,7 +8,7 @@
 							shopping_cart.id_product            As   prod,
 							shopping_cart.quantity_product	    As   quant
                         FROM shopping_cart
-                        WHERE shopping_cart.id_user='".$user."'
+                        WHERE shopping_cart.id_user='".$user."';
 				";
 		$result = pg_exec($conn, $query);
 		return $result;
@@ -19,12 +19,12 @@
         global $conn;
         $totalpriceCart= 0;
 
-        $query = "	SELECT  shopping_cart.id 		            As   id, 
+        $query = "  SELECT  shopping_cart.id 		            As   id, 
 							shopping_cart.id_product            As   prod,
 							shopping_cart.quantity_product	    As   quant
                         FROM shopping_cart INNER JOIN products
                         WHERE shopping_cart.id_user='".$user."'
-				";
+				    ";
 		$result = pg_exec($conn, $query);
         $numRows = pg_numrows($result);
 
@@ -44,10 +44,30 @@
     function insertinShoppingCart($user, $idproduct, $quantity){
         global $conn;
 
-		$insertQuery = "INSERT INTO shopping_cart (id_product, id_user, quantity_product)
+        $query = "	SELECT  shopping_cart.id_product   As   id_product
+                    FROM    shopping_cart 
+                    WHERE   shopping_cart.id_user='".$user."'
+                 ";
+        $result = pg_exec($conn, $query);
 
-						VALUES ('".$idproduct."','".$user."','".$quantity."');"; 
-		pg_exec($conn, $insertQuery);
+        if($result!=NULL){
+            $row = pg_fetch_row($result);
+            $id_product = $row[0];
+            $updateQuery = "UPDATE shopping_cart
+                                set quantity_product= ".$quantity."
+                                where id_product ="  . $row[0] ." AND id_user='".$user."'
+                            ";
+
+		$result = pg_exec($conn, $updateQuery);
+        } 
+            else {
+
+                $insertQuery = "INSERT INTO shopping_cart (id_product, id_user, quantity_product)
+
+                                    VALUES ('" . $idproduct . "','" . $user . "','" . $quantity . "');
+                ";
+                pg_exec($conn, $insertQuery);
+            }
     }
 
 
@@ -56,8 +76,39 @@
 
         $deleteQuery = "DELETE FROM shopping_cart 
                         WHERE shopping_cart.id_user='" . $user . "'
-                        ";
+                       ";
 
+        pg_exec($conn, $deleteQuery);
+    }
+
+    function removeOneUnifromShoppingCart($user, $id_product){
+        global $conn;
+
+        $query = "	SELECT  shopping_cart.quantity_product  As quantidade
+                    FROM    shopping_cart 
+                    WHERE   shopping_cart.id_user=".$user." AND shopping_cart.id_product='".$id_product."'
+                 ";
+        $result = pg_exec($conn, $query);
+        $row = pg_fetch_row($result);
+        $quantity = $row[0];
+
+        if($quantity==0){
+            removeLinefromShoppingCart($user, $id_product);
+        }
+            else{
+                $updateQuery = "UPDATE shopping_cart
+                                set quantity_product= quantity_product-1;
+                                where id_product ="  . $id_product ." AND id_user='".$user."'
+                                ";
+                pg_exec($conn, $updateQuery);
+            }
+    }
+
+    function removeLinefromShoppingCart($user, $id_product){
+        global $conn;
+        $deleteQuery = "DELETE FROM shopping_cart
+                        where id_product ="  . $id_product ." AND id_user='".$user."'
+                        ";
         pg_exec($conn, $deleteQuery);
     }
 

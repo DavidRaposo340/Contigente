@@ -1,12 +1,7 @@
 <?php
   session_start();
-  function getPath($page) {
-      $current_dir = dirname($_SERVER['PHP_SELF']);
-      if ($current_dir == '/') {
-          $current_dir = '';
-      }
-      return $current_dir . '/' . $page;
-  }
+  include_once $path2root."includes/opendb.php";
+  include_once $path2root."database/user_type.php"; 
 ?>
 
 <nav>
@@ -22,18 +17,29 @@
       <a href="<?php echo $path2root; ?>paginas_form\receita\listar_sugestoes_receita.php"> Sugestões</a>    
       
     <div class="nav_right">
-      <a href="<?php echo $path2root; ?>paginas_form\cliente\listar_carrinho.php"> Carrinho</a>    
 
     <?php
         
         //Se houver sessao inciada apresenta botao conta, senao apresenta iniciar sessao
         if (!empty($_SESSION['user'])) {
-          //echo '<a href="'.$path2root.'paginas_form\geral\form_conta.php"> Conta</a> ';
+          
+          //carrinho so é aprensentado quando há sessao inciada para evitar erros
+          echo '<a href="'.$path2root.'paginas_form\cliente\listar_carrinho.php"> Carrinho</a>';
+
           echo '<div class="dropdown">';
           echo '<a class="dropdown-toggle" href="#">Conta</a>';
           echo '<div class="dropdown-content">';
-          echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">Dados Pessoais</a>';
-          echo '<a href="'.$path2root.'paginas_form\cliente\form_listar_encomendas.php">Encomendas</a>';
+
+          echo '<a href="'.$path2root.'a_page">Dados Pessoais</a>';
+          echo '<a href="'.$path2root.'b_page">Encomendas</a>';
+          if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor")
+            echo '<a href="'.$path2root.'b_page">Produtos</a>';
+          if (getUserTypebyID($_SESSION['user'])=="Gestor")
+            echo '<a href="'.$path2root.'b_page">Estatistica</a>';
+
+          echo '<a href="'.$path2root.'acoes\geral\action_logout.php">Logout</a>';
+
+
           echo '</div>';
           echo '</div>';
 
