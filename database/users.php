@@ -49,7 +49,7 @@
 		global $conn;
 		$query = "	SELECT users.name AS nome
 					FROM users
-					WHERE users.id='".$userID."'
+					WHERE users.id='".$userID."';
 					";
 		
 		$result = pg_exec($conn, $query);
