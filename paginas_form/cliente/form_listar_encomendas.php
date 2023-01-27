@@ -4,11 +4,6 @@
 
 <head>
     <title>Encomendas</title>
-    <!-- PARA DOUBLE RANGE SLIDER - elementos que nao aplico css ficam com estilo importado...
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    -->
 
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,13 +40,12 @@
 
                 $lists_prodocts=getProductsandQuantityofOrder($row['id']);
                 $row_products = pg_fetch_assoc($lists_prodocts);
-                //$order_date = getdateofOrder($row['id']);
-
+                $order_date = getdateofOrder($row['id']);
 
                 echo "<tr>";
                 echo "<td>".$row['id']."</td>";
                 echo "<td>".$user_name."</td>";
-                echo "<td>date</td>"; //Neesds date
+                echo "<td style='width:90px;padding:0px'>".$order_date."</td>"; 
                 echo "<td>".$row['state']."</td>";
                 echo "<td>";
                 while (isset($row_products['id_product'])) {
@@ -62,7 +56,7 @@
                 }
                 echo"</td>";
                 echo "<td>".$row['total_price']." €</td>";
-                echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>";;
+                echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>";
                 echo "</tr>";
                 $row = pg_fetch_assoc($list_orders);
             }
