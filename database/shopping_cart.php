@@ -7,7 +7,6 @@
         $query = "	SELECT  shopping_cart.id 		            As   id, 
 							shopping_cart.id_product            As   id_prod,
 							shopping_cart.quantity_product	    As   quant,
-                            shopping_cart.price_line            As   price,
                             products.name                       As   name
                         FROM contigente.shopping_cart  JOIN contigente.products
                         ON shopping_cart.id_product=products.id
@@ -47,33 +46,39 @@
     function insertinShoppingCart($user, $idproduct, $quantity){
         global $conn;
 
-        $query = "	SELECT  shopping_cart.id_product   As   id_product
+        $query = "	SELECT  shopping_cart.id_product         As   id_product,
+                            shopping_cart.quantity_product   As   cart_quant
                     FROM    shopping_cart 
-                    WHERE   shopping_cart.id_user='".$user."'
+                    WHERE   shopping_cart.id_user='".$user."';
                  ";
         $result = pg_exec($conn, $query);
+        $update=0;
 
-        if($result!=NULL){
-            $row = pg_fetch_row($result);
-            $id_product = $row[0];
-            $newprice = 0;
-            $newprice=getTotalPriceProductbyQuantity($id_product, $quantity); //funcao do products.php
-            $updateQuery = "UPDATE shopping_cart
-                                set quantity_product= ".$quantity.",
-                                    price_line=".$newprice."
-                                where id_product ="  . $row[0] ." AND id_user='".$user."'
-                            ";
+        $row = pg_fetch_assoc($result);
+        while(isset($row['id_product'])){
 
-		$result = pg_exec($conn, $updateQuery);
-        } 
-            else {
+            if($row['id_product'] == $idproduct){
+                $update=1;
 
-                $insertQuery = "INSERT INTO shopping_cart (id_product, id_user, quantity_product, price_line)
+                $new_quant=$row['cart_quant']+$quantity; 
+                $updateQuery = "UPDATE shopping_cart
+                                set quantity_product= ".$new_quant."
+                                where id_product =". $idproduct ." AND id_user='".$user."';
+                                ";
 
-                                    VALUES ('" . $idproduct . "','" . $user . "','" . $quantity . "');
-                ";
-                pg_exec($conn, $insertQuery);
+                pg_exec($conn, $updateQuery);               
+                
             }
+            $row = pg_fetch_assoc($result);
+        }  
+        if ($update==0){
+
+            $insertQuery = "INSERT INTO shopping_cart (id_product, id_user, quantity_product)
+                            VALUES ('" . $idproduct . "','" . $user . "','" . $quantity . "');
+                            ";
+            pg_exec($conn, $insertQuery);
+        }
+        
     }
 
 
@@ -98,26 +103,24 @@
         $row = pg_fetch_row($result);
         $quantity = $row[0];
 
-        if($quantity==0){
+        if(($quantity-1)>0){
+            $quantity = $quantity - 1;   
+            $updateQuery = "UPDATE  shopping_cart
+                            set     quantity_product= ".$quantity."
+                            where   id_product =".$id_product." AND id_user='".$user."';
+                            ";
+            pg_exec($conn, $updateQuery);    
+            
+        }
+        else{
             removeLinefromShoppingCart($user, $id_product);
         }
-            else{
-                $newprice = 0;
-                $quantity = $quantity - 1;
-                $newprice=getTotalPriceProductbyQuantity($id_product, $quantity); //funcao do products.php        
-                $updateQuery = "UPDATE shopping_cart
-                                set quantity_product= quantity_product-1,
-                                    price_line=".$newprice."
-                                where id_product ="  . $id_product ." AND id_user='".$user."'
-                                ";
-                pg_exec($conn, $updateQuery);    
-            }
     }
 
     function removeLinefromShoppingCart($user, $id_product){
         global $conn;
         $deleteQuery = "DELETE FROM shopping_cart
-                        where id_product ="  . $id_product ." AND id_user='".$user."'
+                        where id_product =".$id_product." AND id_user='".$user."';
                         ";
         pg_exec($conn, $deleteQuery);
     }

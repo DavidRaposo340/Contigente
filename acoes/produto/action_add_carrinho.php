@@ -8,6 +8,7 @@
     $id = $_GET['id'];
     $quant = $_GET["quantity"];
 
-    insertinShoppingCart($_SESSION['user'], $id, $quant);
+    if (!empty($_SESSION['user']))
+        insertinShoppingCart($_SESSION['user'], $id, $quant);
     header("Location: ".$path2root."paginas_form/produto/listar_loja_produtos.php");
 ?>
