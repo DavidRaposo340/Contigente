@@ -24,10 +24,11 @@
         global $conn;
 		$query = "	SELECT  orders.id               As   id,
                             orders.shipping_price   As   shipping_price,
-                            orders.total_price      AS total_price,
-                            orders.state            As   state
-					FROM    orders
-					WHERE   orders.user_id='".$idUser."';
+                            orders.total_price      AS   total_price,
+                            orders.state            AS   state,
+                            orders.date             As   date
+					      FROM    orders
+					      WHERE   orders.user_id='".$idUser."'
 				";
 		$result = pg_exec($conn, $query);
         return $result;
@@ -53,6 +54,18 @@
 		$result = pg_exec($conn, $query);
         $row = pg_fetch_assoc($result);
 		return $row['price'];
+    }
+
+    
+    function getdateofOrder($idOrder){
+        global $conn;
+		$query = "	SELECT  orders.date  As  date
+					FROM    orders
+					WHERE   orders.id='".$idOrder."'
+				";
+		$result = pg_exec($conn, $query);
+        $row = pg_fetch_assoc($result);
+		return $row['date'];
     }
 
     function setPriceofOrder($idOrder){ //precisa de ser confirmada
