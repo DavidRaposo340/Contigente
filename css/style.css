@@ -599,8 +599,7 @@ nav {
   width: 600px;
   background-color: #e2e8ee;
   border-radius: 20px;
-  padding-bottom: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
 }
 .form-editar h2{
   padding: 40px;
@@ -609,25 +608,31 @@ nav {
 }
 .form-editar p{
   margin: 5px;
-  padding: 20px;
+  padding: 17px;
 }
 .form-editar-checkbox {
   margin-top: 30px;
 }
-.form-editar input[type=submit] {
+.form-editar input[type=submit]{
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding:10px 50px; 
-  background-color: #ff8e2b; 
+  padding:10px 50px;
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px; 
+  width: 200px;
 }
-.form-editar input[type=submit]:hover {
-  background-color:#2E77AE; 
+.form-editar input[type=submit]:hover{
   transition: 0.4s;
+  background-color:#2E77AE; 
+}
+.form-editar input[name=checkbox_confirmar] {
+  background-color: #ff8e2b; 
+}
+.form-editar input[name=checkbox_cancelar] {
+  background-color:#0d2137; 
 }
 .form-editar input[type=text] {
   padding:5px; 
@@ -638,7 +643,6 @@ nav {
   margin-right: 30px;
   width: 240px;
 }
-
 .form-editar input[type=text]:focus {
   border-color:rgb(51, 51, 51);
 }
@@ -651,7 +655,16 @@ nav {
   margin-right: 30px;
   width: 240px;
 }
-/* Nao sei o que se passa!!!!
-.form-editar input[name="checkbox_cancelar"]{
-  background-color:#0d2137; 
-}*/
+.form-editar input[type=checkbox] {
+  margin-top: 2px;
+  border:1px solid #ccc; 
+  -webkit-border-radius: 8px;
+  border-radius: 9px;
+  float: left;
+  margin-left: 315px;
+  width: 16px;
+  height: 16px;
+}
+.form-editar-checkbox label{
+  margin-left: -50px;
+}
