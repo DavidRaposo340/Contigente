@@ -33,11 +33,12 @@
         return $result;
     }
 
-    function updateStateofOrder($idOrder, $state){
+    function updateStateofOrder($idOrder, $state, $date){
         global $conn;
 
         $updateQuery = "UPDATE orders
-                        set orders.state= ".$state."
+                        set orders.state= ".$state." AND 
+                            orders.date= ".$date." 
                         where orders.id ="  . $idOrder .";
                         ";
         $result = pg_exec($conn, $updateQuery);
@@ -76,12 +77,12 @@
 		}
     }
 
-    function createOrder($idOrder, $idUser){
+    function createOrder($idOrder, $idUser, $date){
         global $conn;
 
-		$insertQuery = "INSERT INTO orders (user_id, shipping_price, total_price, state)
+		$insertQuery = "INSERT INTO orders (user_id, shipping_price, total_price, state, date)
 
-						VALUES ('".$idUser."', 0 , 0 , 'Não Concluída');"; //em que momento esta funçao vai ser chamada? se calhar o total price nao vai ser 0
+						VALUES ('".$idUser."', 0 , 0 , 'Não Concluída', '".$date."');"; //em que momento esta funçao vai ser chamada? se calhar o total price nao vai ser 0
 			
 		$result = pg_exec($conn, $insertQuery);
     }
