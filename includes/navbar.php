@@ -32,8 +32,8 @@
           echo '<div class="dropdown">';
           echo '<a class="dropdown-toggle" href="#">Conta</a>';
           echo '<div class="dropdown-content">';
-          echo '<a href="'.$path2root.'a_page">Dados Pessoais</a>';
-          echo '<a href="'.$path2root.'b_page">Encomendas</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">Dados Pessoais</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\form_listar_encomendas.php">Encomendas</a>';
           echo '</div>';
           echo '</div>';
 
