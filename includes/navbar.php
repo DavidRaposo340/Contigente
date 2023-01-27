@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include_once "../../database/user_type.php"; 
   function getPath($page) {
       $current_dir = dirname($_SERVER['PHP_SELF']);
       if ($current_dir == '/') {
@@ -25,6 +26,7 @@
       <a href="<?php echo $path2root; ?>paginas_form\cliente\listar_carrinho.php"> Carrinho</a>    
 
     <?php
+        //include_once "../../database/user_type.php";  
         
         //Se houver sessao inciada apresenta botao conta, senao apresenta iniciar sessao
         if (!empty($_SESSION['user'])) {
@@ -34,6 +36,13 @@
           echo '<div class="dropdown-content">';
           echo '<a href="'.$path2root.'a_page">Dados Pessoais</a>';
           echo '<a href="'.$path2root.'b_page">Encomendas</a>';
+          if (getUserTypebyID($_SESSION['user'])==2 || getUserTypebyID($_SESSION['user'])==3)
+            echo '<a href="'.$path2root.'b_page">Produtos</a>';
+          if (getUserTypebyID($_SESSION['user'])==3)
+            echo '<a href="'.$path2root.'b_page">Estatistica</a>';
+
+          echo '<a href="'.$path2root.'b_page">Logout</a>';
+
           echo '</div>';
           echo '</div>';
 

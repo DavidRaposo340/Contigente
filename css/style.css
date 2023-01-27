@@ -203,7 +203,7 @@ nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 100px 100px;
+  margin: 250px 100px;
 
 }
 .cartao_produto{
@@ -257,21 +257,29 @@ nav {
 }
 
 /*--------------- Filtros Produtos  ---------------*/
+.all_filtros {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
 .filtros {
-
+  padding: 50px 0px;
+  margin-right: 25px;
+  margin-left: 25px;
   height: 1080px;
   background-color: #e0eaf5;
-
 }
 .pre_filtros {
   float: left;
   padding: 50px 0px;
-  margin-right: 75px;
-  margin-left: 100px;
-  width: 20%;
+  padding-top: 75px;
+  margin-right: 25px;
+  margin-left: 25px;
   height: 200px;
   background-color: #e0eaf5;
 }
+
 .botao_filtro {
   background-color: #0d2137;
   color: #ffffff;
@@ -310,6 +318,25 @@ nav {
   width: 15%;
   font-size: 19px;
 }
+.confirm_button{
+  float: right;
+  font-size: 16px;
+  margin-top: 20px;
+  border: none 0px;
+  transition-duration: 0.4s;
+  font-weight: 700;
+  background-color: #ff8e2b;
+  color: #ffffff;
+  padding: 15px 40px;
+  border-radius: 10px;
+}
+.confirm_button:hover{
+  transition-duration: 0.4s;
+  background-color: #2E77AE;
+  font-weight: 700;
+  color: #ffffff;
+}
+
 /*----------------- Form Login -----------------*/
 .container-login{
   display: block;
@@ -503,9 +530,15 @@ nav {
   padding: 10px;
   font-size: 15px;
 }
-.container-prodinfo-details button{
+.qnt_input{
   font-size: 16px;
   margin-top: 80px;
+  border: none 0px;
+  padding: 15px 40px;
+
+}
+.container-prodinfo-details button{
+  font-size: 16px;
   border: none 0px;
   transition-duration: 0.4s;
   font-weight: 700;

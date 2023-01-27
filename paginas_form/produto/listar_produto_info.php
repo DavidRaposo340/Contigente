@@ -29,9 +29,9 @@
             <div class="container-prodinfo-imginfo">
                 <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>">
                 <p>
-                    Descriçao:
+                    <!--Descriçao:-->
                     <br>
-                    <?php echo $row['descr'] ?>
+                    <?php //echo $row['descr'] ?>
 
                 </p>
             </div>
@@ -39,10 +39,13 @@
             <div class="container-prodinfo-details">
                     <h2> <?php echo $row['nome'] ?> </h2>
                     <h3> <?php echo $row['price'] ?> €</h3>  
+                    <br>
 
-                    <label for="quantity">Quantidade:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $row['quantity'] ?>" step="1" value="1">
-                    
+                    <div class= "qnt_input">
+                        <label for="quantity">Quantidade:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $row['quantity'] ?>" step="1" value="1">
+                    </div>
+
                     <button onclick="location.href='<?php echo $path2root ?>acoes/produto/action_add_carrinho.php?id=<?php echo $row['id'] ?>;'"\"> Adicionar ao carrinho</button>      
                     <div class="container-prodinfo-details-fam">
                         <h4> Família de Produto: </h4> 

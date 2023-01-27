@@ -8,7 +8,8 @@
 					WHERE users.id='".$id."'
 				";
 		$result = pg_exec($conn, $query);
-		return $result;
+		$row = pg_fetch_assoc($result);
+		return $row;
     }
 
 ?>

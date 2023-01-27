@@ -32,43 +32,25 @@
 									products.name          		AS   nome 
 									FROM products INNER JOIN family_products
 									ON products.family_id=family_products.id
+									WHERE products.price BETWEEN $prec_min AND $prec_max 
 			";
 			
-		if($familia){ //se a familia nao for nula, faz os filtros pela familia
-			$query .= "WHERE family_products.name='".$familia."'";
-			if($prec_min AND $prec_max){ //ou queres separar?
-				$query .= "AND products.price BETWEEN $prec_min AND $prec_max";
-			}	
-	
-			if($no_gluten){
-				$query .= "AND products.no_gluten=TRUE";
-			}
-	
-			if($no_lact){
-				$query .= "AND products.no_lact=TRUE";
-			}
-	
-			if($vegan){
-				$query .= "AND products.vegan=TRUE";
-			}	
+		if($familia!="todas"){ //se a familia nao for nula, faz os filtros pela familia
+			$query .= "AND family_products.name='".$familia."' ";
 		}
-		else{ //nao foi selecionada a família
-			if($prec_min AND $prec_max){ //ou queres separar?
-				$query .= "WHERE products.price BETWEEN $prec_min AND $prec_max";
-			}	
-	
-			if($no_gluten){
-				$query .= "AND products.no_gluten=TRUE";
-			}
-	
-			if($no_lact){
-				$query .= "AND products.no_lact=TRUE";
-			}
-	
-			if($vegan){
-				$query .= "AND products.vegan=TRUE";
-			}	
+		if($no_gluten){
+			$query .= "AND products.no_gluten=TRUE ";
 		}
+
+		if($no_lact){
+			$query .= "AND products.no_lacti=TRUE ";
+		}
+
+		if($vegan){
+			$query .= "AND products.vegan=TRUE ";
+		}			
+
+		$query .= ";";
 
 		$result = pg_exec($conn, $query);
 		return $result;
@@ -200,6 +182,16 @@
 		return $query;	
 	}
 
+	function getFamilyProducts(){
+		global $conn;
+
+		$query = "	SELECT  *		
+					FROM family_products
+				 ;";
+
+		$result = pg_exec($conn, $query);
+		return $result;	
+	}
 	
 
 	
