@@ -21,6 +21,7 @@
         include_once "../../includes/opendb.php";
         include_once "../../database/order_lines.php";
         include_once "../../database/orders.php";
+        include_once "../../database/products.php";
     
     
     ?>  
@@ -36,19 +37,25 @@
             echo "</tr>";	
                     
             $list_orders = getAllOrdersofUserbyID(3);
-            
-
-
             $row = pg_fetch_assoc($list_orders);
 
             while (isset($row['id'])) {
-                $list_orders=getProductsandQuantityofOrder($row['id']);
+                $lists_prodocts=getProductsandQuantityofOrder($row['id']);
+                $row_products = pg_fetch_assoc($lists_prodocts);
+
                 echo "<tr>";
                 echo "<td>".$row['id']."</td>";
                 echo "<td>cliente</td>"; //getClienteNamebyUserID()
                 echo "<td>date</td>";   //getDatebyOrderID()
                 echo "<td>".$row['state']."</td>";
-                echo "<td>produtos</td>"; //getProductsByorderID
+                echo "<td>";
+                while (isset($row_products['id_product'])) {
+                    $products_name=getProductByID($row_products['id_product']);
+                    echo "<p>".$products_name['nome']."</p>"; //getProductsByorderID
+
+                    $row_products = pg_fetch_assoc($lists_prodocts);
+                }
+                echo"</td>";
                 echo "<td>".$row['total_price']."</td>";
                 echo "<td>button</td>";
                 /*echo "<td>".$row['id_produtos_name']."</td>";

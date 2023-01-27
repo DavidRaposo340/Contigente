@@ -7,7 +7,7 @@
 						 orders_lines.quantity      AS quant,
                          orders_lines.total_price   AS total_price
 					FROM orders_lines
-					WHERE orders_lines.id_order ="  . $idOrder .";";
+					WHERE orders_lines.id_order =". $idOrder .";";
 
 		$result = pg_exec($conn, $query);
         return $result;
@@ -29,7 +29,7 @@
         $query = "SELECT    orders_lines.id_product    AS id_product,
                             orders_lines.quantity      AS quant
                     FROM orders_lines
-                    WHERE orders_lines.id_order ="  . $idOrder .";";
+                    WHERE orders_lines.id_order =". $idOrder .";";
 
 		$result = pg_exec($conn, $query);
         return $result;
