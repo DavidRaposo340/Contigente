@@ -36,7 +36,7 @@
             echo "<th>ID</th><th>Cliente</th><th>Data</th><th>Estado</th><th>Produtos</th><th>Preço Total</th><th>Processo</th>";
             echo "</tr>";	
                     
-            $list_orders = getAllOrdersofUserbyID(3);
+            $list_orders = getAllOrdersofUserbyID(3); //TODO #66 Alterar para user da variavel de sessao
             $row = pg_fetch_assoc($list_orders);
 
             $user_name = getNamebyUserID(3);
@@ -60,7 +60,7 @@
                     $row_products = pg_fetch_assoc($lists_prodocts);
                 }
                 echo"</td>";
-                echo "<td>".$row['total_price']."</td>";
+                echo "<td>".$row['total_price']." €</td>";
                 echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>";;
                 echo "</tr>";
                 $row = pg_fetch_assoc($list_orders);

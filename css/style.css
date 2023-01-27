@@ -561,6 +561,19 @@ nav {
   flex-wrap: wrap;
   margin-top: 100px;
 }
+.flex-box-encomendas p{
+  padding: 4px;
+  margin: 0px;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 100;
+  display: list-item; 
+  list-style-type: square;    
+  list-style-position:initial;
+}
+::marker{
+  margin-left: 20px;
+}
 .flex-box-encomendas h2{
   font-size: 22px;
   margin-top: 60px;
@@ -592,9 +605,10 @@ nav {
   border: 2px solid #ffffff;
 }
 .table_style table td{
-  padding: 10px 25px;
-  font-size: 14px;
+  padding: 12px 25px;
   color: #000;
+  font-size: 15px;
+  text-align: center;
 }
 .table_style tr:nth-child(2n){
   background: rgb(235, 235, 235)
@@ -602,18 +616,19 @@ nav {
 .table_style tr:nth-child(2n+1){
   background: rgb(210, 210, 210)
 }
-.table_style button{
+.table_style a{
   font-size: 15px;
   border: none 0px;
-  transition-duration: 0.4s;
+  transition-duration: 0.3s;
   font-weight: 700;
   background-color:#0d2137;
   color: #ffffff;
-  padding: 5px 10px;
+  padding: 7px 15px;
   border-radius: 5px;
+  text-decoration: none;
 }
-.table_style button:hover{
-  transition-duration: 0.4s;
+.table_style a:hover{
+  transition-duration: 0.3s;
   background-color: #2E77AE;
   color: #ffffff;
 }
