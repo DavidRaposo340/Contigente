@@ -11,7 +11,7 @@
 ?>
 
 <head>
-    <title>Login</title>
+    <title>Editar Conta</title>
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -22,21 +22,25 @@
     <?php
         $path2root = "../../";
         include("../../includes/navbar.php"); 
-    ?>
-    <br>
-    <br>
-    <br>
 
+        if (!empty($_SESSION['nome'])) 		 	$nome = $_SESSION['nome']; 				else $nome = "";
+        if (!empty($_SESSION['address'])) 		$address = $_SESSION['address']; 			else $address = "";
+        if (!empty($_SESSION['email'])) 	    $email = $_SESSION['email']; 		    else $email = "";
+        if (!empty($_SESSION['password'])) 	    $password = $_SESSION['password']; 	    else $password = "";
+        if (!empty($_SESSION['conf_pass'])) 	$conf_pass = $_SESSION['conf_pass']; 	else $conf_pass = "";
+    ?>
+
+    <div class="form-editar">
     <h2>Editar Conta:</h2>
 
-    <form method="post" action="../actions/form_validar_login.php">
-            <p><label for="nome">       Nome:</label>                <input type="text" name="nome"/> </p>
-            <p><label for="idade">      Idade:</label>               <input type="text" name="idade"/> </p>
-            <p><label for="email">      E-Mail:</label>              <input type="text" name="email"/> </p>
-            <p><label for="password">   Password:</label>            <input type="password" name="password"/> </p>
-            <p><label for="conf_pass">  Confirmar Password:</label>  <input type="password" name="conf_pass"/> </p>
-                        
-            <!--CHECKBOXS-->
+    <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_editar_conta.php">
+        <p><label for="nome">       Nome:</label>                <input type="text" name=nome value= "<?php echo $nome; ?>" /> </p>
+        <p><label for="address">    Endereço:</label>            <input type="text" name="address" value= "<?php echo $address; ?>" /> </p>
+        <p><label for="email">      E-Mail:</label>              <input type="text" name="email" value= "<?php echo $email; ?>" /> </p>
+        <p><label for="password">   Password:</label>            <input type="password" name="password" value= "<?php echo $password; ?>" /> </p>
+        <p><label for="conf_pass">  Confirmar Password:</label>  <input type="password" name="conf_pass" value= "<?php echo $conf_pass; ?>" /> </p>
+                
+        <div class="form-editar-checkbox">
             <input type="checkbox" id="gluten" name="gluten" value="1">
             <label for="gluten"> Intoletante ao gluten</label><br>
             
@@ -45,8 +49,13 @@
             
             <input type="checkbox" id="vegan" name="vegan" value="1">
             <label for="vegan"> Vegan</label><br><br>
+        </div>
 
-            <p><input type="submit" value="Criar Conta" /> </p>
+        <p><input type="submit" value="Confirmar" /> </p>
+        <input class="checkbox_cancelar" type="submit" value="Cancelar" />
+
+    </div>
+
     </form>
 
 </body>

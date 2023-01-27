@@ -24,11 +24,10 @@
           Quer cozinhar, mas não sabe o quê?
           <br>
           <br>
+          
+          Sente que leva para casa mais ingredientes do que precisa e depois estes acabam por se estragar por não saber o que fazer com eles?
+          Gira melhor as suas compras e as suas refeições no dia-a-dia com o Contigente!
 
-          asdasdasd boas mas noutro branch CLorem ipsum dolor sit amet, consectetur adipiscing elit. 
-          Quisque finibus dapibus purus, id rhoncus nisi commodo et. 
-          Phasellus ut facilisis metus, in accumsan ante. 
-          Duis ultricies et purus ullamcorper rutrum. 
           <br>
           <br>
       </p>
