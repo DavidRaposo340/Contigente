@@ -29,6 +29,7 @@
           echo '<div class="dropdown">';
           echo '<a class="dropdown-toggle" href="#">Conta</a>';
           echo '<div class="dropdown-content">';
+
           echo '<a href="'.$path2root.'a_page">Dados Pessoais</a>';
           echo '<a href="'.$path2root.'b_page">Encomendas</a>';
           if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor")
@@ -37,6 +38,7 @@
             echo '<a href="'.$path2root.'b_page">Estatistica</a>';
 
           echo '<a href="'.$path2root.'acoes\geral\action_logout.php">Logout</a>';
+
 
           echo '</div>';
           echo '</div>';
