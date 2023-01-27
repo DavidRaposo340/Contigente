@@ -45,6 +45,7 @@
 
                 $lists_prodocts=getProductsandQuantityofOrder($row['id']);
                 $row_products = pg_fetch_assoc($lists_prodocts);
+                //$order_date = getdateofOrder($row['id']);
 
 
                 echo "<tr>";
