@@ -17,7 +17,8 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/shopping_cart.php";    
-        include_once "../../database/products.php";    
+        include_once "../../database/products.php";        
+        include_once "../../database/recipes.php";    
 
         $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
         
@@ -44,9 +45,10 @@
                     while (isset($row['id'])) {
 
                         echo "<tr>";
-                        echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> ".$row['prod']."</td>";
-                        echo "<td>".$row['quant']."</td>";
-                        echo "<td> FALTAAA... </td>";
+                        echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['prod']."\"> ".$row['prod']."</td>";
+                        echo "<td>".$row['quant']." Unidade(s) </td>";
+                        $total_price=getTotalPriceProductbyQuantity($row['prod'], $row['quant']); 
+                        echo "<td> ".$total_price." € </td>";
                         //echo "<td>".$row['total_price']."</td>";
                         echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['prod']."\"> + 1 unidade </td>";
                         echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['prod']."\"> - 1 unidade </td>";
