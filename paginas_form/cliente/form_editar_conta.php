@@ -51,8 +51,8 @@
             <label for="vegan"> Vegan</label><br><br>
         </div>
 
-        <p><input type="submit" value="Confirmar" /> </p>
-        <input class="checkbox_cancelar" type="submit" value="Cancelar" />
+        <p><input name="checkbox_confirmar" type="submit" value="Confirmar" /> </p>
+        <input name="checkbox_cancelar" type="submit" value="Cancelar" />
 
     </div>
 
