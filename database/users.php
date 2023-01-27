@@ -42,4 +42,17 @@
 			return $row[0];
 		}
 	}
+
+	function getNamebyUserID($userID){
+		global $conn;
+		$query = "	SELECT users.name AS nome
+					FROM users
+					WHERE users.id='".$userID."'
+					";
+		
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_row($result);
+		return $row[0];
+		
+	}
 ?>
