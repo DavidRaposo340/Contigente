@@ -46,21 +46,19 @@
                 echo "<tr>";
                 echo "<td>".$row['id']."</td>";
                 echo "<td>cliente</td>"; //getClienteNamebyUserID()
-                echo "<td>date</td>";   //getDatebyOrderID()
+                echo "<td>date</td>";   
                 echo "<td>".$row['state']."</td>";
                 echo "<td>";
                 while (isset($row_products['id_product'])) {
                     $products_name=getProductByID($row_products['id_product']);
-                    echo "<p>".$products_name['nome']."</p>"; //getProductsByorderID
+                    $products_thing = pg_fetch_row($products_name,0);
+                    echo "<p>".$products_thing[5]."</p>";
 
                     $row_products = pg_fetch_assoc($lists_prodocts);
                 }
                 echo"</td>";
                 echo "<td>".$row['total_price']."</td>";
-                echo "<td>button</td>";
-                /*echo "<td>".$row['id_produtos_name']."</td>";
-                echo "<td>".$row['total_price']."</td>";
-                echo "<button onclick=\"location.href='".$path2root."acoes/cliente/CRIARACAO.php?id=".$row['id']."';\"> Ver detalhes</button>";*/
+                echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>";;
                 echo "</tr>";
 
                 $row = pg_fetch_assoc($list_orders);
