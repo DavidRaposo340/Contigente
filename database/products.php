@@ -1,27 +1,4 @@
 <?PHP
-	//retorna vetor/lista com: img_path, nome, id e price de todos os produtos (conforme os filtros)
-	//esta é a antiga que já testamos
-	/*function getAllProducts($familia, $no_gluten, $no_lact, $vegan, $prec_min, $prec_max ){ 
-        global $conn;
-
-        $query = "    SELECT  products.id             As   id, 
-                            products.family_id        As   familyid, 
-                            products.quantity        	As   quantity, 
-                            products.price           As   price,
-                            products.image_name     AS      img_path,
-                            products.name             AS      nome 
-                            FROM products INNER JOIN family_products
-                            ON products.family_id=family_products.id
-                            WHERE family_products.name='".$familia."'
-                            AND products.price BETWEEN $prec_min AND $prec_max;
-                    ";
-
-        $result = pg_exec($conn, $query);
-
-        return $result;
-    }*/
-
-	//nao esta muito elegante, funciona na DB mas nao consigo testar no samba pq os filtros n funcionam na minha pag nao sei porque
 	function getAllProducts($familia, $no_gluten, $no_lact, $vegan, $prec_min, $prec_max ){ 
 		global $conn;
 		$query = "    SELECT  		products.id             	As   id, 
