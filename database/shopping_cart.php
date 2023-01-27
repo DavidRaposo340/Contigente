@@ -5,9 +5,12 @@
     {
         global $conn;
         $query = "	SELECT  shopping_cart.id 		            As   id, 
-							shopping_cart.id_product            As   prod,
-							shopping_cart.quantity_product	    As   quant
-                        FROM shopping_cart
+							shopping_cart.id_product            As   id_prod,
+							shopping_cart.quantity_product	    As   quant,
+                            shopping_cart.price_line            As   price,
+                            products.name                       As   name
+                        FROM contigente.shopping_cart  JOIN contigente.products
+                        ON shopping_cart.id_product=products.id
                         WHERE shopping_cart.id_user='".$user."';
 				";
 		$result = pg_exec($conn, $query);
@@ -22,7 +25,7 @@
         $query = "  SELECT  shopping_cart.id 		            As   id, 
 							shopping_cart.id_product            As   prod,
 							shopping_cart.quantity_product	    As   quant
-                        FROM shopping_cart INNER JOIN products
+                        FROM shopping_cart 
                         WHERE shopping_cart.id_user='".$user."'
 				    ";
 		$result = pg_exec($conn, $query);
@@ -53,8 +56,11 @@
         if($result!=NULL){
             $row = pg_fetch_row($result);
             $id_product = $row[0];
+            $newprice = 0;
+            $newprice=getTotalPriceProductbyQuantity($id_product, $quantity); //funcao do products.php
             $updateQuery = "UPDATE shopping_cart
-                                set quantity_product= ".$quantity."
+                                set quantity_product= ".$quantity.",
+                                    price_line=".$newprice."
                                 where id_product ="  . $row[0] ." AND id_user='".$user."'
                             ";
 
@@ -96,11 +102,15 @@
             removeLinefromShoppingCart($user, $id_product);
         }
             else{
+                $newprice = 0;
+                $quantity = $quantity - 1;
+                $newprice=getTotalPriceProductbyQuantity($id_product, $quantity); //funcao do products.php        
                 $updateQuery = "UPDATE shopping_cart
-                                set quantity_product= quantity_product-1;
+                                set quantity_product= quantity_product-1,
+                                    price_line=".$newprice."
                                 where id_product ="  . $id_product ." AND id_user='".$user."'
                                 ";
-                pg_exec($conn, $updateQuery);
+                pg_exec($conn, $updateQuery);    
             }
     }
 
