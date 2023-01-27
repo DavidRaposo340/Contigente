@@ -32,18 +32,18 @@
         if (!empty($_SESSION['vegan'])) 	        $vegan = $_SESSION['vegan']; 	            else $vegan = 0;       
         
     ?>
-    
-    <div class="pre_filtros">
-        <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros</p>
+    <div class="all_filtros">
+        <div class="pre_filtros">
+            <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros</p>
 
-        <!--Search Bar-->
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Procurar produto..." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            <!--Search Bar-->
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input type="text" placeholder="Procurar produto..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </div>
-
         <div id="filtros_div" class="filtros">
             <form method="post" action="<?php echo $path2root; ?>acoes/produto/action_filtrar_loja.php">
                 <p class="accordion">Família de produtos</p>
@@ -51,22 +51,27 @@
                         <!--Radio buttons-->
                         <input type="radio" id="familia"  name="familia" value="todas" <?php echo ($familia=="todas" ? 'checked' : '');?>>
                         <label for="todas"> Todas as familias</label><br>
-
-                        <input type="radio" id="familia"  name="familia" value="vegetais" <?php echo ($familia=="vegetais" ? 'checked' : '');?>>
-                        <label for="vegetais"> Vegetais</label><br>  
-
-                        <input type="radio" id="familia"  name="familia" value="laticineos" <?php echo ($familia=="laticineos" ? 'checked' : '');?>>
-                        <label for="laticineos"> Laticíneos</label><br>
-
-                        <input type="radio" id="familia"  name="familia" value="gorduras" <?php echo ($familia=="gorduras" ? 'checked' : '');?>>
-                        <label for="gorduras"> Gorduras</label><br>
+                        <?php
+            
+                            $list_familias = getFamilyProducts();
+                            $row = pg_fetch_assoc($list_familias);
+                            
+                            while (isset($row['id'])) {
+                                if ($familia==$row['name'])
+                                    echo '<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" checked>';
+                                else
+                                    echo '<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" >';
+                                echo '<label for="'.$row['name'].'"> '.$row['name'].'</label><br>';
+                                $row = pg_fetch_assoc($list_familias);
+                            }
+                            
+                            /* 
+                                //Formato do cartao de produto
+                                <input type="radio" id="familia"  name="familia" value="todas" <?php echo ($familia=="todas" ? 'checked' : '');?>>
+                                <label for="todas"> Todas as familias</label><br>
+                            */
+                        ?>
                         
-                        <input type="radio" id="familia"  name="familia" value="hidratos" <?php echo ($familia=="hidratos" ? 'checked' : '');?>>
-                        <label for="hidratos"> Hidratos</label><br>
-
-                        <input type="radio" id="familia"  name="familia" value="outros" <?php echo ($familia=="outros" ? 'checked' : '');?>>
-                        <label for="outros"> Outros</label><br>
-                        <!--continuar pls-->
                     </div> 
 
                 <p class="accordion">Restrições alimentares</p>
@@ -99,11 +104,12 @@
                         </div>    
                     </div> 
 
-                <input type="submit" value="Submit">
+                <input class="confirm_button" type="submit" value="Submit">
             </form> 
         </div>
-
     </div>
+
+    
 
 
     <div class="flex-box">
@@ -122,7 +128,7 @@
                 echo "</div>";
                 echo "<div class=\"cartao_botoes\">";
                 echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
-                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."';\"> Adicionar ao carrinho</button>";
+                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."&quantity=1';\"> Adicionar ao carrinho</button>";
                
                 echo "</div>";  
                 echo "</div>";            
