@@ -18,16 +18,14 @@
         include_once "../../includes/opendb.php";
         include_once "../../database/shopping_cart.php";    
         include_once "../../database/products.php";        
-        include_once "../../database/recipes.php";    
+        include_once "../../database/recipes.php";  
+          
+        if(empty($_SESSION['user']))
+            header("Location: ".$path2root."index.php");
 
         $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
         
     ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     
     <div class="flex-box-encomendas">
         <h2> Lista de Encomendas: </h2>
