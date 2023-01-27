@@ -24,11 +24,17 @@
             header("Location: ".$path2root."index.php");
 
         $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
+        $total_price_shop_cart = getTotalPriceofShoppingCartofUser($_SESSION['user']);
         
     ?>
     
     <div class="flex-box-generic">
-        <h2> Carrinho de compras: </h2>
+        <h2> Finalizar encomenda: </h2>
+        <p>
+            Antes de confirmar a encomenda, 
+            verifique se as quantidade e os valores estão corretos.<br>
+            Não poderá voltar a trás.
+        </p>
         <div class="generic_table_style">
             <table>
                 <tr>
@@ -47,10 +53,6 @@
                         echo "<td>".$row['quant']." Unidade(s) </td>";
                         $total_price=getTotalPriceProductbyQuantity($row['id_prod'], $row['quant']); 
                         echo "<td> ".$total_price." € </td>";
-                        //echo "<td>".$row['total_price']."</td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['id_prod']."\"> + 1 unidade </td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['id_prod']."\"> - 1 unidade </td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['id_prod']."\"> Remover tudo </td>";
                         echo "</tr>";
                                 
                         $row = pg_fetch_assoc($list_carrinho);
@@ -59,10 +61,19 @@
                 ?>
             </table>
         </div>
+        <div class="mini-table_style">
+            <table>
+                <tr>
+                    <th>Total a pagar</th>
+                    <td><?php echo $total_price_shop_cart ?> € </td>
+                </tr>
+            </table>
+        </div>
         <br>           
-        <button class="confirm_button" onclick="location.href=" "> Finalizar Encomenda </button>
-        <button class="cancel_button" onclick="location.href=" "> Esvaziar carrinho </button>
-            
+        <button class="confirm_button" onclick="location.href=" "> Pagar Encomenda </button>
+        <button class="cancel_button" onclick="location.href=" "> Cancelar Encomenda </button>
+               
+      
     </div>
 
 
