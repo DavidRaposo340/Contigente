@@ -27,7 +27,7 @@
                             orders.total_price      AS total_price,
                             orders.state            As   state
 					FROM    orders
-					WHERE   orders.state='".$idUser."'
+					WHERE   orders.user_id='".$idUser."';
 				";
 		$result = pg_exec($conn, $query);
         return $result;
