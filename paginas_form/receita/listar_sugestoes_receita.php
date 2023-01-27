@@ -26,10 +26,9 @@
     
     <div>
         <p>
-            Lorem ipsum
+        
             <br>
-            Lorem ipsum UM POUCO CONTEXTO..
-            MOSTRAMOS RECEITAS PARA AJUDAR NA ALTURA DE IR AS COMPRAS ETC
+            Aqui encontra sugestões de algumas refeições deliciosas e simples e o melhor: caso queira fazer a receita e não tenha os ingredientes, basta clicar num botão para adicionar tudo o que precisa ao seu carrinho!
 
         </p>
 
@@ -54,27 +53,20 @@
             <th>Preço total</th>
         </tr>
         <?php
-            // à espera da funçao...
-            /*
-            $row = pg_fetch_assoc($list_receitas);
-            $row['id']=1;
-            $row['nome']="NOME_REC";
-            $row['difi']="dificil";
-            $row['tempo']=58;
-            $row['total_price']=58;
-            
 
-            while (isset($row['nome'])) {
+            $row = pg_fetch_assoc($list_receitas);           
+
+            while (isset($row['id'])) {
 
                 echo "<tr>";
                 echo "<td> <a href=\"".$path2root."paginas_form/receita/listar_receita_info.php?id=".$row['id']."\"> ".$row['nome']."</td>";
                 echo "<td>".$row['difi']."</td>";
-                echo "<td>".$row['tempo']."</td>";
-                echo "<td>".$row['total_price']."</td>";
+                echo "<td>".$row['total_time']." Minutos </td>";
+                echo "<td>".$row['total_price']." €</td>";
                 echo "<tr>";
                            
-                $row = pg_fetch_assoc($result);
-            }*/
+                $row = pg_fetch_assoc($list_receitas);
+            }
             
         ?>
     </table>
