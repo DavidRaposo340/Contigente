@@ -68,7 +68,7 @@
         } 
             else {
 
-                $insertQuery = "INSERT INTO shopping_cart (id_product, id_user, quantity_product)
+                $insertQuery = "INSERT INTO shopping_cart (id_product, id_user, quantity_product, price_line)
 
                                     VALUES ('" . $idproduct . "','" . $user . "','" . $quantity . "');
                 ";
