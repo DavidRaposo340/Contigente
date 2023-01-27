@@ -42,4 +42,8 @@
 			return $row[0];
 		}
 	}
+
+	function getNamebyUserID($userID){
+		
+	}
 ?>
