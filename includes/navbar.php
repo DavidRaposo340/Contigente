@@ -37,8 +37,8 @@
       <div class="dropdown">
         <a class="dropdown-toggle" href="#">Carrinho</a>
         <div class="dropdown-content">
-          <a href="<?php echo $path2root; ?>a_page">Dados Pessoais</a>
-          <a href="<?php echo $path2root; ?>b_page">Encomendas</a>
+          <a href="<?php echo $path2root; ?>paginas_form\cliente\form_editar_conta.php">Dados Pessoais</a>
+          <a href="<?php echo $path2root; ?>paginas_form\cliente\form_listar_encomendas.php">Encomendas</a>
         </div>
       </div>
 
