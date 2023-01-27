@@ -20,50 +20,36 @@
 		}
 		
 	}
-
-	function getTop5ProductsOrdered(){ //AJUDA PLS
+	function getTop5Product(){
 		global $conn;
-        $totalpriceOrders = 0;
-        //tenho que somar os total price de todos os ids diferentes e tirar os 5 maiores
-        //tenho que ter os ids dos produtos
-        $query = "	SELECT  orders_lines.id_product  As id
-					FROM    orders_lines
-				 ";
-        $result = pg_exec($conn, $query);
-        $numRows = pg_numrows($result);
-        $i = 0;
+		$query = "SELECT id_product, SUM(orders_lines.total_price) as total_sales
+					FROM contigente.orders 
+					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
+					WHERE orders.state = 'Concluída'
+					GROUP BY id_product
+					ORDER BY total_sales DESC
+					LIMIT 5
+				";
 
-        //depois de ter os ids dos produtos, tenho que somar os total_price por id, porque vai haver varias linhas com o mesmo id produto
-		while ($i < $numRows){
-			$row = pg_fetch_row($result, $i);
-            $query = "	SELECT  orders_lines.total_price  As totalprice_line
-                        FROM    orders_lines
-                        WHERE   orders_lines.id_product ="  . $row[0] .";
-                     ";
-            $resultTotalprice = pg_exec($conn, $query);
-            $row = pg_fetch_row($resultTotalprice, $i);
-			$totalpricebyProduct= $totalpricebyProduct + $row[0]; //nao posso fazer assim
-		    $i++;
-		}
-
-        //depois de somado por ids tenho que ver quais os 
-   
+		$result = pg_query($conn, $query);
+		return $result;
+		/*while ($row = pg_fetch_assoc($result)) {
+			echo "Product ID: ".$row['id_product']." Total Sales: ".$row['total_sales']."\n";
+		}*/
 	}
+	
 
-	function getTotalVendasbyMonth(){ //tenho que pensar melhor... 
+	function getTotalVendasbyMonth(){ 
 		global $conn;
-        //cada mes vamos ter x encomendas com x ids
-        //temos que fazer a soma por mes
-        $query = "	SELECT  extract (month from date) As month
+        $query = "	SELECT  extract (month from date) As month,
+							SUM(orders_lines.total_price) as total_sales
 					FROM    orders
+					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
+					WHERE orders.state = 'Concluída' 
+					GROUP BY month
+					ORDER BY month
 				 ";
 		$result = pg_exec($conn, $query);
-        
-        $numRows = pg_numrows($result);
-
-	
-		
-
-		
+		return $result;		
 	}
 ?>
