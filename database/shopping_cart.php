@@ -8,7 +8,7 @@
 							shopping_cart.id_product            As   prod,
 							shopping_cart.quantity_product	    As   quant
                         FROM shopping_cart
-                        WHERE shopping_cart.id_user='".$user."'
+                        WHERE shopping_cart.id_user='".$user."';
 				";
 		$result = pg_exec($conn, $query);
 		return $result;

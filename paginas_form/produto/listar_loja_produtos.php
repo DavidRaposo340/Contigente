@@ -128,7 +128,7 @@
                 echo "</div>";
                 echo "<div class=\"cartao_botoes\">";
                 echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
-                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."';\"> Adicionar ao carrinho</button>";
+                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."&quantity=1';\"> Adicionar ao carrinho</button>";
                
                 echo "</div>";  
                 echo "</div>";            

@@ -41,13 +41,16 @@
                     <h3> <?php echo $row['price'] ?> €</h3>  
                     <br>
 
-                    <div class= "qnt_input">
-                        <label for="quantity">Quantidade:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $row['quantity'] ?>" step="1" value="1">
-                    </div>
+                        <form method="get" action='<?php echo $path2root ?>acoes/produto/action_add_carrinho.php'>
+                            <div class= "qnt_input">
+                                <label for="quantity">Quantidade:</label>
+                                <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $row['quantity'] ?>" step="1" value="5">
+                                <input type='hidden' name='id' value='<?php echo $row['id'] ?>'/>
+                            </div>
 
-                    <button onclick="location.href='<?php echo $path2root ?>acoes/produto/action_add_carrinho.php?id=<?php echo $row['id'] ?>;'"\"> Adicionar ao carrinho</button>      
-                    <div class="container-prodinfo-details-fam">
+                            <button> Adicionar ao carrinho</button>      
+                        </form>
+                        <div class="container-prodinfo-details-fam">
                         <h4> Família de Produto: </h4> 
                         <p> <?php echo $row['familia'] ?> </p>
                         <h4> Restrições alimentares: </h4> 

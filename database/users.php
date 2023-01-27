@@ -15,7 +15,7 @@
 	function getUserByEmailAndPass($email, $pass){ //se existir dou o id, se nao existir NULL
 		global $conn;
 
-		$query = "	SELECT users.name AS name
+		$query = "	SELECT users.id AS id
 					FROM users
 					WHERE users.email='".$email."' AND users.password='".$pass."'
 					";

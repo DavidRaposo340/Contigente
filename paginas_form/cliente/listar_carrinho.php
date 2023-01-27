@@ -17,45 +17,52 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/shopping_cart.php";    
+        include_once "../../database/products.php";    
 
-        $list_carrinho = getShoppingCart();
+        $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
         
     ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     
+    <div class="flex-box-encomendas">
+        <h2> Lista de Encomendas: </h2>
+        <div class="table_style">
+            <table>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço Total</th>
+                </tr>
+                <?php
+                
+                    $row = pg_fetch_assoc($list_carrinho);
+
+                    while (isset($row['id'])) {
+
+                        echo "<tr>";
+                        echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> ".$row['prod']."</td>";
+                        echo "<td>".$row['quant']."</td>";
+                        echo "<td> FALTAAA... </td>";
+                        //echo "<td>".$row['total_price']."</td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['prod']."\"> + 1 unidade </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['prod']."\"> - 1 unidade </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['prod']."\"> Remover tudo </td>";
+                        echo "<tr>";
+                                
+                        $row = pg_fetch_assoc($list_carrinho);
+                    }
+                    
+                ?>
+            </table>
+        </div>
+    </div>
 
 
-    <table>
-        <tr>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Preço Total</th>
-        </tr>
-        <?php
-            // à espera da funçao...
-            /*
-            $row = pg_fetch_assoc($list_receitas);
-            $row['id']=1;
-            $row['quant']=12;
-            $row['total_price']=999;
-            $row['prod']="azeite";
-            
-
-            while (isset($row['nome'])) {
-
-                echo "<tr>";
-                echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> ".$row['prod']."</td>";
-                echo "<td>".$row['quant']."</td>";
-                echo "<td>".$row['total_price']."</td>";
-                echo "<td> <a href=\"".$path2root."acoes/cliente/action_add_1.php?id=".$row['id']."\"> Adicionar 1 unidade </td>";
-                echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_1.php?id=".$row['id']."\"> Remover 1 unidade </td>";
-                echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all.php?id=".$row['id']."\"> Remover tudo </td>";
-                echo "<tr>";
-                           
-                $row = pg_fetch_assoc($result);
-            }
-            */
-        ?>
-    </table>
+    
 
     
 

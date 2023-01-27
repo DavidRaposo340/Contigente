@@ -24,8 +24,12 @@
           Quer cozinhar, mas não sabe o quê?
           <br>
           <br>
-          
-          Ora boas mas noutro branch CLorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          <?php
+          if (empty($_SESSION['user']))
+            echo "EEEEEEEE";
+              echo $_SESSION['user'];
+          ?>
+          asdasdasd boas mas noutro branch CLorem ipsum dolor sit amet, consectetur adipiscing elit. 
           Quisque finibus dapibus purus, id rhoncus nisi commodo et. 
           Phasellus ut facilisis metus, in accumsan ante. 
           Duis ultricies et purus ullamcorper rutrum. 
