@@ -51,7 +51,7 @@
                         echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['prod']."\"> + 1 unidade </td>";
                         echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['prod']."\"> - 1 unidade </td>";
                         echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['prod']."\"> Remover tudo </td>";
-                        echo "<tr>";
+                        echo "</tr>";
                                 
                         $row = pg_fetch_assoc($list_carrinho);
                     }
