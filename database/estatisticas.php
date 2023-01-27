@@ -22,7 +22,8 @@
 	}
 	function getTop5Product(){
 		global $conn;
-		$query = "SELECT id_product, SUM(orders_lines.total_price) as total_sales
+		$query = "	SELECT id_product, 
+					SUM(orders_lines.total_price) as total_sales
 					FROM contigente.orders 
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
 					WHERE orders.state = 'Concluída'

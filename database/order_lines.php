@@ -5,9 +5,11 @@
 		$query = "SELECT orders_lines.id            AS id,
 						 orders_lines.id_product    AS id_product,
 						 orders_lines.quantity      AS quant,
-                         orders_lines.total_price   AS total_price
-					FROM orders_lines
-					WHERE orders_lines.id_order =". $idOrder .";";
+                         orders_lines.total_price   AS total_price,
+                         products.name              As   name
+                        FROM orders_lines  JOIN products
+                        ON orders_lines.id_product=products.id
+					    WHERE orders_lines.id_order ="  . $idOrder .";";
 
 		$result = pg_exec($conn, $query);
         return $result;
@@ -27,10 +29,12 @@
     function getProductsandQuantityofOrder($idOrder){
         global $conn;
         $query = "SELECT    orders_lines.id_product    AS id_product,
-                            orders_lines.quantity      AS quant
-                    FROM orders_lines
-                    WHERE orders_lines.id_order =". $idOrder .";";
-
+                            orders_lines.quantity      AS quant,
+                            products.name              As   name
+                        FROM orders_lines  JOIN products
+                        ON orders_lines.id_product=products.id
+					    WHERE orders_lines.id_order ="  . $idOrder .";
+                    ";
 		$result = pg_exec($conn, $query);
         return $result;
 	}
