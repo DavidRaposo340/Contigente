@@ -72,10 +72,16 @@
                 ?>
             </table>
         </div>
-        <br>           
-        
-        <button class="confirm_button" onclick="location.href='<?php echo $path2root ?>acoes/cliente/action_finalizar_encomeda.php?id=<?php echo $_SESSION['user'] ?>' "> Finalizar Encomenda </button>
-        <button class="cancel_button" onclick="location.href='<?php echo $path2root ?>acoes/cliente/action_esvaziar_carrinho.php?id=<?php echo $_SESSION['user'] ?>' "> Esvaziar carrinho </button>
+        <br>    
+        <?php
+            $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
+            $row = pg_fetch_assoc($list_carrinho);
+            if(isset($row['id'])){
+                echo "<button class=\"confirm_button\" onclick=\"location.href='".$path2root."acoes/cliente/action_finalizar_encomeda.php?id=".$_SESSION['user']."';\"> Finalizar Encomenda</button>";
+                echo "<button class=\"cancel_button\" onclick=\"location.href='".$path2root."acoes/cliente/action_esvaziar_carrinho.php?id=".$_SESSION['user']."';\"> Esvaziar carrinho</button>";    
+            }
+        ?>     
+
         
     </div>
 
