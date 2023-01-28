@@ -38,9 +38,22 @@
                             orders.total_price      AS   total_price,
                             orders.state            AS   state,
                             orders.date             As   date
-					      FROM    orders
-					      WHERE   orders.user_id='".$idUser."'
+					FROM    orders
+					WHERE   orders.user_id='".$idUser."'
 				";
+		$result = pg_exec($conn, $query);
+        return $result;
+    }
+
+    function getAllOrders(){
+        global $conn;
+		$query = "	SELECT  orders.id               As   id,
+                            orders.user_id          As   user_id,
+                            orders.shipping_price   As   shipping_price,
+                            orders.total_price      AS   total_price,
+                            orders.state            AS   state,
+                            orders.date             As   date
+					FROM    orders;";
 		$result = pg_exec($conn, $query);
         return $result;
     }
