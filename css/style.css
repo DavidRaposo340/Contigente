@@ -2,13 +2,14 @@
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
 
-*{
-  font-family: Verdana ;
+* {
+  font-family: Verdana;
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
-body{
+
+body {
   /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: rgb(30,30,30);
   font-size: 18px;*/
@@ -16,7 +17,8 @@ body{
   overflow-y: overlay;
   text-decoration: none;
 }
-h1{
+
+h1 {
   color: #0d2137;
   padding: 15px;
   font-size: 32px;
@@ -24,7 +26,8 @@ h1{
   border-bottom: 5px solid #ff8e2b;
   border-color: #ff8e2b;
 }
-p{
+
+p {
   font-size: 18px;
   padding: 30px;
   font-weight: bold;
@@ -36,17 +39,19 @@ nav {
   z-index: 3;
   height: 60px;
   background-color: #ffffff;
-  /*position: fixed; --> Para tapar o fundo da navbar mas depois ocorre coisas bastantes estranahas*/ 
+  /*position: fixed; --> Para tapar o fundo da navbar mas depois ocorre coisas bastantes estranahas*/
 }
-.nav_backside{
+
+.nav_backside {
   width: 100%;
   position: fixed;
   height: 60px;
-  top:0px;
+  top: 0px;
   background-color: #ffffff;
   z-index: 1;
 }
-.nav_block{
+
+.nav_block {
   background-color: #0d2137;
   width: 100%;
   position: fixed;
@@ -54,7 +59,8 @@ nav {
   top: 24px;
   z-index: 2;
 }
-.nav_block a{
+
+.nav_block a {
   float: left;
   color: #ffffff;
   text-align: center;
@@ -62,7 +68,8 @@ nav {
   text-decoration: none;
   font-size: 19px;
 }
-.nav_center{
+
+.nav_center {
   position: fixed;
   top: 60px;
   left: 50%;
@@ -70,58 +77,68 @@ nav {
   background-color: #ff8e2b;
   z-index: 3;
   padding: 36px;
-  border-radius:50px;
+  border-radius: 50px;
   /*  border-style: solid;
   border-color: #0d2137;
   border-width: 2px;* Se se alterar o border pensoq ue é melhor alterar a altura*/
 }
-.nav_center a{
+
+.nav_center a {
   text-decoration: none;
   font-size: 36px;
   color: #ffffff;
   font-weight: 600;
 }
-.nav_right{
+
+.nav_right {
   float: right;
   height: 10px;
   margin-right: 17px;
 }
-.nav_block a:hover{
+
+.nav_block a:hover {
   background-color: #2E77AE;
   transition: 0.4s;
 }
-.nav_block a:active{
+
+.nav_block a:active {
   background-color: #2E77AE;
 }
+
 .dropdown {
   position: relative;
   display: inline-block;
 }
-.dropdown-content{
+
+.dropdown-content {
   width: 200px;
   padding: 0;
   display: none;
   position: fixed;
   background-color: #e0eaf5;
-  box-shadow: 0px 8px 14px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 14px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   top: 99px;
 }
-.dropdown-content a{
+
+.dropdown-content a {
   color: #000;
   text-decoration: none;
 }
-.dropdown-content a:hover{
+
+.dropdown-content a:hover {
   background-color: #2E77AE;
   color: #ffffff;
   transition: 0.1s;
   width: 200px;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
   position: fixed;
   right: 17px;
 }
+
 /*--------------- Accordion Button  ---------------*/
 
 .accordion {
@@ -139,7 +156,7 @@ nav {
 }
 
 .accordion:hover {
-  background-color: #2e77ae; 
+  background-color: #2e77ae;
 }
 
 .panel {
@@ -148,8 +165,10 @@ nav {
   background-color: #e0eaf5;
   overflow: hidden;
 }
+
 .sub_accordion {
-  background-color: #2e77ae;;
+  background-color: #2e77ae;
+  ;
   color: #ffffff;
   cursor: pointer;
   padding: 18px;
@@ -160,8 +179,9 @@ nav {
   font-size: 14px;
   transition: 0.4s;
 }
+
 .sub_accordion:hover {
-  background-color: #e0eaf5; 
+  background-color: #e0eaf5;
   color: rgb(0, 0, 0);
 }
 
@@ -172,11 +192,11 @@ nav {
 
 .column_intro {
   float: left;
-  
+
   margin-top: 100px;
   padding-left: 150px;
   padding-right: 150px;
-  
+
   width: 65%;
 }
 
@@ -187,7 +207,7 @@ nav {
   margin-right: 5%;
   width: 30%;
   height: 1080px;
-  background-color: #e0eaf5; 
+  background-color: #e0eaf5;
 }
 
 /* Clear floats after the columns */
@@ -206,7 +226,8 @@ nav {
   margin: 250px 100px;
 
 }
-.cartao_produto{
+
+.cartao_produto {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -218,35 +239,41 @@ nav {
   width: 330px;
   position: relative;
 }
-.cartao_produto img{
+
+.cartao_produto img {
   width: 250px;
   height: auto;
 }
-.cartao_nome_preco{
+
+.cartao_nome_preco {
   width: 100%;
   background-color: #0d2137;
   padding: 5px;
 
 }
-.cartao_nome_preco h2{
+
+.cartao_nome_preco h2 {
   color: white;
   float: left;
   width: 100%;
   padding: 10px 20px;
   font-size: 18px;
 }
-.cartao_nome_preco h3{
+
+.cartao_nome_preco h3 {
   color: white;
   float: right;
   padding: 10px 20px;
   font-size: 14px;
 }
-.cartao_botoes{
+
+.cartao_botoes {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-.cartao_botoes button{
+
+.cartao_botoes button {
   color: black;
   background: #e0eaf5;
   width: 50%;
@@ -263,6 +290,7 @@ nav {
   flex-direction: column;
   width: 20%;
 }
+
 .filtros {
   padding: 50px 0px;
   margin-right: 25px;
@@ -270,6 +298,7 @@ nav {
   height: 1080px;
   background-color: #e0eaf5;
 }
+
 .pre_filtros {
   float: left;
   padding: 50px 0px;
@@ -293,14 +322,15 @@ nav {
   transition: 0.4s;
 }
 
-.search-container{
+.search-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  overflow:visible;
+  overflow: visible;
 }
-.search-container input[type=text]{
+
+.search-container input[type=text] {
   background-color: white;
   color: black;
   padding: 18px;
@@ -311,14 +341,16 @@ nav {
   font-size: 19px;
   align-content: stretch;
 }
-.search-container button{
+
+.search-container button {
   background-color: #0d2137;
   color: #ffffff;
   padding: 18px;
   width: 15%;
   font-size: 19px;
 }
-.confirm_button{
+
+.confirm_button {
   float: right;
   font-size: 16px;
   margin-top: 20px;
@@ -330,7 +362,8 @@ nav {
   padding: 15px 40px;
   border-radius: 10px;
 }
-.confirm_button:hover{
+
+.confirm_button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
   font-weight: 700;
@@ -338,12 +371,13 @@ nav {
 }
 
 /*----------------- Form Login -----------------*/
-.container-login{
+.container-login {
   display: block;
   align-items: center;
   text-align: center;
 }
-.form-login{
+
+.form-login {
   display: block;
   align-items: center;
   text-align: center;
@@ -355,57 +389,60 @@ nav {
   border-radius: 20px;
   padding-bottom: 10px;
 }
-.form-login h2{
+
+.form-login h2 {
   padding: 40px;
   padding-bottom: 20px;
 }
-.form-login p{
+
+.form-login p {
   margin-top: 10px;
 }
+
 .form-login input[type=submit] {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding:10px 50px; 
-  background: #ff8e2b; 
-  border:0 none;
-  cursor:pointer;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; 
-}
-.form-login input[type=submit]:hover {
-  background:#2E77AE; 
-  transition: 0.4s;
-}
-.form-login input[type=text] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 10px 50px;
+  background: #ff8e2b;
+  border: 0 none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+}
+
+.form-login input[type=submit]:hover {
+  background: #2E77AE;
+  transition: 0.4s;
+}
+
+.form-login input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float: right;
 }
 
 .form-login input[type=text]:focus {
-  border-color:rgb(51, 51, 51);
+  border-color: rgb(51, 51, 51);
 }
+
 .form-login input[type=password] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
 }
 
 .form-login input[type=password]:focus {
-  border-color:#333;
+  border-color: #333;
 }
 
 /*----------------- Form Criar Conta -----------------*/
 
-.form-register{
-  display: block;
-  align-items: center;
-  text-align: center;
+.form-register {
   display: block;
   align-items: center;
   text-align: center;
@@ -417,71 +454,84 @@ nav {
   border-radius: 20px;
   padding-bottom: 30px;
 }
-.form-register h2{
+
+.form-register h2 {
   padding: 40px;
   padding-bottom: 20px;
   font-size: 30px;
 }
-.form-register p{
+
+.form-register p {
   margin: 5px;
   padding: 17px;
+  align-items: center;
 }
+
 .form-register-checkbox {
   margin-top: 30px;
 }
+
 .form-register input[type=submit] {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding:10px 0px; 
-  background: #ff8e2b; 
-  border:0 none;
-  cursor:pointer;
+  padding: 10px 0px;
+  background: #ff8e2b;
+  border: 0 none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
   width: 185px;
-  
 }
+
 .form-register input[type=submit]:hover {
-  background:#2E77AE; 
+  background: #2E77AE;
   transition: 0.4s;
 }
+
 .form-register input[name=checkbox_confirmar] {
-  background-color: #ff8e2b; 
+  background-color: #ff8e2b;
 }
+
 .form-register input[name=checkbox_cancelar] {
-  background-color:#0d2137; 
+  background-color: #0d2137;
 }
-.form-register-checkbox label{
+
+.form-register-checkbox label {
   margin-left: -50px;
 }
+
 .form-register input[type=text] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
   margin-right: 30px;
   width: 240px;
 }
+
 .form-register input[type=text]:focus {
-  border-color:rgb(51, 51, 51);
+  border-color: rgb(51, 51, 51);
 }
+
 .form-register input[type=password] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
   margin-right: 30px;
   width: 240px;
 }
+
 .form-register input[type=password]:focus {
-  border-color:#333;
+  border-color: #333;
 }
+
 .form-register input[type=checkbox] {
   margin-top: 2px;
-  border:1px solid #ccc; 
+  border: 1px solid #ccc;
   -webkit-border-radius: 8px;
   border-radius: 9px;
   float: left;
@@ -489,34 +539,41 @@ nav {
   width: 16px;
   height: 16px;
 }
-.form-register-checkbox label{
+
+.form-register-checkbox label {
   margin-left: -45px;
 }
-.error_msg-form{
+
+.error_msg-form {
   padding: 0px;
   margin: 0px;
   align-items: center;
 }
-p.form-register-button{
+
+p.form-register-button {
   padding: 0px;
   padding-top: 10px;
-  }
+}
+
 /*----------------- Products Info Page -----------------*/
 
-.container-prodinfo{
+.container-prodinfo {
   display: flex;
   justify-content: center;
 }
-.container-prodinfo-imginfo{
+
+.container-prodinfo-imginfo {
   width: 50%;
   align-items: center;
   text-align: center;
   margin-top: 8%;
 }
-.container-prodinfo-imginfo img{
+
+.container-prodinfo-imginfo img {
   width: 700px;
 }
-.container-prodinfo-details{
+
+.container-prodinfo-details {
   width: 50%;
   justify-content: center;
   text-align: center;
@@ -524,33 +581,40 @@ p.form-register-button{
   border: 2px solid #0d2137;
   height: 90vh;
 }
-.container-prodinfo-details h2{
+
+.container-prodinfo-details h2 {
   margin-top: 15%;
   font-size: 30px;
 }
-.container-prodinfo-details h3{
-  margin-top: 30px;  
+
+.container-prodinfo-details h3 {
+  margin-top: 30px;
 }
-.container-prodinfo-details-fam{
+
+.container-prodinfo-details-fam {
   margin-top: 120px;
 }
-.container-prodinfo-details-fam h4{
+
+.container-prodinfo-details-fam h4 {
   font-size: 19px;
   text-decoration: underline 1px;
   margin-top: 50px;
 }
-.container-prodinfo-details-fam p{
+
+.container-prodinfo-details-fam p {
   padding: 10px;
   font-size: 15px;
 }
-.qnt_input{
+
+.qnt_input {
   font-size: 16px;
   margin-top: 80px;
   border: none 0px;
   padding: 15px 40px;
 
 }
-.container-prodinfo-details button{
+
+.container-prodinfo-details button {
   font-size: 16px;
   border: none 0px;
   transition-duration: 0.4s;
@@ -560,12 +624,14 @@ p.form-register-button{
   padding: 15px 40px;
   border-radius: 10px;
 }
-.container-prodinfo-details button:hover{
+
+.container-prodinfo-details button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
   font-weight: 700;
   color: #ffffff;
 }
+
 /*----------------- Listar Encomendas -----------------*/
 
 .flex-box-encomendas {
@@ -574,17 +640,19 @@ p.form-register-button{
   flex-wrap: wrap;
   margin-top: 100px;
 }
-.flex-box-encomendas p{
+
+.flex-box-encomendas p {
   padding: 4px;
   margin: 0px;
   justify-content: center;
   font-size: 14px;
   font-weight: 100;
-  display: list-item; 
-  list-style-type: square;    
-  list-style-position:initial;
+  display: list-item;
+  list-style-type: square;
+  list-style-position: initial;
 }
-.flex-box-encomendas h2{
+
+.flex-box-encomendas h2 {
   font-size: 22px;
   margin-top: 20px;
   display: flex;
@@ -593,61 +661,74 @@ p.form-register-button{
   width: 100%;
   text-decoration: underline 2px;
 }
-.table_style{
+
+.table_style {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   width: 900px;
   margin-bottom: 50px;
 }
-.table_style table{
+
+.table_style table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   color: #ffffff;
-  table-layout:fixed;
+  table-layout: fixed;
   padding-bottom: 100px;
 }
-.table_style table th{
+
+.table_style table th {
   padding: 10px 25px;
   font-size: 14px;
-  background-color:#2E77AE;
+  background-color: #2E77AE;
   border-radius: 5px;
 }
-.table_style table, th, td, tr{
+
+.table_style table,
+th,
+td,
+tr {
   border: 2px solid #ffffff;
 }
-.table_style table td{
+
+.table_style table td {
   padding: 12px 25px;
   color: #000;
   font-size: 15px;
   text-align: center;
 }
-.table_style tr:nth-child(2n){
+
+.table_style tr:nth-child(2n) {
   background: rgb(235, 235, 235)
 }
-.table_style tr:nth-child(2n+1){
+
+.table_style tr:nth-child(2n+1) {
   background: rgb(210, 210, 210)
 }
-.table_style a{
+
+.table_style a {
   font-size: 15px;
   border: none 0px;
   transition-duration: 0.3s;
   font-weight: 700;
-  background-color:#0d2137;
+  background-color: #0d2137;
   color: #ffffff;
   padding: 7px 15px;
   border-radius: 5px;
   text-decoration: none;
 }
-.table_style a:hover{
+
+.table_style a:hover {
   transition-duration: 0.3s;
   background-color: #2E77AE;
   color: #ffffff;
 }
+
 /*------------------- Form Editar Conta --------------------*/
 
-.form-editar{
+.form-editar {
   display: block;
   align-items: center;
   text-align: center;
@@ -662,63 +743,74 @@ p.form-register-button{
   border-radius: 20px;
   padding-bottom: 40px;
 }
-.form-editar h2{
+
+.form-editar h2 {
   padding: 40px;
   padding-bottom: 20px;
   font-size: 30px;
 }
-.form-editar p{
+
+.form-editar p {
   margin: 5px;
   padding: 17px;
 }
+
 .form-editar-checkbox {
   margin-top: 30px;
 }
-.form-editar input[type=submit]{
+
+.form-editar input[type=submit] {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding:10px 50px;
-  border:0 none;
-  cursor:pointer;
+  padding: 10px 50px;
+  border: 0 none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
   width: 200px;
 }
-.form-editar input[type=submit]:hover{
+
+.form-editar input[type=submit]:hover {
   transition: 0.4s;
-  background-color:#2E77AE; 
+  background-color: #2E77AE;
 }
+
 .form-editar input[name=checkbox_confirmar] {
-  background-color: #ff8e2b; 
+  background-color: #ff8e2b;
 }
+
 .form-editar input[name=checkbox_cancelar] {
-  background-color:#0d2137; 
+  background-color: #0d2137;
 }
+
 .form-editar input[type=text] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
   margin-right: 30px;
   width: 240px;
 }
+
 .form-editar input[type=text]:focus {
-  border-color:rgb(51, 51, 51);
+  border-color: rgb(51, 51, 51);
 }
+
 .form-editar input[type=password] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
   margin-right: 30px;
   width: 240px;
 }
+
 .form-editar input[type=checkbox] {
   margin-top: 2px;
-  border:1px solid #ccc; 
+  border: 1px solid #ccc;
   -webkit-border-radius: 8px;
   border-radius: 9px;
   float: left;
@@ -726,12 +818,13 @@ p.form-register-button{
   width: 16px;
   height: 16px;
 }
-.form-editar-checkbox label{
+
+.form-editar-checkbox label {
   margin-left: -50px;
 }
 
 /*-------------------Form criar produto ----------------------*/
-.form-criar_produto{
+.form-criar_produto {
   display: block;
   align-items: center;
   text-align: center;
@@ -743,101 +836,119 @@ p.form-register-button{
   border-radius: 20px;
   padding-bottom: 40px;
 }
-.form-criar_produto h2{
+
+.form-criar_produto h2 {
   padding: 40px;
   padding-bottom: 20px;
   font-size: 26px;
 }
-.form-criar_produto h3{
+
+.form-criar_produto h3 {
   text-align: left;
   margin-left: 82px;
   font-size: 18px;
 }
-.form-criar_produto p{
+
+.form-criar_produto p {
   margin: 5px;
   padding: 14px;
 }
-.form-criar_produto input[type=submit]{
+
+.form-criar_produto input[type=submit] {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding:9px 30px;
-  border:0 none;
-  cursor:pointer;
-  -webkit-border-radius: 5px;
-  border-radius: 5px; 
-  width: 175px;
-}
-.form-criar_produto input[type=number]{
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 9px 30px;
+  border: 0 none;
+  cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  width: 175px;
+}
+
+.form-criar_produto input[type=number] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float: right;
   margin-right: 138px;
   width: 90px;
 }
-.form-criar_produto input[type=submit]:hover{
+
+.form-criar_produto input[type=submit]:hover {
   transition: 0.4s;
-  background-color:#2E77AE; 
+  background-color: #2E77AE;
 }
+
 .form-criar_produto input[name=checkbox_confirmar] {
-  background-color: #ff8e2b; 
+  background-color: #ff8e2b;
 }
+
 .form-criar_produto input[name=checkbox_cancelar] {
-  background-color:#0d2137; 
+  background-color: #0d2137;
 }
+
 .form-criar_produto input[type=text] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
   margin-right: 30px;
   width: 200px;
 }
+
 .form-criar_produto input[type=text]:focus {
-  border-color:rgb(51, 51, 51);
+  border-color: rgb(51, 51, 51);
 }
+
 .form-criar_produto input[type=password] {
-  padding:5px; 
-  border:2px solid #ccc; 
+  padding: 5px;
+  border: 2px solid #ccc;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  float:right;
+  float: right;
   margin-right: 30px;
   width: 240px;
 }
+
 .form-criar_produto input[type=checkbox] {
   margin-top: 3px;
   padding: 3px;
-  border:1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 9px;
   float: left;
   margin-left: 285px;
   width: 16px;
   height: 16px;
 }
-.form-criar_produto label{
+
+.form-criar_produto label {
   padding: 5px;
   margin-top: 5px;
 }
+
 .form-criar_produto-checkbox {
   margin-top: 10px;
   padding-bottom: 20px;
 }
-.form-criar_produto-checkbox label{
+
+.form-criar_produto-checkbox label {
   margin-left: -80px;
   font-size: 15px;
 }
-p.form-criar_produto-button{
-padding: 8px;
+
+p.form-criar_produto-button {
+  padding: 8px;
 }
+
 .form-criar_produto input[type=file] {
-  padding:10px; 
+  padding: 10px;
   text-align: center;
 }
-.form-criar_produto-file label{
+
+.form-criar_produto-file label {
   float: left;
   margin-left: 70px;
 }

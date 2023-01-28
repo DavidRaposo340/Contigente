@@ -1,5 +1,5 @@
 <head>
-    <title>Criar Produto</title>
+    <title>Editar Produto</title>
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,8 +14,8 @@
     //Falta a componente de PHP e database (Isert e update) Criar action
     ?>
 
-    <div class="form-criar_produto"> //TODO #70 action para criar produto
-        <h2>Criar Produto:</h2>
+    <div class="form-criar_produto"> //TODO #71 editar para criar produto
+        <h2>Editar Produto:</h2>
 
         <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_criar_produto.php">
             <p><label for="nome"> Nome:</label> <input type="text" name=nome value="<?php echo $nome; ?>" /> </p>
