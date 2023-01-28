@@ -8,16 +8,15 @@ include_once "../../database/products.php";
 print_r($_POST);
 
 $nome = $_POST['nome'];
-$address = $_POST['family'];
-$email = $_POST['price'];
-$password = $_POST['password'];
-$conf_pass = $_POST['quantity'];
+$family = $_POST['family'];
+$price = $_POST['price'];
+$quantity = $_POST['quantity'];
 
 
-if (!empty($_POST['checkbox_cancelar'])) {
+/*if (!empty($_POST['checkbox_cancelar'])) {
     //Se cancelou, redireciona de imediato para a página de entrada
-    header("Location: " . $path2root . "paginas_form/geral/form_criar_produto.php");
-}
+    header("Location: " . $path2root . "paginas_form/tecnico/form_criar_produto.php");
+}*/
 if (!empty($_POST['checkbox_confirmar'])) {
     $nome = $_POST['nome'];
     $family = $_POST['family'];
