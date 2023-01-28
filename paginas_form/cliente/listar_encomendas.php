@@ -4,13 +4,6 @@
 
 <head>
     <title>Encomendas</title>
-    <!-- PARA DOUBLE RANGE SLIDER - elementos que nao aplico css ficam com estilo importado...
-        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    -->
-    <!-- PARA ICON SEARCHBAR-->
-
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -20,81 +13,54 @@
         $path2root = "../../";
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
-        include_once "../../database/order_lines.php";    
+        include_once "../../database/order_lines.php";
+        include_once "../../database/orders.php";
+        include_once "../../database/products.php";
+        include_once "../../database/users.php";
+    
+    
+
     ?>  
     <div class="flex-box-encomendas">
         <h2> Lista de Encomendas: </h2>
 
         <?php	
-        echo"<div class=\"table_style\">";
-        echo "<table>";
-    
-            // 	2. Table header
+
+            echo"<div class=\"table_style\">";
+            echo "<table>";
             echo "<tr>";
             echo "<th>ID</th><th>Cliente</th><th>Data</th><th>Estado</th><th>Produtos</th><th>Preço Total</th><th>Processo</th>";
             echo "</tr>";	
-
-            echo "<tr>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-            echo "</tr>";
-
-            echo "<tr>";
-            echo "<td>a</td>";
-            echo "<td>a</td>";
-            echo "<td>a</td>";
-            echo "<td>a</td>";
-            echo "<td>a</td>";
-            echo "<td>a</td>";
-            echo "<td>a</td>";
-            echo "</tr>";
-
-            echo "<tr>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-            echo "</tr>";
-
-            echo "<tr>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-                echo "<td>a</td>";
-            echo "</tr>";
-                    
-        /*    $list_orders = getAllOrders($ID_user);
-
-            //	3. Genration of the rows of the table 
-            $row = pg_fetch_assoc($list_orders);
             
+            $list_orders = getAllOrdersofUserbyID(3); //TODO #66 Alterar para user da variavel de sessao
+            $row = pg_fetch_assoc($list_orders);
+
+            $user_name = getNamebyUserID(3);
+
             while (isset($row['id'])) {
+
+                $lists_prodocts=getProductsandQuantityofOrder($row['id']);
+                $row_products = pg_fetch_assoc($lists_prodocts);
+                $order_date = getdateofOrder($row['id']);
 
                 echo "<tr>";
                 echo "<td>".$row['id']."</td>";
-                echo "<td>".$row['nome']."</td>";
-                echo "<td>".$row['data']."</td>";
+                echo "<td>".$user_name."</td>";
+                echo "<td style='width:90px;padding:0px'>".$order_date."</td>"; 
                 echo "<td>".$row['state']."</td>";
-                echo "<td>".$row['id_produtos_name']."</td>";
-                echo "<td>".$row['total_price']."</td>";
-                echo "<button onclick=\"location.href='".$path2root."acoes/cliente/CRIARACAO.php?id=".$row['id']."';\"> Ver detalhes</button>";
+                echo "<td>";
+                while (isset($row_products['id_product'])) {
+                    $products_name=getProductByID($row_products['id_product']);
+                    $products_thing = pg_fetch_row($products_name,0);
+                    echo "<p>".$products_thing[5]."</p>";
+                    $row_products = pg_fetch_assoc($lists_prodocts);
+                }
+                echo"</td>";
+                echo "<td>".$row['total_price']." €</td>";
+                echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>"; //TODO #68 Action para efetuar pagamento
                 echo "</tr>";
-
-                $row = pg_fetch_assoc($result);
+                $row = pg_fetch_assoc($list_orders);
             }
-*/
-            //	4. Table end
             echo "</table>";
             echo "</div>";
         ?>
