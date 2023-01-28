@@ -31,7 +31,7 @@
           echo '<div class="dropdown-content">';
 
           echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">Dados Pessoais</a>';
-          echo '<a href="'.$path2root.'paginas_form\cliente\form_listar_encomendas.php">Encomendas</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\listar_encomendas.php">Encomendas</a>';
 
           if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor")
             echo '<a href="'.$path2root.'b_page">Produtos</a>';
