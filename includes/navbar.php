@@ -2,6 +2,8 @@
   session_start();
   include_once $path2root."includes/opendb.php";
   include_once $path2root."database/user_type.php"; 
+  include_once $path2root."database/users.php"; 
+  
 ?>
 
 <nav>
@@ -22,12 +24,13 @@
         
         //Se houver sessao inciada apresenta botao conta, senao apresenta iniciar sessao
         if (!empty($_SESSION['user'])) {
+          $user_logged=getNamebyUserID($_SESSION['user']);
           
           //carrinho so é aprensentado quando há sessao inciada para evitar erros
           echo '<a href="'.$path2root.'paginas_form\cliente\listar_carrinho.php"> Carrinho</a>';
 
           echo '<div class="dropdown">';
-          echo '<a class="dropdown-toggle" href="#">Conta</a>';
+          echo '<a class="dropdown-toggle" href="#">Conta - '.$user_logged.'</a>';
           echo '<div class="dropdown-content">';
 
           echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">Dados Pessoais</a>';

@@ -4,7 +4,6 @@
 
 <head>
     <title>Encomendas</title>
-
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -20,11 +19,13 @@
         include_once "../../database/users.php";
     
     
+
     ?>  
     <div class="flex-box-encomendas">
         <h2> Lista de Encomendas: </h2>
 
         <?php	
+
             echo"<div class=\"table_style\">";
             echo "<table>";
             echo "<tr>";
