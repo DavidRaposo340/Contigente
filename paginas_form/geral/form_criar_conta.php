@@ -61,7 +61,9 @@
                 ?>
             </div>  
             
-            <p><input type="submit" value="Criar Conta" /> </p>
+            <p class="form-register-button"><input name="checkbox_confirmar" type="submit" value="Criar Conta" /> </p>
+            <p class="form-register-button"><input name="checkbox_cancelar" type="submit" value="Cancelar" /> </p>
+
     </div>
     
   

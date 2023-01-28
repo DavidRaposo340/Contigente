@@ -415,7 +415,7 @@ nav {
   width: 600px;
   background-color: #e2e8ee;
   border-radius: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 .form-register h2{
   padding: 40px;
@@ -424,7 +424,7 @@ nav {
 }
 .form-register p{
   margin: 5px;
-  padding: 20px;
+  padding: 17px;
 }
 .form-register-checkbox {
   margin-top: 30px;
@@ -433,16 +433,27 @@ nav {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding:10px 50px; 
+  padding:10px 0px; 
   background: #ff8e2b; 
   border:0 none;
   cursor:pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px; 
+  width: 175px;
+  
 }
 .form-register input[type=submit]:hover {
   background:#2E77AE; 
   transition: 0.4s;
+}
+.form-register input[name=checkbox_confirmar] {
+  background-color: #ff8e2b; 
+}
+.form-register input[name=checkbox_cancelar] {
+  background-color:#0d2137; 
+}
+.form-register-checkbox label{
+  margin-left: -50px;
 }
 .form-register input[type=text] {
   padding:5px; 
@@ -453,7 +464,6 @@ nav {
   margin-right: 30px;
   width: 240px;
 }
-
 .form-register input[type=text]:focus {
   border-color:rgb(51, 51, 51);
 }
@@ -466,7 +476,6 @@ nav {
   margin-right: 30px;
   width: 240px;
 }
-
 .form-register input[type=password]:focus {
   border-color:#333;
 }
@@ -488,6 +497,10 @@ nav {
   margin: 0px;
   align-items: center;
 }
+p.form-register-button{
+  padding: 0px;
+  padding-top: 10px;
+  }
 /*----------------- Products Info Page -----------------*/
 
 .container-prodinfo{
@@ -573,7 +586,7 @@ nav {
 }
 .flex-box-encomendas h2{
   font-size: 22px;
-  margin-top:0px;
+  margin-top: 20px;
   display: flex;
   justify-content: left;
   margin-left: 250px;
@@ -581,7 +594,7 @@ nav {
   text-decoration: underline 2px;
 }
 .table_style{
-  margin-top: 50px;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
   width: 900px;
