@@ -54,18 +54,13 @@
                         <h4> Família de Produto: </h4> 
                         <p> <?php echo $row['familia'] ?> </p>
                         <h4> Restrições alimentares: </h4> 
-                        <?php /*
+                        <?php 
                             
-                            $restr=getRestrictionsByID($id);
-                            if (empty($restr))
-                                echo "N/D";
-                            else{
-                                $row_restr = pg_fetch_assoc($restr);
-                                while (isset($row_restr['restr'])){
-                                    echo "<p>".$row_restr['restr']."</p>";
-                                    $row_restr = pg_fetch_assoc($restr);
-                                }      
-                            } */
+                            $restr=getRestrictionsofProductbyID($id);
+                            echo "<p>".$restr['no_gluten']."</p>";
+                            echo "<p>".$restr['no_lactose']."</p>";
+                            echo "<p>".$restr['vegan']."</p>";
+ 
                         ?>
                     </div>
             </div>

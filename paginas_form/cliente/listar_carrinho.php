@@ -17,40 +17,53 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/shopping_cart.php";    
-        include_once "../../database/products.php";    
+        include_once "../../database/products.php";        
+        include_once "../../database/recipes.php";  
+          
+        if(empty($_SESSION['user']))
+            header("Location: ".$path2root."index.php");
 
         $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
         
     ?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     
-    <div class="flex-box-encomendas">
-        <h2> Lista de Encomendas: </h2>
-        <div class="table_style">
-            <table>
-                <tr>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Preço Total</th>
-                </tr>
-                <?php
+    <div class="flex-box-generic">
+        <h2> Carrinho de compras: </h2>
+
+        <?php
+            $row = pg_fetch_assoc($list_carrinho);
+            if(!isset($row['id']))
+                echo ' <p> Carrinho vazio. <br> Dirija-se à loja para adicionar produtos </p>';
+            
+            if (!empty($_SESSION['msgErro'])) {
+                echo "<p style=\"color:red\">".$_SESSION['msgErro']."</p>";
+                $_SESSION['msgErro'] = NULL;
+            }
                 
-                    $row = pg_fetch_assoc($list_carrinho);
+        ?>
+
+        <div class="generic_table_style">
+            <table>
+                <?php
+                    if(isset($row['id'])){
+                        echo '<tr>';
+                        echo '<th>Produto</th>';
+                        echo '<th>Quantidade</th>';
+                        echo '<th>Preço Total</th>';
+                        echo '</tr>';
+                    }
 
                     while (isset($row['id'])) {
 
                         echo "<tr>";
-                        echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."\"> ".$row['prod']."</td>";
-                        echo "<td>".$row['quant']."</td>";
-                        echo "<td> FALTAAA... </td>";
+                        echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id_prod']."\"> ".$row['name']."</td>";
+                        echo "<td>".$row['quant']." Unidade(s) </td>";
+                        $total_price=getTotalPriceProductbyQuantity($row['id_prod'], $row['quant']); 
+                        echo "<td> ".$total_price." € </td>";
                         //echo "<td>".$row['total_price']."</td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['prod']."\"> + 1 unidade </td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['prod']."\"> - 1 unidade </td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['prod']."\"> Remover tudo </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['id_prod']."\"> + 1 unidade </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['id_prod']."\"> - 1 unidade </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['id_prod']."\"> Remover tudo </td>";
                         echo "</tr>";
                                 
                         $row = pg_fetch_assoc($list_carrinho);
@@ -59,6 +72,17 @@
                 ?>
             </table>
         </div>
+        <br>    
+        <?php
+            $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
+            $row = pg_fetch_assoc($list_carrinho);
+            if(isset($row['id'])){
+                echo "<button class=\"confirm_button\" onclick=\"location.href='".$path2root."acoes/cliente/action_finalizar_encomeda.php?id=".$_SESSION['user']."';\"> Finalizar Encomenda</button>";
+                echo "<button class=\"cancel_button\" onclick=\"location.href='".$path2root."acoes/cliente/action_esvaziar_carrinho.php?id=".$_SESSION['user']."';\"> Esvaziar carrinho</button>";    
+            }
+        ?>     
+
+        
     </div>
 
 

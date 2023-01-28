@@ -6,8 +6,7 @@
     include_once "../../database/shopping_cart.php";
 
     $id = $_GET['id'];
-    $quant = 1;
     
-    //remove...
+    removeOneUnifromShoppingCart($_SESSION['user'], $id);
     header("Location: ".$path2root."paginas_form/cliente/listar_carrinho.php");
 ?>

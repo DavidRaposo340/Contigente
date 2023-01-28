@@ -7,6 +7,8 @@
 
     $id = $_GET['id'];
 
-    removeLinefromShoppingCart($_SESSION['user'], $id);
+    deleteShoppingCart($_SESSION['user']);
+    $_SESSION['msgErro'] = "Eliminou os seus produtos do carrinho!"; 
+       
     header("Location: ".$path2root."paginas_form/cliente/listar_carrinho.php");
 ?>
