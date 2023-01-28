@@ -1012,7 +1012,7 @@ tr {
   font-size: 18px;
 }
 
-.form-criar_produto p {
+.form-criar_produto p{
   margin: 5px;
   padding: 14px;
 }
@@ -1088,7 +1088,7 @@ tr {
 }
 
 .form-criar_produto label {
-  padding: 5px;
+  padding-top: 5px;
   margin-top: 5px;
 }
 
