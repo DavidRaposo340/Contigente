@@ -460,8 +460,10 @@ nav {
   padding: 0px 0px 50px 0px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 1080px;
+  height: 410px;
   background-color: #e0eaf5;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
 }
 
 .pre_filtros {
