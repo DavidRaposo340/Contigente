@@ -598,6 +598,7 @@ p.form-register-button{
   display: flex;
   justify-content: center;
   width: 900px;
+  margin-bottom: 50px;
 }
 .table_style table{
   table-layout: fixed;
@@ -605,7 +606,7 @@ p.form-register-button{
   border-collapse: collapse;
   color: #ffffff;
   table-layout:fixed;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 .table_style table th{
   padding: 10px 25px;
@@ -734,9 +735,6 @@ p.form-register-button{
   display: block;
   align-items: center;
   text-align: center;
-  display: block;
-  align-items: center;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 80px;
@@ -757,11 +755,7 @@ p.form-register-button{
 }
 .form-criar_produto p{
   margin: 5px;
-  padding: 17px;
-}
-.form-criar_produto-checkbox {
-  margin-top: 30px;
-  padding-bottom: 20px;
+  padding: 14px;
 }
 .form-criar_produto input[type=submit]{
   font-size: 18px;
@@ -773,6 +767,15 @@ p.form-register-button{
   -webkit-border-radius: 5px;
   border-radius: 5px; 
   width: 175px;
+}
+.form-criar_produto input[type=number]{
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float:right;
+  margin-right: 138px;
+  width: 90px;
 }
 .form-criar_produto input[type=submit]:hover{
   transition: 0.4s;
@@ -806,14 +809,22 @@ p.form-register-button{
   width: 240px;
 }
 .form-criar_produto input[type=checkbox] {
-  margin-top: 2px;
+  margin-top: 3px;
+  padding: 3px;
   border:1px solid #ccc; 
-  -webkit-border-radius: 8px;
   border-radius: 9px;
   float: left;
   margin-left: 285px;
   width: 16px;
   height: 16px;
+}
+.form-criar_produto label{
+  padding: 5px;
+  margin-top: 5px;
+}
+.form-criar_produto-checkbox {
+  margin-top: 10px;
+  padding-bottom: 20px;
 }
 .form-criar_produto-checkbox label{
   margin-left: -80px;
@@ -821,4 +832,12 @@ p.form-register-button{
 }
 p.form-criar_produto-button{
 padding: 8px;
+}
+.form-criar_produto input[type=file] {
+  padding:10px; 
+  text-align: center;
+}
+.form-criar_produto-file label{
+  float: left;
+  margin-left: 70px;
 }

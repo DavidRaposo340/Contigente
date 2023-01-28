@@ -18,15 +18,17 @@
     <div class="form-criar_produto">
     <h2>Criar Produto:</h2>
 
-    <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_editar_produto.php">
-        <p><label for="nome">       Nome:</label>                <input type="text" name=nome value= "<?php echo $nome; ?>" /> </p>
-        <p><label for="address">    Familia:</label>            <input type="text" name="address" value= "<?php echo $address; ?>" /> </p>
-        <p><label for="email">      Preço:</label>              <input type="text" name="email" value= "<?php echo $email; ?>" /> </p>
-
+    <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_criar_produto.php">
+        <p><label for="nome">       Nome:</label>       <input type="text" name=nome value= "<?php echo $nome; ?>" /> </p>
+        <p><label for="family">     Familia:</label>    <input type="text" name="family" value= "<?php echo $family; ?>" /> </p>
+        <p><label for="price">      Preço:</label>      <input type="text" name="price" value= "<?php echo $price; ?>" /> </p>
+        <p><label for="quantity">   Quantidade:</label> <input type="number" name="quantity" value= "<?php echo $quantity; ?>" /> </p>
+        <p class="form-criar_produto-file"><label for="file">      Imagem:<br></label>  <input type="file" name="file"/></p>
+        
         <div class="form-criar_produto-checkbox">
         <h3>Alérgenos:</h2>
             <input type="checkbox" id="gluten" name="gluten" value="1">
-            <label for="gluten"> Gluten</label><br>
+            <label for="gluten"> Glúten</label><br>
             
             <input type="checkbox" id="lactose" name="lactose" value="1">
             <label for="lactose"> Lactose</label><br>
