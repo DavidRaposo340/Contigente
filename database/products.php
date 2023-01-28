@@ -106,7 +106,7 @@
 		}
 		else
 		{
-			$row['no_gluten']=NULL;
+			$row['no_gluten']="";
 		}
 
 		if($row['no_lactose']==TRUE)
@@ -115,23 +115,23 @@
 		}
 		else
 		{
-			$row['no_lactose']=NULL;
+			$row['no_lactose']="";
 		}
 
 		if($row['vegan']==TRUE)
 		{
-			$row['vegan']="Sem lactose";
+			$row['vegan']="Vegan";
 		}
 		else
 		{
-			$row['vegan']=NULL;
+			$row['vegan']="";
 		}
 
 		return $row;
-		/* depois acedes assim
+		/* depois acedes assim*/
 		echo $row['no_lactose'];
 		echo $row['no_gluten'];
-		echo $row['vegan'];*/
+		echo $row['vegan'];
 	}
 
 	function updateQuantityofProduct($id, $quant){ //funcionou na DB
