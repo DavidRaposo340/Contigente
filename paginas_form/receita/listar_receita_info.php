@@ -33,68 +33,79 @@
 
 
     <div class="row_title_img">
-        <h1>
-            <!-- Já tinha criado uma class para este tipo de titulo (é igual à pag1)-->
-            <?php echo $row['nome'] ?>
-        </h1>
-        <p>
-            Descriçao:
+        
+        <div class="column_title_descr">
+            <h1>
+                <?php echo $row['nome'] ?>
+            </h1>
             <br>
-            <?php echo $row['descr'] ?>
-        </p>
+            <br>
+            
+            <h3> Descriçao: </h3> 
+            <p>
+                <?php echo $row['descr'] ?>
+            </p>
 
-        <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>">
-
+            <br>
+            
+            <h3> Modo de preapração: </h3>    
+            <p>
+                <?php echo $row['method'] ?>
+            </p>
+        </div>
+        <div class="column_img">
+            <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>">
+        </div>
+        
     </div>
 
 
     <div class="row_resto">
-        <div>
-            <table>
-                <tr>
-                    <th>Tipo de Receita</th>
-                    <td> <?php echo $row['type'] ?> </td>";
-                </tr>
-                <tr>
-                    <th>Dificuldade</th>
-                    <td> <?php echo $row['difi'] ?> </td>";
-                </tr>
-                <tr>
-                    <th>Tempo de preparação</th>
-                    <td> <?php echo $row['total_time'] ?> Minutos </td>";
-                </tr>
-                <tr>
-                    <th>Nº Doses</th>
-                    <td> <?php echo $row['n_doses'] ?> Pessoas </td>";
-                </tr>
-                <tr>
-                    <th>Preço total</th>
-                    <td> <?php echo $row['total_price'] ?> </td>";
-                </tr>
-            </table>
-
-
-            <p>
-                Metodo:
-                <br>
-                <?php echo $row['method'] ?>
-            </p>
+        <div class="column_receita">
+            <div class="mini-table_style">
+                <table>
+                    <tr>
+                        <th>Tipo de Receita</th>
+                        <td> <?php echo $row['type'] ?> </td>
+                    </tr>
+                    <tr>
+                        <th>Dificuldade</th>
+                        <td> <?php echo $row['difi'] ?> </td>
+                    </tr>
+                    <tr>
+                        <th>Tempo de preparação</th>
+                        <td> <?php echo $row['total_time'] ?> Minutos </td>
+                    </tr>
+                    <tr>
+                        <th>Nº Doses</th>
+                        <td> <?php echo $row['n_doses'] ?> Pessoas </td>
+                    </tr>
+                    <tr>
+                        <th>Preço total</th>
+                        <td> <?php echo $row['total_price'] ?> </td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
 
-        <div>
+
+        <div class="column_receita">
+            <h3> Lista de ingredientes: </h3> 
             <ul>
-                <?php /*// à espera da funçao...
+                <?php 
+                    $list_prods=getProductsandQuantityofRecipe($id);
                     $row_prod = pg_fetch_assoc($list_prods);
-                    while (isset($row_prod['id'])) {
-                        $nome_prod=getProductByID($row_prod['id']);
-                        echo "<li> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row_prod['id']."\"> ".$nome_prod."</li>";                                                      
+                    while (isset($row_prod['id_products'])) {
+                        $prod=getProductByID($row_prod['id_products']);
+                        $nome_prod=pg_fetch_assoc($prod);
+                        echo "<li> ".$row_prod['quantity']." Unidade(s) - <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row_prod['id_products']."\"> ".$nome_prod['nome']."</a> </li>";                                                                              
                         $row_prod = pg_fetch_assoc($list_prods);
-                    }*/
+                    }
                 ?>
             </ul> 
-
-            <button onclick="location.href='<?php echo $path2root ?>acoes/receita/action_add_carrinho.php?id=<?php echo $row['id'] ?>;'"\"> Adicionar produtos ao carrinho</button>      
+            
+            <button class="confirm_button" onclick="location.href='<?php echo $path2root ?>acoes/receita/action_add_carrinho.php?id=<?php echo $row['id'] ?>'"\"> Adicionar produtos ao carrinho</button>      
 
         </div>
 

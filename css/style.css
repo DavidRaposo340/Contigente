@@ -145,7 +145,7 @@ p {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  width: 300px;
+  width: 500px;
 }
 .mini-table_style table{
   table-layout: fixed;
@@ -1181,4 +1181,57 @@ p.form-criar_produto-button {
   font-size: 14px;
   font-weight: bold;
 }
+
+/*------------------- Form listar info receita ----------------------*/
+.row_title_img {
+  display: flex;
+  background-color: #e0eaf5;  
+}
+
+.column_title_descr {
+  float: left;
+  margin-top: 75px;
+  padding-left: 150px;
+  padding-right: 150px;
+  width: 60%;
+}
+.column_title_descr p{
+  text-align: justify;
+  padding: 5px 100px;
+}
+.column_title_descr h3{
+  text-align: justify;
+  padding: 20px 50px;
+}
+.column_img {
+  float: left;
+  padding: 10px;
+  margin-top: 0px;
+  width: 40%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row_resto{
+  display: flex;
+  align-items: center;
+}
+.column_receita{
+  width: 50%;
+  padding: 25px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.column_receita h3{
+  float: left;
+  padding: 20px 00px;
+  padding-right: 100px;
+}
+.column_receita ul{
+  padding: 5px 100px;
+}
+
 
