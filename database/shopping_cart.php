@@ -36,8 +36,8 @@
 			$product_id=$row[1]; 
 			$quantity=$row[2]; 
 			$aux=getTotalPriceProductbyQuantity($product_id, $quantity); //esta função é do products.php, nao sei bem se a posso chamar aqui
-			$totalprice = $totalprice + $aux;
-			echo $totalpriceCart;
+			$totalpriceCart = $totalpriceCart + $aux;
+
 		$i++;
 		}
         return $totalpriceCart;

@@ -20,7 +20,6 @@
 
         $totalPrice = 0;
         $totalPrice=getTotalPriceProductbyQuantity($id_product, $quantity); //funcao do products.php
-
 		$insertQuery = "INSERT INTO orders_lines (id_order, id_product, quantity, total_price)
 						VALUES ('".$idOrder."','".$id_product."','".$quantity."','".$totalPrice."');"; 
 		pg_exec($conn, $insertQuery);

@@ -84,7 +84,8 @@
 
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_assoc($result);
-		return $row[0];
+		echo $row['quant'];
+		return $row['quant'];
 	}
 
 	function getRestrictionsofProductbyID($id){
