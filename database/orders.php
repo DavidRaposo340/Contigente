@@ -19,6 +19,17 @@
 		$result = pg_exec($conn, $query);
         return $result;
     }
+    function getLastOrderIDbyUser($idUser){ //pode ser mais que uma, se existirem ja concluídas
+        global $conn;
+		$query = "	SELECT  orders.id   As   id
+					FROM    orders
+					WHERE   orders.state='Verificação' 
+                            AND orders.user_id='".$idUser."';
+				";
+		$result = pg_exec($conn, $query);
+        $row = pg_fetch_assoc($result);
+        return $row['id'];
+    }
 
     function getAllOrdersofUserbyID($idUser){
         global $conn;
@@ -38,18 +49,18 @@
         global $conn;
 
         $updateQuery = "UPDATE orders
-                        set orders.state= ".$state." AND 
-                            orders.date= ".$date." 
-                        where orders.id ="  . $idOrder .";
+                        set state= '".$state."', 
+                            date= '".$date."' 
+                        where id ='".$idOrder."'
                         ";
         $result = pg_exec($conn, $updateQuery);
     }
 
     function getPriceofOrder($idOrder){
         global $conn;
-		$query = "	SELECT  orders.price   As   price
+		$query = "	SELECT  total_price   As   price
 					FROM    orders
-					WHERE   orders.id='".$idOrder."'
+					WHERE   id='".$idOrder."';
 				";
 		$result = pg_exec($conn, $query);
         $row = pg_fetch_assoc($result);
@@ -72,30 +83,35 @@
         global $conn;
 
         $totalprice_order = 0;
-        $query = "	SELECT  orders_lines.totalprice   As   price
-					FROM    orders_lines
-					WHERE   orders.id='".$idOrder."'
-				";
+        $query = "  SELECT orders_lines.total_price As price 
+                    FROM orders_lines 
+                    WHERE orders_lines.id_order = '".$idOrder."'
+                    ";
 
 		$result = pg_exec($conn, $query);
+
         $numRows = pg_numrows($result);
-
 		$i = 0;
-
 		while ($i < $numRows) {
 			$row = pg_fetch_row($result, $i);
 			$totalprice_order=$totalprice_order+$row[0]; 
-			//echo $totalprice;
 		$i++;
 		}
+
+        $updateQuery = "UPDATE orders
+                        set total_price= $totalprice_order
+                        where id ='".$idOrder."'
+                        ";
+        $result = pg_exec($conn, $updateQuery);
+        
     }
 
-    function createOrder($idOrder, $idUser, $date){
+    function createOrder($idUser, $date){
         global $conn;
 
 		$insertQuery = "INSERT INTO orders (user_id, shipping_price, total_price, state, date)
 
-						VALUES ('".$idUser."', 0 , 0 , 'Não Concluída', '".$date."');"; //em que momento esta funçao vai ser chamada? se calhar o total price nao vai ser 0
+						VALUES ('".$idUser."', 0 , 0 , 'Verificação', '".$date."');"; //em que momento esta funçao vai ser chamada? se calhar o total price nao vai ser 0
 			
 		$result = pg_exec($conn, $insertQuery);
     }

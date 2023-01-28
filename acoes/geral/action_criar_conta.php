@@ -15,11 +15,13 @@ $password = $_POST['password'];
 $conf_pass = $_POST['conf_pass'];
 
 
+
+
 //Validação dos dados
-//Assume-se que todos os campos são obrigatórios (a query insert apenas é executada se todos os campos  preenchidos)
+//Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
+//Assume-se que todos os campos são obrigatórios 
 if (empty($nome) || empty($address) || empty($email) ||  empty($password)||  empty($conf_pass)){
         $dadosValidos = false;
-        //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
         $_SESSION['msgErro'] = "Pelo menos um dos campos em falta!"; 
 }
 
@@ -28,9 +30,8 @@ else if ( $password != $conf_pass ){
         $_SESSION['msgErro'] = "Password e password de confirmação não correspondem!";
 }
 
-else if ( /*VERIFCAR SE JA EXISTE EMAIL*/ 0 ){
+else if ( emailExists($email) ){
         $dadosValidos = false;
-        //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
         $_SESSION['msgErro'] = "Já existe uma conta com o e-mail introduzido!";     
 }        
 
@@ -67,7 +68,7 @@ else {
         //inicia sessão automaticamnte
         $user = getUserByEmailAndPass($email, $encrypt_pass);
         $_SESSION['username'] = $user;
-        header("Location: ".$path2root."index.php");
+        header("Location: ".$path2root."paginas_form/geral/form_login.php");
     }
 
 

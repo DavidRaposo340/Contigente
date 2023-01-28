@@ -26,7 +26,7 @@
 
 	}
 
-	function emailExists($email){ //retorna id do user caso o email exista, se nao existir retorna NULL
+	function emailExists($email){ //retorna true caso o email exista, se nao existir retorna false
 		global $conn;
 		$query = "	SELECT users.id AS id
 					FROM users
@@ -34,20 +34,22 @@
 					";
 		
 		$result = pg_exec($conn, $query);
-		if($result==NULL){
-			return NULL;
-		}
-		else{
-			$row = pg_fetch_row($result);
-			return $row[0];
-		}
+		$row = pg_fetch_assoc($result);
+        
+		if(isset($row['id']))
+			return 1;
+		
+		else
+			return 0;
+		
+
 	}
 
 	function getNamebyUserID($userID){
 		global $conn;
 		$query = "	SELECT users.name AS nome
 					FROM users
-					WHERE users.id='".$userID."'
+					WHERE users.id='".$userID."';
 					";
 		
 		$result = pg_exec($conn, $query);

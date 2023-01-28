@@ -27,18 +27,31 @@
         
     ?>
     
-    <div class="flex-box-encomendas">
+    <div class="flex-box-generic">
         <h2> Carrinho de compras: </h2>
-        <div class="table_style">
-            <table>
-                <tr>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Preço Total</th>
-                </tr>
-                <?php
+
+        <?php
+            $row = pg_fetch_assoc($list_carrinho);
+            if(!isset($row['id']))
+                echo ' <p> Carrinho vazio. <br> Dirija-se à loja para adicionar produtos </p>';
+            
+            if (!empty($_SESSION['msgErro'])) {
+                echo "<p style=\"color:red\">".$_SESSION['msgErro']."</p>";
+                $_SESSION['msgErro'] = NULL;
+            }
                 
-                    $row = pg_fetch_assoc($list_carrinho);
+        ?>
+
+        <div class="generic_table_style">
+            <table>
+                <?php
+                    if(isset($row['id'])){
+                        echo '<tr>';
+                        echo '<th>Produto</th>';
+                        echo '<th>Quantidade</th>';
+                        echo '<th>Preço Total</th>';
+                        echo '</tr>';
+                    }
 
                     while (isset($row['id'])) {
 
@@ -59,6 +72,17 @@
                 ?>
             </table>
         </div>
+        <br>    
+        <?php
+            $list_carrinho = getShoppingCartbyUserID($_SESSION['user']);
+            $row = pg_fetch_assoc($list_carrinho);
+            if(isset($row['id'])){
+                echo "<button class=\"confirm_button\" onclick=\"location.href='".$path2root."acoes/cliente/action_finalizar_encomeda.php?id=".$_SESSION['user']."';\"> Finalizar Encomenda</button>";
+                echo "<button class=\"cancel_button\" onclick=\"location.href='".$path2root."acoes/cliente/action_esvaziar_carrinho.php?id=".$_SESSION['user']."';\"> Esvaziar carrinho</button>";    
+            }
+        ?>     
+
+        
     </div>
 
 
