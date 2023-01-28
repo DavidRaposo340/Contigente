@@ -174,6 +174,19 @@
 		$result = pg_exec($conn, $query);
 		return $result;	
 	}
+
+	function getNameofProductbyID($idProduct){
+		global $conn;
+
+		$query = "	SELECT name as nome		
+					FROM products
+					WHERE id ="  . $idProduct.";
+				 ;";
+
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_row($result);
+		return $row[0];
+	}
 	
 
 	
