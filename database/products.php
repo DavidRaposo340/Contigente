@@ -95,43 +95,33 @@
 						 products.no_lacti  AS no_lactose,
 						 products.no_lacti  AS vegan
 					FROM products
-					WHERE id ="  . $id .";";
+					WHERE id =".$id.";";
 
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_assoc($result);
 
-		if($row['no_gluten']==TRUE)
-		{
+		if($row['no_gluten']=="t")
 			$row['no_gluten']="Isento de glúten";
-		}
+		
 		else
-		{
-			$row['no_gluten']=NULL;
-		}
+			$row['no_gluten']="Contém glúten";
+		
 
-		if($row['no_lactose']==TRUE)
-		{
+		if($row['no_lactose']=="t")
 			$row['no_lactose']="Sem lactose";
-		}
-		else
-		{
-			$row['no_lactose']=NULL;
-		}
 
-		if($row['vegan']==TRUE)
-		{
-			$row['vegan']="Sem lactose";
-		}
 		else
-		{
-			$row['vegan']=NULL;
-		}
+			$row['no_lactose']="Contém lactose";
+		
 
+		if($row['vegan']=="t")
+			$row['vegan']="Vegan";
+		
+		else
+			$row['vegan']="Não vegan";
+		
 		return $row;
-		/* depois acedes assim
-		echo $row['no_lactose'];
-		echo $row['no_gluten'];
-		echo $row['vegan'];*/
+
 	}
 
 	function updateQuantityofProduct($id, $quant){ //funcionou na DB
