@@ -124,5 +124,64 @@
 
 		$result = pg_exec($conn, $updateQuery);
 	}
+
+	function getRestrictionsofRecipe($idRecipe){
+		global $conn;
+			$query = "	SELECT  recipes.no_gluten 	As   no_gluten, 
+								recipes.no_lacti	AS 	 no_lacti,
+								recipes.vegan		As   vegan 
+						FROM recipes
+						WHERE recipes.id="  . $idRecipe .";
+						";
+			$result = pg_exec($conn, $query);
+			return $result;
+	}
+
+	function getRecipesWithRestrictions($no_gluten, $no_lacti, $vegan){
+		global $conn;
+		if($no_gluten === 't' AND $no_lacti === 't' AND $vegan === 't'){
+			$query = "SELECT  	recipes.id 			As   id, 
+								recipes.name 		AS 	 nome,
+								recipes.description	As   descr, 
+								recipes.method		As   method, 
+								recipes.no_person   As   n_doses, 
+								recipes.difficulty 	AS 	 difi,
+								recipes.total_price	AS 	 total_price,
+								recipes.total_time	AS 	 total_time,
+								recipes.image_name  AS   img_path,
+								recipes.type        AS	 type			
+					FROM recipes
+					WHERE recipes.no_gluten = true AND recipes.no_lacti = true AND recipes.vegan = true
+					";
+		} 
+		else {
+			$query = "SELECT  	recipes.id 			As   id, 
+									recipes.name 		AS 	 nome,
+									recipes.description	As   descr, 
+									recipes.method		As   method, 
+									recipes.no_person   As   n_doses, 
+									recipes.difficulty 	AS 	 difi,
+									recipes.total_price	AS 	 total_price,
+									recipes.total_time	AS 	 total_time,
+									recipes.image_name  AS   img_path,
+									recipes.type        AS	 type			
+							FROM recipes
+							WHERE 1=1
+							";
+			if ($no_gluten === 't') {
+				$query .= " AND recipes.no_gluten = true";
+			}
+			if ($no_lacti === 't') {
+				$query .= " AND recipes.no_lacti = true";
+			}
+			if ($vegan == 't') {
+				$query .= " AND recipes.vegan = true";
+			}
+			$query .= ";";
+		}
+			$result = pg_exec($conn, $query);
+			return $result;
+	}
+
 ?>
 

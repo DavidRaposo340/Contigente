@@ -64,6 +64,20 @@
 
 	}
 
+	function editProduct($id, $price, $imagePath, $name){ //pus so os campos que acho que podem ser editados, apesar de nos mockups ter a familia e assim... 
+		global $conn;
+
+		$updateQuery = "UPDATE products 
+						SET price = '$price', 
+							image_name = '$imagePath', 
+							name = '$name'
+						WHERE id = $id
+						";
+
+		$result = pg_exec($conn, $updateQuery);
+	}
+
+
 	function getPriceofProduct($id){
 		global $conn;
 		$query = "	SELECT  products.price   As   price, 
