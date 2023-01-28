@@ -4,11 +4,12 @@
     session_start();
     include_once "../../includes/opendb.php";
     include_once "../../database/shopping_cart.php";
+    include_once "../../database/orders.php";
+    
 
-    $id = $_GET['id'];
+    $id_order = $_GET['id'];
+    $t=time();
+    updateStateofOrder($id_order, "Pago", date("Y-m-d",$t));
 
-    echo $id;
-
-    //insertinShoppingCart($_SESSION['user'], $id, $quant);
-    //header("Location: ".$path2root."paginas_form/cliente/listar_carrinho.php");
+    header("Location: ".$path2root."paginas_form/cliente/listar_encomendas.php");
 ?>

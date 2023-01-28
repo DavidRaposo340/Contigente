@@ -81,7 +81,7 @@
             </table>
         </div>
         <br>           
-        <button class="confirm_button" onclick="location.href='<?php echo $path2root ?>acoes/cliente/action_pagar_encomeda.php?id=<?php echo $id_order ?>' "> Pagar Encomenda </button>
+        <button class="confirm_button" onclick="location.href='<?php echo $path2root ?>acoes/cliente/action_pagar_encomenda.php?id=<?php echo $id_order ?>' "> Pagar Encomenda </button>
         <button class="cancel_button" onclick="location.href='<?php echo $path2root ?>acoes/cliente/action_cancelar_encomenda.php?id=<?php echo $id_order ?>' "> Cancelar Encomenda </button>
                
       
