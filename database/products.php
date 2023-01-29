@@ -194,7 +194,7 @@
 	function getProductbyFilter($filtro_product){
 		global $conn;
 		$query = "	SELECT  products.id 			As   id, 
-							products.family_id 		As   familiaid,
+							products.family_id 		As   familyid,
 							products.quantity		As   quantity, 
 							products.price   		As   price, 
 							products.image_name 	AS 	 img_path,
