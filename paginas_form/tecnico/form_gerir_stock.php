@@ -11,17 +11,25 @@
 
 <body>
   <div class="navbar-separation">
-    <?php
+  <?php
     $path2root = "../../";
     include("../../includes/navbar.php");
-    //TODO #87 Action de Alterar stock guardando o id do produto da ultima pagina
-    ?>
+
+    if (empty($_SESSION['user'])) {     
+      header("Location: ".$path2root."paginas_form/geral/form_login.php");
+    }
+
+    $id = $_GET['id'];
+    $prod_nome=getNameofProductbyID($id);
+    $quantity=getQuantityofProductbyID($id);
+  ?>
+
   </div>
 
   <div class="container-gerir_stock">
     <div class="form-gerir_stock">
-      <h2>Gestão de stock do produto: <?php echo $nome; ?></h2>
-        <h4>Indique a quantidade do produto  <?php echo $nome; ?> que foi adicionada ao armazém<br>(de acordo com os dados do fornecedor)</h4>
+      <h2>Gestão de stock do produto: <?php echo $prod_nome; ?></h2>
+        <h4>Indique a quantidade do produto  <?php echo $prod_nome; ?> que foi adicionada ao armazém<br>(de acordo com os dados do fornecedor)</h4>
 
         <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_gerir_stock.php">
 
