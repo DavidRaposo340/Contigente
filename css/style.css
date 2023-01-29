@@ -432,13 +432,20 @@ nav {
 }
 
 .cartao_botoes button {
-  color: black;
+  color: #0d2137;
+  border-color: #0d2137;
   background: #e0eaf5;
   width: 50%;
   height: 50px;
   padding: 5px 10px;
   font-size: 14px;
   font-weight: bold;
+  transition: 0.2s;
+}
+.cartao_botoes button:hover{
+  background-color:#0d2137;
+  cursor:pointer;
+  color:#ffffff ;
 }
 
 /*--------------- Filtros Produtos  ---------------*/
@@ -446,24 +453,26 @@ nav {
   float: left;
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 331px;
 }
 
 .filtros {
-  padding: 50px 0px;
+  padding: 0px 0px 50px 0px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 1080px;
+  height: 410px;
   background-color: #e0eaf5;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
 }
 
 .pre_filtros {
   float: left;
   padding: 50px 0px;
-  padding-top: 75px;
+  padding-top: 60px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 200px;
+  height: 204px;
   background-color: #e0eaf5;
 }
 
@@ -477,7 +486,11 @@ nav {
   text-align: left;
   outline: none;
   font-size: 19px;
-  transition: 0.4s;
+  transition: 0.4s
+}
+.botao_filtro:hover {
+  background-color: #2E77AE;
+  transition: 0.4s
 }
 
 .search-container {
@@ -491,21 +504,30 @@ nav {
 .search-container input[type=text] {
   background-color: white;
   color: black;
-  padding: 18px;
-  width: 80%;
+  padding: 13px;
+  width: 221px;
   border: none;
   text-align: left;
   outline: none;
   font-size: 19px;
-  align-content: stretch;
+  margin-top: 20px;
+  margin-left: 4px;
+  border-radius: 2px;
 }
 
 .search-container button {
   background-color: #0d2137;
   color: #ffffff;
-  padding: 18px;
-  width: 15%;
+  padding: 13px;
   font-size: 19px;
+  width: 45px;
+  border: none;
+  transition-duration: 0.4s;
+}
+.search-container button:hover {
+  background-color: #2E77AE;
+  cursor:pointer;
+  transition-duration: 0.4s;
 }
 
 .confirm_button {
@@ -526,6 +548,7 @@ nav {
   background-color: #2E77AE;
   font-weight: 700;
   color: #ffffff;
+  cursor:pointer;
 }
 
 /*----------------- Form Login -----------------*/
@@ -767,15 +790,26 @@ p.form-register-button {
 .container-prodinfo-details-fam p {
   padding: 10px;
   font-size: 15px;
+  font-weight: 500;
 }
 
 .qnt_input {
   font-size: 16px;
-  margin-top: 80px;
+  margin-top: 60px;
   border: none 0px;
   padding: 15px 40px;
-
+  margin-bottom: 20px;
+  font-weight: bold;
 }
+.qnt_input input[type=number] {
+  font-size: 16px;
+  color:#0d2137;
+  padding: 3px 6px;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 
 .container-prodinfo-details button {
   font-size: 16px;
@@ -793,6 +827,7 @@ p.form-register-button {
   background-color: #2E77AE;
   font-weight: 700;
   color: #ffffff;
+  cursor: pointer;
 }
 
 /*----------------- Listar Encomendas -----------------*/
@@ -1012,7 +1047,7 @@ tr {
   font-size: 18px;
 }
 
-.form-criar_produto p {
+.form-criar_produto p{
   margin: 5px;
   padding: 14px;
 }
@@ -1088,7 +1123,7 @@ tr {
 }
 
 .form-criar_produto label {
-  padding: 5px;
+  padding-top: 5px;
   margin-top: 5px;
 }
 
