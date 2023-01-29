@@ -143,7 +143,7 @@
             echo "<p> ";
             echo "Deve aumentar o preço do produto - $name1";
             echo "<br>";
-            echo "Deve aumentar o preço do produto - $name2";
+            echo "Deve diminuir o preço do produto - $name2";
             echo "</p>";
 
             ?>
