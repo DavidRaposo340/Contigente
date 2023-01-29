@@ -153,10 +153,13 @@
 
 		$query = "	SELECT  family_products.id As familyproducts_id
 					FROM family_products
-					WHERE family_products.name='".$family."' ";
-		$result = pg_exec($conn, $query);
-		$family_id=$result;
+					WHERE family_products.name='".$family."'; ";
 
+		$result = pg_exec($conn, $query);
+		//$family_id = pg_fetch_assoc($result['familyproducts_id']);
+		$row=pg_fetch_assoc($result);
+		$family_id=$row['familyproducts_id'];
+		
 		$query = "INSERT into products (family_id, quantity, price, no_gluten, no_lacti, vegan, image_name, name)
 						 values ('".$family_id."', '".$quantity."', '".$price."' ,'".$no_gluten."', '".$no_lacti."', '".$vegan."','".$image."', '".$name."');";
 
