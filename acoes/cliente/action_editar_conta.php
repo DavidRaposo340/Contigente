@@ -51,15 +51,11 @@ if(isset($_POST['checkbox_confirmar']) ){
         $encrypt_pass = md5($password);
         editConta($user_logged, $nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan);
 
-        //inicia sessão automaticamnte
-        $user = getUserByEmailAndPass($email, $encrypt_pass);
-        $_SESSION['username'] = $user;
-        header("Location: ".$path2root."paginas_form/geral/form_login.php");
     }
 }
 
 if (isset($_POST['checkbox_cancelar'])){
-    header("Location: ".$path2root."paginas_form/geral/form_login.php");
+    header("Location: ".$path2root."index.php");
 }
 
 
