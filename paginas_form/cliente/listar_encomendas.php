@@ -60,7 +60,10 @@
                 }
                 echo"</td>";
                 echo "<td>".$row['total_price']." €</td>";
-                echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>"; //TODO #68 Action para efetuar pagamento
+                if($row['state']=="Pago"){
+                    echo "<td></td>";
+                }
+                else echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>"; //TODO #68 Action para efetuar pagamento
                 echo "</tr>";
                 $row = pg_fetch_assoc($list_orders);
             }

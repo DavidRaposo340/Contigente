@@ -10,14 +10,18 @@
     <?php
     $path2root = "../../";
     include("../../includes/navbar.php");
+    include_once "../../database/products.php";
+
+
+    if (!empty($_SESSION['familia']))              $familia = $_SESSION['familia'];
+    else $familia = "todas";
 
     $nome = "";
-    $family = "";
     $price = "";
     $quantity = "";
 
     $_SESSION['nome'] = NULL;
-    $_SESSION['family'] = NULL;
+
     $_SESSION['price'] = NULL;
     $_SESSION['quantity'] = NULL;
 
@@ -25,9 +29,30 @@
     <div class="form-criar_produto"> <!--//TODO #70 action para criar produto-->
         <h2>Criar Produto:</h2>
 
-        <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_criar_produto.php">
+        <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_criar_produto.php" enctype="multipart/form-data">
             <p><label for="nome"> Nome:</label> <input type="text" name=nome value="<?php echo $nome; ?>" /> </p>
-            <p><label for="family"> Familia:</label> <input type="text" name="family" value="<?php echo $family; ?>" /> </p>
+            <div class="form-criar_produto-familia">
+            <p><label for="family"> Familia:</label>
+            <div class="form-criar_produto-radio">
+                <input type="radio" id="familia" name="familia" value="todas" <?php echo ($familia == "todas" ? 'checked' : ''); ?>>
+                <label for="todas"> Todas as familias</label><br>
+                <?php
+
+                $list_familias = getFamilyProducts();
+                $row = pg_fetch_assoc($list_familias);
+
+                while (isset($row['id'])) {
+                    if ($familia == $row['name'])
+                        echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" checked>';
+                    else
+                        echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" >';
+                    echo '<label for="' . $row['name'] . '"> ' . $row['name'] . '</label><br>';
+                    $row = pg_fetch_assoc($list_familias);
+                }
+                ?>
+            </div>
+            </p>
+            </div>
             <p><label for="price"> Preço:</label> <input type="text" name="price" value="<?php echo $price; ?>" /> </p>
             <p><label for="quantity"> Quantidade:</label> <input type="number" name="quantity" value="<?php echo $quantity; ?>" /> </p>
             <p class="form-criar_produto-file"><label for="file"> Imagem:<br></label> <input type="file" name="file" /></p>
