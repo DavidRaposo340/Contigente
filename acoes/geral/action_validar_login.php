@@ -37,9 +37,4 @@ else{
       header("Location: ".$path2root."index.php");
   }
 }
-
-
-
-
-
 ?>
