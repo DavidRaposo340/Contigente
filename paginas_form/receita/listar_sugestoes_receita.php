@@ -44,12 +44,7 @@
     </div>
 
         <?php
-         $restrictions=getRestrictionsofUser($user_logged);
-         $restr = pg_fetch_assoc($restrictions);
-         $no_gluten  = $restr['no_gluten'];
-         $no_lacti   = $restr['no_lacti'];
-         $vegan      = $restr['vegan'];
-        if ($user_logged == NULL) { //vai mostrar todas as receitas na tabela e se nao tiver restriçoes nenhumas. ideia David: apresentar a tabela mesmo que esteja logado
+        if ($user_logged == NULL) { //vai mostrar todas as receitas na tabela e se nao tiver restriçoes nenhumas
             echo"<div class=\"generic_table_style\">";
             echo "<table>";
             echo "<tr>";
@@ -81,23 +76,25 @@
         }
 
             else{ //tem user logado, vamos mostrar a pagina com receitas de acordo com as suas restrições
-               
+                $restrictions=getRestrictionsofUser($user_logged);
+                $restr = pg_fetch_assoc($restrictions);
+                $no_gluten  = $restr['no_gluten'];
+                $no_lacti   = $restr['no_lacti'];
+                $vegan      = $restr['vegan'];
        
                 echo "<div>";
                 echo "<p>";
                 
                 echo "<br>";
-                if ($vegan=='t' OR $no_gluten=='t' AND $no_lacti=='t'){
-                    echo "Como tem a seguinte restrição alimentar: "; 
-                    if($no_gluten=='t'){ 
-                        echo "- Intolerante a glúten ";
-                    }
-                    if($no_lacti=='t'){
-                        echo "- Intolerante a laticínios ";
-                    }
-                    if($vegan=='t'){
-                        echo "- Vegan ";
-                    }
+                echo "Como tem a seguinte restrição alimentar: "; 
+                if($no_gluten=='t'){ 
+                    echo "- Intolerante a glúten ";
+                }
+                if($no_lacti=='t'){
+                    echo "- Intolerante a laticínios ";
+                }
+                if($vegan=='t'){
+                    echo "- Vegan ";
                 }
                 echo "</p>";
                 echo "<p>";
@@ -124,6 +121,9 @@
             }
     
         ?>
+       
+         
+
 </body>
 
 </html>
