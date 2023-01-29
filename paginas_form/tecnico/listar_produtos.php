@@ -38,7 +38,7 @@
 
             <!--Search Bar-->
             <div class="search-container">
-                <form action="/action_page.php">
+                <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_filtrar_searchbar.php">
                     <input type="text" placeholder="Procurar produto..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
@@ -120,7 +120,12 @@
             echo "<th>ID</th><th>Nome</th><th>Família</th><th>Em Stock</th><th>Preço</th>";
             echo "</tr>";	
             
-            $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            if ( !empty($_SESSION['searchbar_filter']) ) {
+                $list_products=getProductbyFilter($_SESSION['searchbar_filter']);
+            }
+            else{
+                $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            }
             $row = pg_fetch_assoc($list_products);
 
             while (isset($row['id'])) {
@@ -131,9 +136,9 @@
                 echo "<td>".$row['quantity']."</td>";
                 echo "<td>".$row['price']." €</td>";
 
-                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."acoes/tecnico/form_editar_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Editar</td>";
-                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."acoes/tecnico/remover_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Remover</td>";
-                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."acoes/tecnico/form_gerir_stock.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Stock</td>";
+                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."paginas_form/tecnico/form_editar_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Editar</td>";
+                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."paginas_form/tecnico/remover_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Remover</td>";
+                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."paginas_form/tecnico/form_gerir_stock.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Stock</td>";
                 $row = pg_fetch_assoc($list_products);
             }
             echo "</table>";

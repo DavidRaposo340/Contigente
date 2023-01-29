@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
 <head>
     <title>Criar Produto</title>
     <link rel="stylesheet" href="../../css/style.css">

@@ -33,13 +33,19 @@
           echo '<a class="dropdown-toggle" href="#"> Conta - '.$user_logged.'</a>';
           echo '<div class="dropdown-content">';
 
-          echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">  <i class="fa-solid fa-user"></i> Dados Pessoais</a>';
-          echo '<a href="'.$path2root.'paginas_form\cliente\listar_encomendas.php"> <i class="fa-solid fa-truck-fast"></i> Encomendas</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">  <i class="fa-solid fa-user"></i> Dados Pessoais</a>';        
 
-          if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor")
-            echo '<a href="'.$path2root.'b_page"> <i class="fa-brands fa-product-hunt"></i> Produtos</a>';
+          if (getUserTypebyID($_SESSION['user'])=="Cliente")
+            echo '<a href="'.$path2root.'paginas_form\cliente\listar_encomendas.php"> <i class="fa-solid fa-truck-fast"></i> Encomendas</a>';
+          
+          if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor"){
+            echo '<a href="'.$path2root.'paginas_form\tecnico\listar_encomendas_tecnico.php"> <i class="fa-solid fa-truck-fast"></i> Encomendas</a>';
+            echo '<a href="'.$path2root.'paginas_form\tecnico\listar_produtos.php"> <i class="fa-brands fa-product-hunt"></i> Produtos</a>';
+          }
+
           if (getUserTypebyID($_SESSION['user'])=="Gestor")
             echo '<a href="'.$path2root.'paginas_form\admin\listar_estatisticas.php"> <i class="fa-solid fa-chart-column"></i> Estatísticas </a>';
+
 
           echo '<a href="'.$path2root.'acoes\geral\action_logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>';
 
