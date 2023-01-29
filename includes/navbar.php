@@ -1,9 +1,9 @@
+<script src="https://kit.fontawesome.com/9b0808819b.js" crossorigin="anonymous"></script>
 <?php
   session_start();
   include_once $path2root."includes/opendb.php";
   include_once $path2root."database/user_type.php"; 
   include_once $path2root."database/users.php"; 
-  
 ?>
 
 <nav>
@@ -27,21 +27,21 @@
           $user_logged=getNamebyUserID($_SESSION['user']);
           
           //carrinho so é aprensentado quando há sessao inciada para evitar erros
-          echo '<a href="'.$path2root.'paginas_form\cliente\listar_carrinho.php"> Carrinho</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\listar_carrinho.php"> <i class="fa-solid fa-cart-shopping"></i></a>';
 
           echo '<div class="dropdown">';
-          echo '<a class="dropdown-toggle" href="#">Conta - '.$user_logged.'</a>';
+          echo '<a class="dropdown-toggle" href="#"> Conta - '.$user_logged.'</a>';
           echo '<div class="dropdown-content">';
 
-          echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">Dados Pessoais</a>';
-          echo '<a href="'.$path2root.'paginas_form\cliente\listar_encomendas.php">Encomendas</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\form_editar_conta.php">  <i class="fa-solid fa-user"></i> Dados Pessoais</a>';
+          echo '<a href="'.$path2root.'paginas_form\cliente\listar_encomendas.php"> <i class="fa-solid fa-truck-fast"></i> Encomendas</a>';
 
           if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor")
-            echo '<a href="'.$path2root.'b_page">Produtos</a>';
+            echo '<a href="'.$path2root.'b_page"> <i class="fa-brands fa-product-hunt"></i> Produtos</a>';
           if (getUserTypebyID($_SESSION['user'])=="Gestor")
-            echo '<a href="'.$path2root.'paginas_form\admin\listar_estatisticas.php">Estatistica</a>';
+            echo '<a href="'.$path2root.'paginas_form\admin\listar_estatisticas.php"> <i class="fa-solid fa-chart-column"></i> Estatísticas </a>';
 
-          echo '<a href="'.$path2root.'acoes\geral\action_logout.php">Logout</a>';
+          echo '<a href="'.$path2root.'acoes\geral\action_logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>';
 
 
           echo '</div>';

@@ -5,7 +5,7 @@
         $totalpriceOrders = 0;
         $query = "	SELECT  orders.total_price  As totalprice
 					FROM    orders
-					WHERE   orders.state='Pago'
+					WHERE   orders.state='Pago' OR orders.state='Entregue'
 				 ";
 		$result = pg_exec($conn, $query);
         
@@ -27,7 +27,7 @@
 					SUM(orders_lines.total_price) as total_sales
 					FROM contigente.orders 
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Pago'
+					WHERE orders.state = 'Pago' OR orders.state='Entregue'
 					GROUP BY id_product
 					ORDER BY total_sales DESC
 					LIMIT 5
@@ -45,7 +45,7 @@
 					SUM(orders_lines.total_price) as total_sales
 					FROM contigente.orders 
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Pago'
+					WHERE orders.state = 'Pago' OR orders.state='Entregue'
 					GROUP BY id_product
 					ORDER BY total_sales DESC
 				";
@@ -61,7 +61,7 @@
 							SUM(orders_lines.total_price) as total_sales
 					FROM    orders
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Pago' 
+					WHERE orders.state = 'Pago' OR orders.state='Entregue'
 					GROUP BY month
 					ORDER BY month
 				 ";
@@ -77,7 +77,7 @@
 					SUM(orders_lines.total_price) as total_sales
 					FROM contigente.orders 
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Pago'
+					WHERE orders.state = 'Pago' OR orders.state='Entregue'
 					GROUP BY id_product
 					ORDER BY total_sales DESC
 					LIMIT 1
@@ -93,7 +93,7 @@
 					SUM(orders_lines.total_price) as total_sales
 					FROM contigente.orders 
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Pago'
+					WHERE orders.state = 'Pago' OR orders.state='Entregue'
 					GROUP BY id_product
 					ORDER BY total_sales ASC
 					LIMIT 1
