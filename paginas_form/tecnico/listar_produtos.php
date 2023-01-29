@@ -34,7 +34,7 @@
     ?>
     <div class="all_filtros">
         <div class="pre_filtros">
-            <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros</p>
+            <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros <i class="fa-solid fa-filter"> </i>  </p>
 
             <!--Search Bar-->
             <div class="search-container">
@@ -74,7 +74,7 @@
                         
                     </div> 
 
-                <p class="accordion">Restrições alimentares</p>
+                <p class="accordion">Restrições alimentares <i class="fa-solid fa-wheat-awn-circle-exclamation"></i></p>
                     <div class="panel">
                         <!--CHECKBOXS-->
                         <input type="checkbox" id="gluten" name="gluten" value="1" <?php echo ($no_gluten==1 ? 'checked' : '');?>>
@@ -87,12 +87,11 @@
                         <label for="vegan"> Vegan</label><br><br>
                     </div> 
 
-                <p class="accordion">Outro filtro</p>
                     <div class="panel">
                         <!--  ...  -->
                     </div> 
                     
-                <p class="accordion">Preço</p>
+                <p class="accordion">Preço <i class="fa-solid fa-euro-sign"></i> </p>
                     <div class="panel">
                         <!--  Range slider  -->
                         <div data-role="rangeslider">

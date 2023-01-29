@@ -89,11 +89,10 @@
                         <label for="vegan"> Vegan</label><br><br>
                     </div> 
 
-                <p class="accordion">Outro filtro  </p>
                     <div class="panel">
                         <!--  ...  -->
                     </div> 
-                    
+
                 <p class="accordion"> Preço <i class="fa-solid fa-euro-sign"></i> </p>
                     <div class="panel">
                         <!--  Range slider  -->

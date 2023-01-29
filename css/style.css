@@ -383,11 +383,9 @@ nav {
 
 .column_intro {
   float: left;
-
   margin-top: 100px;
   padding-left: 150px;
   padding-right: 150px;
-
   width: 65%;
 }
 
@@ -415,8 +413,15 @@ nav {
   float: left;
   margin-top: 50px;
   padding: 50px 50px 20px 50px;
+  display: flex;
+  overflow: hidden;
 }
-
+.aviso p{
+  text-align: end;
+  align-items: flex-end;
+  margin-top: 40px;
+  margin-left: 20vh;
+}
 .flex-box {
   display: flex;
   justify-content: center;
@@ -501,7 +506,7 @@ nav {
   padding: 0px 0px 50px 0px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 410px;
+  height: 336px;
   background-color: #e0eaf5;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
