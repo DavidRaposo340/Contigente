@@ -77,6 +77,15 @@
 		$result = pg_exec($conn, $updateQuery);
 	}
 
+	function deleteProduct($id){
+        global $conn;
+
+        $deleteQuery = "DELETE FROM products
+                        WHERE products.id='" . $id . "'
+                       ";
+
+        pg_exec($conn, $deleteQuery);
+    }
 
 	function getPriceofProduct($id){
 		global $conn;
