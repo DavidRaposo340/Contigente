@@ -17,6 +17,7 @@ $price_max = $_POST['price-max'];
 $_SESSION['familia'] = $familia;
 $_SESSION['price_min'] = $price_min;
 $_SESSION['price_max'] = $price_max;
+$_SESSION['searchbar_filter']=0;
 
 
 if (isset($_POST['gluten']) && $_POST['gluten'] == '1') {$_SESSION['no_gluten'] = 1; $_SESSION['checked_gluten']=checked;}

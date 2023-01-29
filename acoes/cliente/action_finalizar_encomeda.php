@@ -8,6 +8,8 @@
     include_once "../../database/recipes.php";  
     include_once "../../database/orders.php";  
     include_once "../../database/order_lines.php";
+    include_once "../../database/users.php";
+    
 
 
     $id_user = $_GET['id'];
@@ -37,6 +39,9 @@
         $list_carrinho = getShoppingCartbyUserID($id_user);
         $row = pg_fetch_assoc($list_carrinho);
 
+        //verificaçao de restriçoes alimentares do user
+        $r_user=getRestrictionsofUser($id_user);
+        $user_restr = pg_fetch_assoc($r_user);	
         
         while (isset($row['id_prod'])) {
             insertinOrderLines($order_id, $row['id_prod'], $row['quant']);
@@ -44,6 +49,16 @@
             //ajuste de stock
             $stock = getQuantityofProductbyID($row['id_prod']);
             updateQuantityofProduct($row['id_prod'], $stock-$row['quant']);
+            
+                //verificaçao de restriçoes alimentares 
+                $prod_restr=getBoolRestrictionsofProductbyID($row['id_prod']);
+                echo $user_restr['no_gluten'];
+                echo $prod_restr['no_gluten'];
+                if( $user_restr['no_gluten']!=$prod_restr['no_gluten'] ||
+                    $user_restr['no_lacti']!=$prod_restr['no_lactose'] ||
+                    $user_restr['vegan']!=$prod_restr['vegan']){
+                        $_SESSION['msgErro'] = "Cuidado!! O(s) produto(s) que selecionou contêm as suas restrições alimentares"; 
+                    }
 
             $row = pg_fetch_assoc($list_carrinho);
         }
@@ -57,7 +72,6 @@
     }
     else{
         deleteShoppingCart($id_user);
-        $_SESSION['msgErro'] = "Já não existe stock suficiente para avançar com o seu pedido!"; 
        
         header("Location: ".$path2root."paginas_form/cliente/listar_carrinho.php");
     }

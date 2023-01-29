@@ -14,6 +14,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $conf_pass = $_POST['conf_pass'];
 
+$dadosValidos = true;
 
 if(isset($_POST['checkbox_confirmar']) ){
     //Validação dos dados
@@ -55,6 +56,8 @@ if(isset($_POST['checkbox_confirmar']) ){
     else {
         if (isset($_POST['gluten']) && $_POST['gluten'] == '1') $no_gluten = 'true'; 
         else $no_gluten = 'false';
+
+        echo $no_gluten;
 
         if (isset($_POST['lactose']) && $_POST['lactose'] == '1') $no_lact = 'true';
         else $no_lact = 'false';
