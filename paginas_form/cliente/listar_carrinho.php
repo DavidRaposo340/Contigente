@@ -56,7 +56,7 @@
                     while (isset($row['id'])) {
 
                         echo "<tr>";
-                        echo "<td> <a href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id_prod']."\"> ".$row['name']."</td>";
+                        echo "<td> <a class=\"carrinho_compas-nome\" href=\"".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id_prod']."\"> ".$row['name']."</td>";
                         echo "<td>".$row['quant']." Unidade(s) </td>";
                         $total_price=getTotalPriceProductbyQuantity($row['id_prod'], $row['quant']); 
                         echo "<td> ".$total_price." € </td>";
