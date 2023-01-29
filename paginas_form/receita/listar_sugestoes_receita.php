@@ -17,8 +17,11 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/recipes.php";  
-        include_once "../../database/users.php";  
-        
+
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
      
         if (!empty($_SESSION['filtro_rec'])) $filtro_rec = $_SESSION['filtro_rec'];    else $filtro_rec = NULL;
 
@@ -27,77 +30,72 @@
         if (!empty($_SESSION['user'])) $user_logged = $_SESSION['user'];    else $user_logged = NULL;
 
         
-    ?>
+        echo '<div class="esquerda_sugestoes">';
+            echo '<p>';
+            echo '<br>';
+                echo 'Aqui encontra sugestões de algumas refeições deliciosas e simples e o melhor: caso queira fazer a receita e não tenha os ingredientes, basta clicar num botão para adicionar tudo o que precisa ao seu carrinho!';
+            echo '';
+            echo '</p>';
+            echo '';
+            echo '<!--Search Bar-->';
+            echo '<div class="search-container">';
+                echo '<form action="/action_search_recipe.php">';      
+                    echo '<input type="text" placeholder="Procurar receita..." name="search">';
+                    echo '<button type="submit"><i class="fa fa-search"></i></button>';
+                echo '</form>';
+            echo '</div>';
 
-    <div>
-        <p>
-            <br>
-            Aqui encontra sugestões de algumas refeições deliciosas e simples e o melhor: caso queira fazer a receita e não tenha os ingredientes, basta clicar num botão para adicionar tudo o que precisa ao seu carrinho!
-
-        </p>
-    </div>
-
-    <!--Search Bar-->
-    <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Procurar receita..." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-    </div>
-
-        <?php
-         $restrictions=getRestrictionsofUser($user_logged);
-         $restr = pg_fetch_assoc($restrictions);
-         $no_gluten  = $restr['no_gluten'];
-         $no_lacti   = $restr['no_lacti'];
-         $vegan      = $restr['vegan'];
-        if ($user_logged == NULL) { //vai mostrar todas as receitas na tabela e se nao tiver restriçoes nenhumas. ideia David: apresentar a tabela mesmo que esteja logado
-            echo"<div class=\"generic_table_style\">";
-            echo "<table>";
-            echo "<tr>";
-            echo "<th>Nome da receita</th>";
-            echo "<th>Dificuldade</th>";
-            echo "<th>Tempo de preparação</th>";
-            echo " <th>Preço total</th>";
-            echo "</tr>";
-
-            $row = pg_fetch_assoc($list_receitas);
-
-            while (isset($row['id'])) {
-
+           // if ($user_logged == NULL) { //vai mostrar todas as receitas na tabela e se nao tiver restriçoes nenhumas
+                echo"<div class=\"generic_table_style\">";
+                echo "<table>";
                 echo "<tr>";
-                echo "<td> <a href=\"" . $path2root . "paginas_form/receita/listar_receita_info.php?id=" . $row['id'] . "\"> " . $row['nome'] . "</td>";
-                echo "<td>" . $row['difi'] . "</td>";
-                echo "<td>" . $row['total_time'] . " Minutos </td>";
-                echo "<td>" . $row['total_price'] . " €</td>";
-                echo "<tr>";
+                echo "<th>Nome da receita</th>";
+                echo "<th>Dificuldade</th>";
+                echo "<th>Tempo de preparação</th>";
+                echo " <th>Preço total</th>";
+                echo "</tr>";
 
                 $row = pg_fetch_assoc($list_receitas);
-            }
-            echo "</table>";
-            echo "</div>";
-           //SLIDESHOW 
-            /*if($user_logged == NULL){
-                include("javascript/slideshow_receitas.php"); 
-            }*/
-        }
 
-            else{ //tem user logado, vamos mostrar a pagina com receitas de acordo com as suas restrições
-               
+                while (isset($row['id'])) {
+
+                    echo "<tr>";
+                    echo "<td> <a href=\"" . $path2root . "paginas_form/receita/listar_receita_info.php?id=" . $row['id'] . "\"> " . $row['nome'] . "</td>";
+                    echo "<td>" . $row['difi'] . "</td>";
+                    echo "<td>" . $row['total_time'] . " Minutos </td>";
+                    echo "<td>" . $row['total_price'] . " €</td>";
+                    echo "<tr>";
+
+                    $row = pg_fetch_assoc($list_receitas);
+                }
+                echo "</table>";
+                echo "</div>";
+        echo "</div>";
+     
+    
+
+
+        echo "<div class=\"direita_sugestoes\">";
+            if($user_logged!=NULL){ //tem user logado, vamos mostrar a coluna da direita com receitas de acordo com as suas restrições
+                $restrictions=getRestrictionsofUser($user_logged);
+                $restr = pg_fetch_assoc($restrictions);
+                $no_gluten  = $restr['no_gluten'];
+                $no_lacti   = $restr['no_lacti'];
+                $vegan      = $restr['vegan'];
        
                 echo "<div>";
                 echo "<p>";
                 
                 echo "<br>";
-                if ($vegan=='t' OR $no_gluten=='t' AND $no_lacti=='t'){
-                    echo "Como tem a seguinte restrição alimentar: "; 
-                    if($no_gluten=='t'){ 
+                if ($no_gluten == 't' || $no_lacti == 't' || $vegan == 't') {
+                    echo "Como tem a seguinte restrição alimentar: ";
+                    if ($no_gluten == 't') {
                         echo "- Intolerante a glúten ";
                     }
-                    if($no_lacti=='t'){
+                    if ($no_lacti == 't') {
                         echo "- Intolerante a laticínios ";
                     }
-                    if($vegan=='t'){
+                    if ($vegan == 't') {
                         echo "- Vegan ";
                     }
                 }
@@ -126,6 +124,9 @@
             }
     
         ?>
+       
+         
+
 </body>
 
 </html>

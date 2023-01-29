@@ -61,8 +61,9 @@ p {
   font-weight: 700;
   background-color: #0d2137;
   color: #ffffff;
-  padding: 15px 40px;
+  padding: 15px 5px;
   border-radius: 10px;
+  width: 240px;
 }
 .cancel_button:hover{
   transition-duration: 0.4s;
@@ -77,15 +78,14 @@ p {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 100px;
-  margin-right: 400px;
-  margin-left: 400px;
+  text-align: center;
 }
 .flex-box-generic h2{
-  font-size: 22px;
+  font-size: 24px;
   display: flex;
-  /*justify-content: left;*/
-  width: 100%;
-  text-decoration: underline 2px;
+  justify-content: left;
+  width: 65%;
+  text-decoration: underline 4px #ff8e2b;
 }
 .flex-box-generic p{
   display: flex;
@@ -189,7 +189,13 @@ p {
   color: #ffffff;
 }
 
-
+a.carrinho_compas-nome{
+  text-decoration: none;
+  color: #000;
+}
+a.carrinho_compas-nome:hover{
+  color:#2E77AE;
+}
 
 /*--------------- Navegation Bar (MENU) ---------------*/
 nav {
@@ -380,14 +386,14 @@ nav {
 .aviso{
   float: left;
   margin-top: 50px;
-  padding: 50px;
+  padding: 50px 50px 20px 50px;
 }
 
 .flex-box {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 350px 100px;
+  margin: 255px 100px 350px 100px;
 
 }
 
@@ -545,8 +551,9 @@ nav {
   font-weight: 700;
   background-color: #ff8e2b;
   color: #ffffff;
-  padding: 15px 40px;
+  padding: 15px 5px;
   border-radius: 10px;
+  width: 240px;
 }
 
 .confirm_button:hover {
@@ -873,7 +880,9 @@ p.form-register-button {
   justify-content: left;
   margin-left: 250px;
   width: 100%;
-  text-decoration: underline 2px;
+  font-size: 24px;
+  display: flex;
+  text-decoration: underline 4px #ff8e2b;
 }
 
 .table_style {
@@ -1246,6 +1255,20 @@ p.form-criar_produto-button {
   padding: 5px 10px;
   font-size: 14px;
   font-weight: bold;
+}
+
+.esquerda_sugestoes{
+  width: 50%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+}
+
+.direita_sugestoes{
+  width: 50%;
+  display: flex;
+  float: right;
+  flex-direction: column;
 }
 
 /*------------------- Form listar info receita ----------------------*/
