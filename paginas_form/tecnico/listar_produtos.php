@@ -60,7 +60,7 @@
                                 if ($familia==$row['name'])
                                     echo '<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" checked>';
                                 else
-                                    echo '<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" >';
+                                    echo 's<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" >';
                                 echo '<label for="'.$row['name'].'"> '.$row['name'].'</label><br>';
                                 $row = pg_fetch_assoc($list_familias);
                             }
@@ -136,9 +136,9 @@
                 echo "<td>".$row['quantity']."</td>";
                 echo "<td>".$row['price']." €</td>";
 
-                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."paginas_form/tecnico/form_editar_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Editar</td>";
-                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."paginas_form/tecnico/remover_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Remover</td>";
-                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."paginas_form/tecnico/form_gerir_stock.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Stock</td>";
+                echo "<td style='width:90px;padding:0px'> <a style='width:90px;padding:6px 7px' href=\"".$path2root."paginas_form/tecnico/form_editar_produto.php?id=".$row['id']."\">Editar</td>";
+                echo "<td style='width:90px;padding:0px'> <a style='width:90px;padding:6px 7px' href=\"".$path2root."paginas_form/tecnico/remover_produto.php?id=".$row['id']."\">Remover</td>";
+                echo "<td style='width:90px;padding:0px'> <a style='width:90px;padding:6px 7px' href=\"".$path2root."paginas_form/tecnico/form_gerir_stock.php?id=".$row['id']."\">Stock</td>";
                 $row = pg_fetch_assoc($list_products);
             }
             echo "</table>";

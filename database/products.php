@@ -98,7 +98,6 @@
 
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_assoc($result);
-		echo $row['quant'];
 		return $row['quant'];
 	}
 
@@ -199,8 +198,8 @@
 
 		$query = "	SELECT name as nome		
 					FROM products
-					WHERE id ="  . $idProduct.";
-				 ;";
+					WHERE id ='". $idProduct."';
+				 ";
 
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_row($result);
