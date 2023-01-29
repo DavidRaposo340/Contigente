@@ -138,6 +138,22 @@
 
 	}
 
+	
+	function getBoolRestrictionsofProductbyID($id){
+		global $conn;
+
+		$query = "SELECT products.no_gluten AS no_gluten,
+						 products.no_lacti  AS no_lactose,
+						 products.no_lacti  AS vegan
+					FROM products
+					WHERE id =".$id.";";
+
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_assoc($result);	
+		return $row;
+
+	}
+
 	function updateQuantityofProduct($id, $quant){ //funcionou na DB
 		global $conn;
 

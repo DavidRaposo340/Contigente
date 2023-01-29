@@ -46,6 +46,12 @@
             verifique se as quantidade e os valores estão corretos.           
             Não poderá voltar a trás.
         </p>
+        <?php
+            if (!empty($_SESSION['msgErro'])) {
+                echo "<p style=\"color:red\">" . $_SESSION['msgErro'] . "</p>";
+                $_SESSION['msgErro'] = NULL;
+            }
+        ?>
         <div class="generic_table_style">
             <table>
                 <tr>
