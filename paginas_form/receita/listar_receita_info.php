@@ -41,7 +41,7 @@
             <br>
             <br>
             
-            <h3> Descriçao: </h3> 
+            <h3> Descrição: </h3> 
             <p>
                 <?php echo $row['descr'] ?>
             </p>
@@ -82,7 +82,7 @@
                     </tr>
                     <tr>
                         <th>Preço total</th>
-                        <td> <?php echo $row['total_price'] ?> </td>
+                        <td> <?php echo $row['total_price'] ?> €</td>
                     </tr>
                 </table>
             </div>

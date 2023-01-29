@@ -376,11 +376,18 @@ nav {
 
 
 /*--------------- Loja Produtos Pag  ---------------*/
+
+.aviso{
+  float: left;
+  margin-top: 50px;
+  padding: 50px;
+}
+
 .flex-box {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 250px 100px;
+  margin: 350px 100px;
 
 }
 
@@ -1293,4 +1300,25 @@ p.form-criar_produto-button {
   padding: 5px 100px;
 }
 
+/*------------------- Form listar estatistica ----------------------*/
 
+.estatistica{
+  margin: 50px;
+}
+.row_estatitica{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+}
+.row_estatitica:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.collumn_50{
+  width: 50%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+}

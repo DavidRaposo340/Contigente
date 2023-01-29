@@ -32,6 +32,7 @@
         if (!empty($_SESSION['vegan'])) 	        $vegan = $_SESSION['vegan']; 	            else $vegan = 0;       
         
     ?>
+
     <div class="all_filtros">
         <div class="pre_filtros">
             <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros</p>
@@ -109,8 +110,19 @@
         </div>
     </div>
 
-    
 
+    <div class="aviso">
+        <h1> Loja de Produtos: </h1>
+        <?php
+        //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+        if (!empty($_SESSION['msgAviso'])) {
+            echo "<p style=\"color:#0d2137\">" . $_SESSION['msgAviso'] . "</p>";
+            $_SESSION['msgAviso'] = NULL;
+        }
+        else
+            echo "<br>"
+        ?>
+    </div> 
 
     <div class="flex-box">
 
@@ -129,7 +141,7 @@
                 echo "<div class=\"cartao_botoes\">";
                 echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
                 echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."&quantity=1';\"> Adicionar ao carrinho</button>";
-               
+            
                 echo "</div>";  
                 echo "</div>";            
                 $row = pg_fetch_assoc($list_products);
@@ -152,7 +164,7 @@
         ?>
 
     </div>
-    
+
     <!-- Boa pratica executar os scripts mesmo antes do fim do body -->
     <script src="<?php echo $path2root ?>javascript\accordion_button.js"></script>
     <script src="<?php echo $path2root ?>javascript\hide_div.js"></script>
