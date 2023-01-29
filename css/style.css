@@ -377,11 +377,18 @@ nav {
 
 
 /*--------------- Loja Produtos Pag  ---------------*/
+
+.aviso{
+  float: left;
+  margin-top: 50px;
+  padding: 50px;
+}
+
 .flex-box {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 250px 100px;
+  margin: 350px 100px;
 
 }
 
