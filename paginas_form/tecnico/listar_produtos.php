@@ -45,7 +45,7 @@
             </div>
         </div>
         <div id="filtros_div" class="filtros">
-            <form method="post" action="<?php echo $path2root; ?>acoes/produto/action_filtrar_loja.php">
+            <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_filtrar_produto_tecnico.php">
                 <p class="accordion">Família de produtos</p>
                     <div class="panel">
                         <!--Radio buttons-->
