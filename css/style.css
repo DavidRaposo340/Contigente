@@ -1248,6 +1248,20 @@ p.form-criar_produto-button {
   font-weight: bold;
 }
 
+.esquerda_sugestoes{
+  width: 50%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+}
+
+.direita_sugestoes{
+  width: 50%;
+  display: flex;
+  float: right;
+  flex-direction: column;
+}
+
 /*------------------- Form listar info receita ----------------------*/
 .row_title_img {
   display: flex;
