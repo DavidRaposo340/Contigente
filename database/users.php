@@ -58,6 +58,24 @@
 		
 	}
 
+	function getUserbyID($userID){
+		global $conn;
+		$query = "	SELECT 	users.name 		As   name, 
+							users.address	AS 	 address,
+							users.email		AS 	 email,
+							users.no_gluten	AS 	 no_gluten,
+							users.no_lacti	AS 	 no_lact,
+							users.vegan		AS 	 vegan
+					FROM users
+					WHERE users.id=".$userID.";
+					";
+		
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_assoc($result);
+		return $row;
+		
+	}
+
 	function getRestrictionsofUser($idUser){
 		global $conn;
 			$query = "	SELECT  users.no_gluten 	As   no_gluten, 
@@ -74,18 +92,18 @@
 		global $conn;
 
 		$insertQuery = "UPDATE users 
-						SET name=$nome,
-							address=$address, 
-							email=$email,
-							password=$encrypt_pass, 
-							no_gluten=$no_gluten, 
-							no_lacti=$no_lact, 
-							vegan=$vegan
-						WHERE id ="  . $userID .";
+						SET name='".$nome."',
+							address='".$address."', 
+							email='".$email."',
+							password='".$encrypt_pass."', 
+							no_gluten='".$no_gluten."', 
+							no_lacti='".$no_lact."', 
+							vegan='".$vegan."'
+						WHERE id ='".$userID."';
 						"; 
 			
 
-		$result = pg_exec($conn, $insertQuery);
+		pg_exec($conn, $insertQuery);
 	
 	}
 

@@ -1,8 +1,8 @@
 
-function showTopVendasChart(type) {
+function showMonthVendasChart(type) {
 
     var chartType = type;			//chartType is char type selected by the user in the combo
-    var canvas 	  = document.getElementById("chartTopVendasCanvas");						//canvas is the HTML element where the chart will be drawn
+    var canvas 	  = document.getElementById("chartMonthVendasCanvas");						//canvas is the HTML element where the chart will be drawn
 
     var request = new XMLHttpRequest();
     
@@ -11,7 +11,7 @@ function showTopVendasChart(type) {
         if (this.readyState == 4 && this.status == 200) {	
 
             var yValues = JSON.parse(this.responseText)['vendas'];  	//extract array Yaxis from the JSON stream received from the web service
-            var xValues = JSON.parse(this.responseText)['prod'];	
+            var xValues = JSON.parse(this.responseText)['mes'];	
             
             var barColors = [
                 "#0d2137",
@@ -53,7 +53,7 @@ function showTopVendasChart(type) {
 
 
     // invocation of the web service that retrieves the arrays totalSalesAmount[] and month[] (Y and X axis of the chart)
-    var data = "../../javascript/top_vendas_chart_generate_data.php";
+    var data = "../../javascript/month_vendas_chart_generate_data.php";
     request.open("GET",data, true);
     request.send();
 

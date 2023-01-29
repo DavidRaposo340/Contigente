@@ -33,7 +33,7 @@ p {
   font-weight: bold;
 }
 
-.confirm_button{
+.confirm_button {
   float: right;
   font-size: 16px;
   margin-top: 20px;
@@ -46,12 +46,14 @@ p {
   padding: 15px 40px;
   border-radius: 10px;
 }
-.confirm_button:hover{
+
+.confirm_button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
 
 }
-.cancel_button{
+
+.cancel_button {
   float: right;
   font-size: 16px;
   margin-top: 20px;
@@ -65,7 +67,8 @@ p {
   border-radius: 10px;
   width: 240px;
 }
-.cancel_button:hover{
+
+.cancel_button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
 
@@ -80,121 +83,146 @@ p {
   margin-top: 100px;
   text-align: center;
 }
-.flex-box-generic h2{
-  font-size: 24px;
+
+.flex-box-generic h2 {
+  font-size: 25px;
   display: flex;
   justify-content: left;
   width: 65%;
   text-decoration: underline 4px #ff8e2b;
 }
-.flex-box-generic p{
+
+.flex-box-generic p {
   display: flex;
   justify-content: left;
   width: 900px;
 }
 
-.generic_table_style{
+.generic_table_style {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   width: 900px;
 }
-.generic_table_style table{
+
+.generic_table_style table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   color: #ffffff;
 }
-.generic_table_style table th{
+
+.generic_table_style table th {
   padding: 10px 25px;
   font-size: 14px;
-  background-color:#2E77AE;
+  background-color: #2E77AE;
   border-radius: 5px;
 }
-.generic_table_style table, th, td, tr{
+
+.generic_table_style table,
+th,
+td,
+tr {
   border: 2px solid #ffffff;
 }
-.generic_table_style table td{
+
+.generic_table_style table td {
   padding: 10px 25px;
   font-size: 14px;
   color: #000;
 }
-.generic_table_style tr:nth-child(2n){
+
+.generic_table_style tr:nth-child(2n) {
   background: rgb(235, 235, 235)
 }
-.generic_table_style tr:nth-child(2n+1){
+
+.generic_table_style tr:nth-child(2n+1) {
   background: rgb(210, 210, 210)
 }
-.generic_table_style button{
+
+.generic_table_style button {
   font-size: 15px;
   border: none 0px;
   transition-duration: 0.4s;
   font-weight: 700;
-  background-color:#0d2137;
+  background-color: #0d2137;
   color: #ffffff;
   padding: 5px 10px;
   border-radius: 5px;
 }
-.generic_table_style button:hover{
+
+.generic_table_style button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
   color: #ffffff;
 }
 
-.mini-table_style{
+.mini-table_style {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   width: 500px;
 }
-.mini-table_style table{
+
+.mini-table_style table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   color: #ffffff;
 }
-.mini-table_style table th{
+
+.mini-table_style table th {
   padding: 10px 25px;
   font-size: 14px;
-  background-color:#2E77AE;
+  background-color: #2E77AE;
   border-radius: 5px;
 }
-.mini-table_style table, th, td, tr{
+
+.mini-table_style table,
+th,
+td,
+tr {
   border: 2px solid #ffffff;
 }
-.mini-table_style table td{
+
+.mini-table_style table td {
   padding: 10px 25px;
   font-size: 14px;
   color: #000;
 }
-.mini-table_style tr:nth-child(2n){
+
+.mini-table_style tr:nth-child(2n) {
   background: rgb(235, 235, 235)
 }
-.mini-table_style tr:nth-child(2n+1){
+
+.mini-table_style tr:nth-child(2n+1) {
   background: rgb(210, 210, 210)
 }
-.mini-table_style button{
+
+.mini-table_style button {
   font-size: 15px;
   border: none 0px;
   transition-duration: 0.4s;
   font-weight: 700;
-  background-color:#0d2137;
+  background-color: #0d2137;
   color: #ffffff;
   padding: 5px 10px;
   border-radius: 5px;
 }
-.mini-table_style button:hover{
+
+.mini-table_style button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
   color: #ffffff;
 }
 
-a.carrinho_compas-nome{
+a.carrinho_compas-nome {
   text-decoration: none;
   color: #000;
 }
-a.carrinho_compas-nome:hover{
-  color:#2E77AE;
+
+a.carrinho_compas-nome:hover {
+  color: #2E77AE;
 }
 
 /*--------------- Navegation Bar (MENU) ---------------*/
@@ -227,7 +255,6 @@ nav {
 .nav_block a {
   float: left;
   color: #ffffff;
-  text-align: center;
   padding: 26px;
   text-decoration: none;
   font-size: 19px;
@@ -275,7 +302,7 @@ nav {
 }
 
 .dropdown-content {
-  width: 200px;
+  width: 230px;
   padding: 0;
   display: none;
   position: fixed;
@@ -294,7 +321,8 @@ nav {
   background-color: #2E77AE;
   color: #ffffff;
   transition: 0.1s;
-  width: 200px;
+  width: 230px;
+  padding-left: 30px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -313,7 +341,7 @@ nav {
   margin-top: 20px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 19px;
   transition: 0.4s;
@@ -355,11 +383,9 @@ nav {
 
 .column_intro {
   float: left;
-
   margin-top: 100px;
   padding-left: 150px;
   padding-right: 150px;
-
   width: 65%;
 }
 
@@ -383,17 +409,24 @@ nav {
 
 /*--------------- Loja Produtos Pag  ---------------*/
 
-.aviso{
+.aviso {
   float: left;
   margin-top: 50px;
   padding: 50px 50px 20px 50px;
+  display: flex;
+  overflow: hidden;
 }
-
+.aviso p{
+  text-align: end;
+  align-items: flex-end;
+  margin-top: 40px;
+  margin-left: 20vh;
+}
 .flex-box {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 255px 100px 350px 100px;
+  margin: 255px 50px 350px 50px;
 
 }
 
@@ -406,7 +439,7 @@ nav {
   margin: 20px 15px;
   border-radius: 5px;
   height: auto;
-  width: 330px;
+  width: 315px;
   position: relative;
 }
 
@@ -454,10 +487,11 @@ nav {
   font-weight: bold;
   transition: 0.2s;
 }
-.cartao_botoes button:hover{
-  background-color:#0d2137;
-  cursor:pointer;
-  color:#ffffff ;
+
+.cartao_botoes button:hover {
+  background-color: #0d2137;
+  cursor: pointer;
+  color: #ffffff;
 }
 
 /*--------------- Filtros Produtos  ---------------*/
@@ -465,26 +499,26 @@ nav {
   float: left;
   display: flex;
   flex-direction: column;
-  width: 331px;
+  width: 361px;
 }
 
 .filtros {
   padding: 0px 0px 50px 0px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 410px;
+  height: 336px;
   background-color: #e0eaf5;
-  border-bottom-right-radius:10px;
-  border-bottom-left-radius:10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .pre_filtros {
   float: left;
   padding: 50px 0px;
-  padding-top: 60px;
+  padding-top: 63px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 204px;
+  height: 200px;
   background-color: #e0eaf5;
 }
 
@@ -495,11 +529,12 @@ nav {
   padding: 18px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 19px;
   transition: 0.4s
 }
+
 .botao_filtro:hover {
   background-color: #2E77AE;
   transition: 0.4s
@@ -517,13 +552,13 @@ nav {
   background-color: white;
   color: black;
   padding: 13px;
-  width: 221px;
+  width: 235px;
   border: none;
   text-align: left;
   outline: none;
   font-size: 19px;
-  margin-top: 20px;
-  margin-left: 4px;
+  margin-top: 16px;
+  margin-left: 12px;
   border-radius: 2px;
 }
 
@@ -532,20 +567,22 @@ nav {
   color: #ffffff;
   padding: 13px;
   font-size: 19px;
-  width: 45px;
+  width: 46px;
   border: none;
-  transition-duration: 0.4s;
-}
-.search-container button:hover {
-  background-color: #2E77AE;
-  cursor:pointer;
+  border-radius: 2px;
   transition-duration: 0.4s;
 }
 
-.confirm_button {
+.search-container button:hover {
+  background-color: #2E77AE;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.confirm_button-filtros {
   float: right;
   font-size: 16px;
-  margin-top: 20px;
+  margin-top: 22px;
   border: none 0px;
   transition-duration: 0.4s;
   font-weight: 700;
@@ -553,15 +590,15 @@ nav {
   color: #ffffff;
   padding: 15px 5px;
   border-radius: 10px;
-  width: 240px;
+  width: 210px;
 }
 
-.confirm_button:hover {
+.confirm_button-filtros:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
   font-weight: 700;
   color: #ffffff;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /*----------------- Form Login -----------------*/
@@ -639,11 +676,13 @@ nav {
 .form-login input[type=password]:focus {
   border-color: #333;
 }
+
 .form-login input[name=checkbox_stock_confirmar] {
   background-color: #ff8e2b;
 }
+
 .form-login input[name=checkbox_stock_cancelar] {
-  background-color:#0d2137;
+  background-color: #0d2137;
   margin-top: -5px;
   margin-bottom: 20px;
 }
@@ -824,9 +863,10 @@ p.form-register-button {
   margin-bottom: 20px;
   font-weight: bold;
 }
+
 .qnt_input input[type=number] {
   font-size: 16px;
-  color:#0d2137;
+  color: #0d2137;
   padding: 3px 6px;
   border: 0 none;
   cursor: pointer;
@@ -1072,7 +1112,7 @@ tr {
   font-size: 18px;
 }
 
-.form-criar_produto p{
+.form-criar_produto p {
   margin: 5px;
   padding: 14px;
 }
@@ -1175,22 +1215,26 @@ p.form-criar_produto-button {
   float: left;
   margin-left: 70px;
 }
+
 .form-criar_produto-radio {
   float: left;
-  font-size:14px ;
-  padding:4px;
+  font-size: 14px;
+  padding: 4px;
   align-items: flex-start;
   font-weight: 500;
   text-align: initial;
   margin-left: 250px;
   margin-top: -42px;
 }
-.form-criar_produto-familia{
+
+.form-criar_produto-familia {
   height: 150px;
 }
-.form-criar_produto-familia p{
+
+.form-criar_produto-familia p {
   width: 260px;
 }
+
 /*-------------------Form listar receitas - sugestões ----------------------*/
 
 .flex-box_receita {
@@ -1257,14 +1301,14 @@ p.form-criar_produto-button {
   font-weight: bold;
 }
 
-.esquerda_sugestoes{
+.esquerda_sugestoes {
   width: 50%;
   display: flex;
   float: left;
   flex-direction: column;
 }
 
-.direita_sugestoes{
+.direita_sugestoes {
   width: 50%;
   display: flex;
   float: right;
@@ -1274,7 +1318,7 @@ p.form-criar_produto-button {
 /*------------------- Form listar info receita ----------------------*/
 .row_title_img {
   display: flex;
-  background-color: #e0eaf5;  
+  background-color: #e0eaf5;
 }
 
 .column_title_descr {
@@ -1284,64 +1328,84 @@ p.form-criar_produto-button {
   padding-right: 150px;
   width: 60%;
 }
-.column_title_descr p{
+
+.column_title_descr p {
   text-align: justify;
   padding: 5px 100px;
 }
-.column_title_descr h3{
+
+.column_title_descr h3 {
   text-align: justify;
   padding: 20px 50px;
 }
+
 .column_img {
   float: left;
   padding: 10px;
   margin-top: 0px;
   width: 40%;
 }
+
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-.row_resto{
+
+.row_resto {
   display: flex;
   align-items: center;
 }
-.column_receita{
+
+.column_receita {
   width: 50%;
   padding: 25px;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
-.column_receita h3{
+
+.column_receita h3 {
   float: left;
   padding: 20px 00px;
   padding-right: 100px;
 }
-.column_receita ul{
+
+.column_receita ul {
   padding: 5px 100px;
 }
 
 /*------------------- Form listar estatistica ----------------------*/
 
-.estatistica{
+.estatistica {
   margin: 50px;
 }
-.row_estatitica{
+
+.row_estatitica {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 
 }
+
 .row_estatitica:after {
   content: "";
   display: table;
   clear: both;
 }
-.collumn_50{
+
+.collumn_50 {
   width: 50%;
   display: flex;
   float: left;
   flex-direction: column;
+}
+.collumn_50 table{
+  width: auto;
+}
+.collumn_50 canvas{
+  width:auto; 
+  height:400px; 
+  border:1px solid;
+  margin-top: 50px;
 }

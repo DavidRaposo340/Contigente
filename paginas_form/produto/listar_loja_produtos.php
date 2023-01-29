@@ -89,11 +89,10 @@
                         <label for="vegan"> Vegan</label><br><br>
                     </div> 
 
-                <p class="accordion">Outro filtro  </p>
                     <div class="panel">
                         <!--  ...  -->
                     </div> 
-                    
+
                 <p class="accordion"> Preço <i class="fa-solid fa-euro-sign"></i> </p>
                     <div class="panel">
                         <!--  Range slider  -->
@@ -106,7 +105,7 @@
                         </div>    
                     </div> 
 
-                <input class="confirm_button" type="submit" value="Submit">
+                <input class="confirm_button-filtros" type="submit" value="Submit">
             </form> 
         </div>
     </div>
