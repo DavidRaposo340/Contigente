@@ -106,7 +106,7 @@
                         </div>    
                     </div> 
 
-                <input class="confirm_button" type="submit" value="Submit">
+                <input class="confirm_button-filtros" type="submit" value="Submit">
             </form> 
         </div>
     </div>
