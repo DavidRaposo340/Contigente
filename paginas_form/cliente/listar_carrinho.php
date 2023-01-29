@@ -61,9 +61,9 @@
                         $total_price=getTotalPriceProductbyQuantity($row['id_prod'], $row['quant']); 
                         echo "<td> ".$total_price." € </td>";
                         //echo "<td>".$row['total_price']."</td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['id_prod']."\"> + 1 unidade </td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['id_prod']."\"> - 1 unidade </td>";
-                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['id_prod']."\"> Remover tudo </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_add1un_carrinho.php?id=".$row['id_prod']."\"> <i class=\"fa fa-plus\"> </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove1un_carrinho.php?id=".$row['id_prod']."\"> <i class=\"fa fa-minus\"> </td>";
+                        echo "<td> <a href=\"".$path2root."acoes/cliente/action_remove_all_un_carrinho.php?id=".$row['id_prod']."\"> <i class=\"fa fa-trash\"> </td>";
                         echo "</tr>";
                                 
                         $row = pg_fetch_assoc($list_carrinho);

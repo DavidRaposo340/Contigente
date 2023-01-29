@@ -17,6 +17,8 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/recipes.php";  
+        include_once "../../database/users.php";  
+        
      
         if (!empty($_SESSION['filtro_rec'])) $filtro_rec = $_SESSION['filtro_rec'];    else $filtro_rec = NULL;
 
