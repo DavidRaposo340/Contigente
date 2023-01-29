@@ -5,7 +5,7 @@
         $totalpriceOrders = 0;
         $query = "	SELECT  orders.total_price  As totalprice
 					FROM    orders
-					WHERE   orders.state='Concluída'
+					WHERE   orders.state='Pago'
 				 ";
 		$result = pg_exec($conn, $query);
         
@@ -18,6 +18,7 @@
 			$totalpriceOrders= $totalpriceOrders + $row[0];  
 		$i++;
 		}
+		return $totalpriceOrders;
 		
 	}
 	function getTop5Product(){
@@ -26,7 +27,7 @@
 					SUM(orders_lines.total_price) as total_sales
 					FROM contigente.orders 
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Concluída'
+					WHERE orders.state = 'Pago'
 					GROUP BY id_product
 					ORDER BY total_sales DESC
 					LIMIT 5
@@ -46,11 +47,46 @@
 							SUM(orders_lines.total_price) as total_sales
 					FROM    orders
 					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
-					WHERE orders.state = 'Concluída' 
+					WHERE orders.state = 'Pago' 
 					GROUP BY month
 					ORDER BY month
 				 ";
 		$result = pg_exec($conn, $query);
 		return $result;		
 	}
+
+	//Funções para as sugestões
+
+	function getSuggestionAumentarPreco(){ //seleciona o produto mais vendido -> pode se aumentar o preço um pouco
+		global $conn;
+		$query = "	SELECT id_product AS id_product, 
+					SUM(orders_lines.total_price) as total_sales
+					FROM contigente.orders 
+					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
+					WHERE orders.state = 'Pago'
+					GROUP BY id_product
+					ORDER BY total_sales DESC
+					LIMIT 1
+				";
+
+		$result = pg_query($conn, $query);
+		return $result;
+	}
+
+	function getSuggestionDiminuirPreco(){ //seleciona o produto menos vendido -> pode se diminuir o preço um pouco. mas mais certo seria ver os produtos que nao foram vendidos nao era?
+		global $conn;
+		$query = "	SELECT id_product AS id_product, 
+					SUM(orders_lines.total_price) as total_sales
+					FROM contigente.orders 
+					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
+					WHERE orders.state = 'Pago'
+					GROUP BY id_product
+					ORDER BY total_sales ASC
+					LIMIT 1
+				";
+
+		$result = pg_query($conn, $query);
+		return $result;
+	}
+
 ?>

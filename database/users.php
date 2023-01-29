@@ -57,4 +57,16 @@
 		return $row[0];
 		
 	}
+
+	function getRestrictionsofUser($idUser){
+		global $conn;
+			$query = "	SELECT  users.no_gluten 	As   no_gluten, 
+								users.no_lacti		AS 	 no_lacti,
+								users.vegan			As   vegan 
+						FROM users
+						WHERE users.id="  . $idUser .";
+						";
+			$result = pg_exec($conn, $query);
+			return $result;
+	}
 ?>

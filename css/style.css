@@ -145,7 +145,7 @@ p {
   margin-top: 20px;
   display: flex;
   justify-content: center;
-  width: 300px;
+  width: 500px;
 }
 .mini-table_style table{
   table-layout: fixed;
@@ -1150,3 +1150,123 @@ p.form-criar_produto-button {
   float: left;
   margin-left: 70px;
 }
+
+/*-------------------Form listar receitas - sugestões ----------------------*/
+
+.flex-box_receita {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 250px 100px;
+
+}
+
+.cartao_receita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4px solid black;
+  background-color: white;
+  margin: 20px 45px;
+  border-radius: 5px;
+  height: auto;
+  width: 330px;
+  position: relative;
+}
+
+.cartao_receita img {
+  width: 100%;
+  height: 450px;
+}
+
+.cartao_nome_preco_receita {
+  width: 100%;
+  background-color: #0d2137;
+  padding: 5px;
+
+}
+
+.cartao_nome_preco_receita h2 {
+  color: white;
+  float: left;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.cartao_nome_preco_receita h3 {
+  color: white;
+  float: right;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.cartao_botoes_receita {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cartao_botoes_receita button {
+  color: black;
+  background: #e0eaf5;
+  width: 100%;
+  height: 75px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*------------------- Form listar info receita ----------------------*/
+.row_title_img {
+  display: flex;
+  background-color: #e0eaf5;  
+}
+
+.column_title_descr {
+  float: left;
+  margin-top: 75px;
+  padding-left: 150px;
+  padding-right: 150px;
+  width: 60%;
+}
+.column_title_descr p{
+  text-align: justify;
+  padding: 5px 100px;
+}
+.column_title_descr h3{
+  text-align: justify;
+  padding: 20px 50px;
+}
+.column_img {
+  float: left;
+  padding: 10px;
+  margin-top: 0px;
+  width: 40%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row_resto{
+  display: flex;
+  align-items: center;
+}
+.column_receita{
+  width: 50%;
+  padding: 25px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.column_receita h3{
+  float: left;
+  padding: 20px 00px;
+  padding-right: 100px;
+}
+.column_receita ul{
+  padding: 5px 100px;
+}
+
+
