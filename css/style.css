@@ -584,12 +584,13 @@ nav {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 50px;
+  padding: 10px 10px;
   background: #ff8e2b;
   border: 0 none;
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  width: 170px;
 }
 
 .form-login input[type=submit]:hover {
@@ -624,6 +625,15 @@ nav {
 .form-login input[type=password]:focus {
   border-color: #333;
 }
+.form-login input[name=checkbox_stock_confirmar] {
+  background-color: #ff8e2b;
+}
+.form-login input[name=checkbox_stock_cancelar] {
+  background-color:#0d2137;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
 
 /*----------------- Form Criar Conta -----------------*/
 
