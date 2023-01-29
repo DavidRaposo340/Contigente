@@ -15,29 +15,28 @@ $password = $_POST['password'];
 $conf_pass = $_POST['conf_pass'];
 
 
-
-
-//Validação dos dados
-//Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
-//Assume-se que todos os campos são obrigatórios 
-if (empty($nome) || empty($address) || empty($email) ||  empty($password)||  empty($conf_pass)){
+if(isset($_POST['checkbox_confirmar']) ){
+    //Validação dos dados
+    //Se dados não válidos, é gerada e guardada uma mensagem de erro em variável de sessão
+    //Assume-se que todos os campos são obrigatórios 
+    if (empty($nome) || empty($address) || empty($email) ||  empty($password)||  empty($conf_pass)){
         $dadosValidos = false;
         $_SESSION['msgErro'] = "Pelo menos um dos campos em falta!"; 
-}
+    }
 
-else if ( $password != $conf_pass ){
+    else if ( $password != $conf_pass ){
         $dadosValidos = false;
         $_SESSION['msgErro'] = "Password e password de confirmação não correspondem!";
-}
+    }
 
-else if ( emailExists($email) ){
+    else if ( emailExists($email) ){
         $dadosValidos = false;
         $_SESSION['msgErro'] = "Já existe uma conta com o e-mail introduzido!";     
-}        
+    }        
 
-else {
+    else {
     $dadosValidos = true;
-}
+    }
 
 
     if (!$dadosValidos){
@@ -70,7 +69,11 @@ else {
         $_SESSION['username'] = $user;
         header("Location: ".$path2root."paginas_form/geral/form_login.php");
     }
+}
 
+if (isset($_POST['checkbox_cancelar'])){
+    header("Location: ".$path2root."paginas_form/geral/form_login.php");
+}
 
 
 ?>
