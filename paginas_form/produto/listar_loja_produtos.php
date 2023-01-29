@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/logo/icon.jpg">
 </head>
 
 <body>
@@ -35,7 +36,7 @@
 
     <div class="all_filtros">
         <div class="pre_filtros">
-            <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros</p>
+            <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros <i class="fa-solid fa-filter"> </i> </p>
 
             <!--Search Bar-->
             <div class="search-container">
@@ -75,7 +76,7 @@
                         
                     </div> 
 
-                <p class="accordion">Restrições alimentares</p>
+                <p class="accordion">Restrições alimentares <i class="fa-solid fa-wheat-awn-circle-exclamation"></i> </p>
                     <div class="panel">
                         <!--CHECKBOXS-->
                         <input type="checkbox" id="gluten" name="gluten" value="1" <?php echo ($no_gluten==1 ? 'checked' : '');?>>
@@ -88,12 +89,12 @@
                         <label for="vegan"> Vegan</label><br><br>
                     </div> 
 
-                <p class="accordion">Outro filtro</p>
+                <p class="accordion">Outro filtro  </p>
                     <div class="panel">
                         <!--  ...  -->
                     </div> 
                     
-                <p class="accordion">Preço</p>
+                <p class="accordion"> Preço <i class="fa-solid fa-euro-sign"></i> </p>
                     <div class="panel">
                         <!--  Range slider  -->
                         <div data-role="rangeslider">
@@ -140,8 +141,7 @@
                 echo "</div>";
                 echo "<div class=\"cartao_botoes\">";
                 echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
-                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."&quantity=1';\"> Adicionar ao carrinho</button>";
-            
+                echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."&quantity=1';\"> Adicionar ao carrinho  </button>";
                 echo "</div>";  
                 echo "</div>";            
                 $row = pg_fetch_assoc($list_products);
