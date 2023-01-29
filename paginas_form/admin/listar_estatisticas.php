@@ -27,26 +27,31 @@
         
     ?>
 
-<body onload="showChart('pie');">
+<body onload="showTopVendasChart('pie'); showMonthVendasChart('bar');">
 
     <br>
     <br>
-    <br>
-    <br>
+
     <div class="estatistica">
         <div> 
             <h1> Estatísticas </h1>
         </div>
-
-        <div>
-            <h2> Total de Vendas: </h2>
-            <?php
-                $result = getTotalVendas();
-                echo "<p> ";
-                echo $result;
-                echo "</p>";
-                echo "<br>";
-            ?>
+        <br>
+        <br>
+        <div class="row_estatitica">
+            <div class="collumn_50">
+                <h2> Total de Vendas: </h2>
+                <?php
+                    $result = getTotalVendas();
+                    echo "<p> ";
+                    echo $result;
+                    echo "</p>";
+                    echo "<br>";
+                ?>
+            </div>
+            <div class="collumn_50">
+            <button class="confirm_button" onclick="location.href='../../';"> Gerar Relatorio </button>
+            </div>
         </div>
 
         <div class="row_estatitica">
@@ -81,7 +86,7 @@
             </div>
             <div class="collumn_50">
                 <h2> Total de Vendas por Produto: </h2>               
-                <canvas id="chartCanvas" style="width:800px; height:400px; border:1px solid"></canvas>
+                <canvas id="chartTopVendasCanvas"></canvas>
             </div>
         </div>
 
@@ -116,8 +121,9 @@
                     ?>
             </div> 
             <div class="collumn_50">
-
-            </div> 
+                <h2> Total de Vendas por Produto: </h2>   
+                <canvas id="chartMonthVendasCanvas"></canvas>            
+            </div>
         </div>       
             
         <!-- SUGESTÕES -->
@@ -148,6 +154,8 @@
     <!--include the Chart.JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <script src="<?php echo $path2root ?>javascript/top_vendas_chart.js"></script>
+    <script src="<?php echo $path2root ?>javascript/month_vendas_chart.js"></script>
+
 
 </body>
 
