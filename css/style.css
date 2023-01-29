@@ -341,7 +341,7 @@ nav {
   margin-top: 20px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 19px;
   transition: 0.4s;
@@ -524,7 +524,7 @@ nav {
   padding: 18px;
   width: 100%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 19px;
   transition: 0.4s
