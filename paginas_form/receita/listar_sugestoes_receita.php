@@ -17,8 +17,6 @@
         include("../../includes/navbar.php"); 
         include_once "../../includes/opendb.php";
         include_once "../../database/recipes.php";  
-        include_once "../../database/users.php";  
-        
      
         if (!empty($_SESSION['filtro_rec'])) $filtro_rec = $_SESSION['filtro_rec'];    else $filtro_rec = NULL;
 
@@ -71,10 +69,6 @@
             }
             echo "</table>";
             echo "</div>";
-           //SLIDESHOW 
-            /*if($user_logged == NULL){
-                include("javascript/slideshow_receitas.php"); 
-            }*/
         }
 
             else{ //tem user logado, vamos mostrar a pagina com receitas de acordo com as suas restrições
@@ -88,15 +82,17 @@
                 echo "<p>";
                 
                 echo "<br>";
-                echo "Como tem a seguinte restrição alimentar: "; 
-                if($no_gluten=='t'){ 
-                    echo "- Intolerante a glúten ";
-                }
-                if($no_lacti=='t'){
-                    echo "- Intolerante a laticínios ";
-                }
-                if($vegan=='t'){
-                    echo "- Vegan ";
+                if ($no_gluten == 't' || $no_lacti == 't' || $vegan == 't') {
+                    echo "Como tem a seguinte restrição alimentar: ";
+                    if ($no_gluten == 't') {
+                        echo "- Intolerante a glúten ";
+                    }
+                    if ($no_lacti == 't') {
+                        echo "- Intolerante a laticínios ";
+                    }
+                    if ($vegan == 't') {
+                        echo "- Vegan ";
+                    }
                 }
                 echo "</p>";
                 echo "<p>";
