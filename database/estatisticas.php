@@ -39,6 +39,20 @@
 			echo "Product ID: ".$row['id_product']." Total Sales: ".$row['total_sales']."\n";
 		}*/
 	}
+	function getVendasProducts(){
+		global $conn;
+		$query = "	SELECT id_product AS id_product, 
+					SUM(orders_lines.total_price) as total_sales
+					FROM contigente.orders 
+					JOIN contigente.orders_lines ON orders.id = orders_lines.id_order
+					WHERE orders.state = 'Pago'
+					GROUP BY id_product
+					ORDER BY total_sales DESC
+				";
+
+		$result = pg_query($conn, $query);
+		return $result;
+	}
 	
 
 	function getTotalVendasbyMonth(){ 

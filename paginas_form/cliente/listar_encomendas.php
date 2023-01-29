@@ -17,9 +17,10 @@
         include_once "../../database/orders.php";
         include_once "../../database/products.php";
         include_once "../../database/users.php";
-    
-    
 
+        if(empty($_SESSION['user']))
+            header("Location: ".$path2root."index.php");
+    
     ?>  
     <div class="flex-box-encomendas">
         <h2> Lista de Encomendas: </h2>
@@ -32,10 +33,12 @@
             echo "<th>ID</th><th>Cliente</th><th>Data</th><th>Estado</th><th>Produtos</th><th>Preço Total</th><th>Processo</th>";
             echo "</tr>";	
             
-            $list_orders = getAllOrdersofUserbyID(3); //TODO #66 Alterar para user da variavel de sessao
+            $user=$_SESSION['user'];
+
+            $list_orders = getAllOrdersofUserbyID($user); //TODO #66 Alterar para user da variavel de sessao
             $row = pg_fetch_assoc($list_orders);
 
-            $user_name = getNamebyUserID(3);
+            $user_name = getNamebyUserID($user);
 
             while (isset($row['id'])) {
 
@@ -57,7 +60,10 @@
                 }
                 echo"</td>";
                 echo "<td>".$row['total_price']." €</td>";
-                echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>"; //TODO #68 Action para efetuar pagamento
+                if($row['state']=="Pago"){
+                    echo "<td></td>";
+                }
+                else echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>"; //TODO #68 Action para efetuar pagamento
                 echo "</tr>";
                 $row = pg_fetch_assoc($list_orders);
             }

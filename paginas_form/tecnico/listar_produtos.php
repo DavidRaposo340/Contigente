@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 
 <head>
-    <title>Loja De Produtos</title>
+    <title>Lista de Produtos</title>
     <!-- PARA DOUBLE RANGE SLIDER - elementos que nao aplico css ficam com estilo importado...
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -32,7 +32,6 @@
         if (!empty($_SESSION['vegan'])) 	        $vegan = $_SESSION['vegan']; 	            else $vegan = 0;       
         
     ?>
-
     <div class="all_filtros">
         <div class="pre_filtros">
             <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros</p>
@@ -110,25 +109,44 @@
         </div>
     </div>
 
+    
+    <div class="flex-box-encomendas">
+        <h2> Lista de Produtos: </h2>
 
-    <div class="aviso">
-        <h1> Loja de Produtos: </h1>
-        <?php
-        //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
-        if (!empty($_SESSION['msgAviso'])) {
-            echo "<p style=\"color:#0d2137\">" . $_SESSION['msgAviso'] . "</p>";
-            $_SESSION['msgAviso'] = NULL;
-        }
-        else
-            echo "<br>"
+        <?php	
+
+            echo"<div class=\"table_style\">";
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>ID</th><th>Nome</th><th>Família</th><th>Em Stock</th><th>Preço</th><th></th><th></th><th></th>";
+            echo "</tr>";	
+            
+            $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            $row = pg_fetch_assoc($list_products);
+
+            while (isset($row['id'])) {
+                echo "<tr>";
+                echo "<td>".$row['id']."</td>";
+                echo "<td style='width:90px;padding:10px 5px'>".$row['nome']."</td>";
+                echo "<td>".$row['familyid']."</td>"; 
+                echo "<td>".$row['quantity']."</td>";
+                echo "<td>".$row['price']." €</td>";
+
+                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."acoes/tecnico/form_editar_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Editar</td>";
+                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."acoes/tecnico/remover_produto.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Remover</td>";
+                echo "<td style='width:90px;padding:0px'> <a href=\"".$path2root."acoes/tecnico/form_gerir_stock.php?id=".$row['id']."\" style='width:90px;padding:6px 7px'>Stock</td>";
+                $row = pg_fetch_assoc($list_products);
+            }
+            echo "</table>";
+            echo "</div>";
         ?>
-    </div> 
+    </div>
 
-    <div class="flex-box">
+    <!-- <div class="flex-box-">
 
         <?php
             
-            $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            /*$list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
             $row = pg_fetch_assoc($list_products);
             
             while (isset($row['id'])) {
@@ -141,11 +159,11 @@
                 echo "<div class=\"cartao_botoes\">";
                 echo "<button onclick=\"location.href='".$path2root."paginas_form/produto/listar_produto_info.php?id=".$row['id']."';\"> Ver detalhes</button>";
                 echo "<button onclick=\"location.href='".$path2root."acoes/produto/action_add_carrinho.php?id=".$row['id']."&quantity=1';\"> Adicionar ao carrinho</button>";
-            
+               
                 echo "</div>";  
                 echo "</div>";            
                 $row = pg_fetch_assoc($list_products);
-            }
+            }*/
             
             /* 
                 //Formato docartao de produto
@@ -163,8 +181,8 @@
             */
         ?>
 
-    </div>
-
+    </div>-->
+    
     <!-- Boa pratica executar os scripts mesmo antes do fim do body -->
     <script src="<?php echo $path2root ?>javascript\accordion_button.js"></script>
     <script src="<?php echo $path2root ?>javascript\hide_div.js"></script>

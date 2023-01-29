@@ -10,16 +10,49 @@
     <?php
     $path2root = "../../";
     include("../../includes/navbar.php");
+    include_once "../../database/products.php";
 
-    //Falta a componente de PHP e database (Isert e update) Criar action
+
+    if (!empty($_SESSION['familia']))              $familia = $_SESSION['familia'];
+    else $familia = "todas";
+
+    $nome = "";
+    $price = "";
+    $quantity = "";
+
+    $_SESSION['nome'] = NULL;
+
+    $_SESSION['price'] = NULL;
+    $_SESSION['quantity'] = NULL;
+
     ?>
-
-    <div class="form-criar_produto"> //TODO #70 action para criar produto
+    <div class="form-criar_produto"> <!--//TODO #70 action para criar produto-->
         <h2>Criar Produto:</h2>
 
-        <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_criar_produto.php">
+        <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_criar_produto.php" enctype="multipart/form-data">
             <p><label for="nome"> Nome:</label> <input type="text" name=nome value="<?php echo $nome; ?>" /> </p>
-            <p><label for="family"> Familia:</label> <input type="text" name="family" value="<?php echo $family; ?>" /> </p>
+            <div class="form-criar_produto-familia">
+            <p><label for="family"> Familia:</label>
+            <div class="form-criar_produto-radio">
+                <input type="radio" id="familia" name="familia" value="todas" <?php echo ($familia == "todas" ? 'checked' : ''); ?>>
+                <label for="todas"> Todas as familias</label><br>
+                <?php
+
+                $list_familias = getFamilyProducts();
+                $row = pg_fetch_assoc($list_familias);
+
+                while (isset($row['id'])) {
+                    if ($familia == $row['name'])
+                        echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" checked>';
+                    else
+                        echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" >';
+                    echo '<label for="' . $row['name'] . '"> ' . $row['name'] . '</label><br>';
+                    $row = pg_fetch_assoc($list_familias);
+                }
+                ?>
+            </div>
+            </p>
+            </div>
             <p><label for="price"> Preço:</label> <input type="text" name="price" value="<?php echo $price; ?>" /> </p>
             <p><label for="quantity"> Quantidade:</label> <input type="number" name="quantity" value="<?php echo $quantity; ?>" /> </p>
             <p class="form-criar_produto-file"><label for="file"> Imagem:<br></label> <input type="file" name="file" /></p>
@@ -35,7 +68,13 @@
                     <input type="checkbox" id="vegan" name="vegan" value="1">
                     <label for="vegan"> Vegan</label><br><br>
             </div>
-
+            <?php
+            //Se houver uma msg de erro na variável de sessão, apresenta-a e depois limpa a variável
+            if (!empty($_SESSION['msgErro'])) {
+                echo "<p style=\"color:red\">" . $_SESSION['msgErro'] . "</p>";
+                $_SESSION['msgErro'] = NULL;
+            }
+            ?>
             <p class="form-criar_produto-button"><input name="checkbox_confirmar" type="submit" value="Confirmar" /> </p>
             <p class="form-criar_produto-button"><input name="checkbox_cancelar" type="submit" value="Cancelar" /> </p>
 

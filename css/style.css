@@ -343,7 +343,6 @@ nav {
   color: rgb(0, 0, 0);
 }
 
-
 /*--------------- Collumns Index pag  ---------------*/
 
 /* Create unequal columns that floats next to each other */
@@ -377,11 +376,18 @@ nav {
 
 
 /*--------------- Loja Produtos Pag  ---------------*/
+
+.aviso{
+  float: left;
+  margin-top: 50px;
+  padding: 50px;
+}
+
 .flex-box {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 250px 100px;
+  margin: 350px 100px;
 
 }
 
@@ -432,13 +438,20 @@ nav {
 }
 
 .cartao_botoes button {
-  color: black;
+  color: #0d2137;
+  border-color: #0d2137;
   background: #e0eaf5;
   width: 50%;
   height: 50px;
   padding: 5px 10px;
   font-size: 14px;
   font-weight: bold;
+  transition: 0.2s;
+}
+.cartao_botoes button:hover{
+  background-color:#0d2137;
+  cursor:pointer;
+  color:#ffffff ;
 }
 
 /*--------------- Filtros Produtos  ---------------*/
@@ -446,24 +459,26 @@ nav {
   float: left;
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 331px;
 }
 
 .filtros {
-  padding: 50px 0px;
+  padding: 0px 0px 50px 0px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 1080px;
+  height: 410px;
   background-color: #e0eaf5;
+  border-bottom-right-radius:10px;
+  border-bottom-left-radius:10px;
 }
 
 .pre_filtros {
   float: left;
   padding: 50px 0px;
-  padding-top: 75px;
+  padding-top: 60px;
   margin-right: 25px;
   margin-left: 25px;
-  height: 200px;
+  height: 204px;
   background-color: #e0eaf5;
 }
 
@@ -477,7 +492,11 @@ nav {
   text-align: left;
   outline: none;
   font-size: 19px;
-  transition: 0.4s;
+  transition: 0.4s
+}
+.botao_filtro:hover {
+  background-color: #2E77AE;
+  transition: 0.4s
 }
 
 .search-container {
@@ -491,21 +510,30 @@ nav {
 .search-container input[type=text] {
   background-color: white;
   color: black;
-  padding: 18px;
-  width: 80%;
+  padding: 13px;
+  width: 221px;
   border: none;
   text-align: left;
   outline: none;
   font-size: 19px;
-  align-content: stretch;
+  margin-top: 20px;
+  margin-left: 4px;
+  border-radius: 2px;
 }
 
 .search-container button {
   background-color: #0d2137;
   color: #ffffff;
-  padding: 18px;
-  width: 15%;
+  padding: 13px;
   font-size: 19px;
+  width: 45px;
+  border: none;
+  transition-duration: 0.4s;
+}
+.search-container button:hover {
+  background-color: #2E77AE;
+  cursor:pointer;
+  transition-duration: 0.4s;
 }
 
 .confirm_button {
@@ -526,6 +554,7 @@ nav {
   background-color: #2E77AE;
   font-weight: 700;
   color: #ffffff;
+  cursor:pointer;
 }
 
 /*----------------- Form Login -----------------*/
@@ -562,12 +591,13 @@ nav {
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 50px;
+  padding: 10px 10px;
   background: #ff8e2b;
   border: 0 none;
   cursor: pointer;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  width: 170px;
 }
 
 .form-login input[type=submit]:hover {
@@ -602,6 +632,15 @@ nav {
 .form-login input[type=password]:focus {
   border-color: #333;
 }
+.form-login input[name=checkbox_stock_confirmar] {
+  background-color: #ff8e2b;
+}
+.form-login input[name=checkbox_stock_cancelar] {
+  background-color:#0d2137;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
 
 /*----------------- Form Criar Conta -----------------*/
 
@@ -767,15 +806,26 @@ p.form-register-button {
 .container-prodinfo-details-fam p {
   padding: 10px;
   font-size: 15px;
+  font-weight: 500;
 }
 
 .qnt_input {
   font-size: 16px;
-  margin-top: 80px;
+  margin-top: 60px;
   border: none 0px;
   padding: 15px 40px;
-
+  margin-bottom: 20px;
+  font-weight: bold;
 }
+.qnt_input input[type=number] {
+  font-size: 16px;
+  color:#0d2137;
+  padding: 3px 6px;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 
 .container-prodinfo-details button {
   font-size: 16px;
@@ -793,6 +843,7 @@ p.form-register-button {
   background-color: #2E77AE;
   font-weight: 700;
   color: #ffffff;
+  cursor: pointer;
 }
 
 /*----------------- Listar Encomendas -----------------*/
@@ -808,7 +859,7 @@ p.form-register-button {
   padding: 4px;
   margin: 0px;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 100;
   display: list-item;
   list-style-type: square;
@@ -859,7 +910,7 @@ tr {
 .table_style table td {
   padding: 12px 25px;
   color: #000;
-  font-size: 15px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -1012,7 +1063,7 @@ tr {
   font-size: 18px;
 }
 
-.form-criar_produto p {
+.form-criar_produto p{
   margin: 5px;
   padding: 14px;
 }
@@ -1088,7 +1139,7 @@ tr {
 }
 
 .form-criar_produto label {
-  padding: 5px;
+  padding-top: 5px;
   margin-top: 5px;
 }
 
@@ -1107,7 +1158,7 @@ p.form-criar_produto-button {
 }
 
 .form-criar_produto input[type=file] {
-  padding: 10px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -1115,7 +1166,22 @@ p.form-criar_produto-button {
   float: left;
   margin-left: 70px;
 }
-
+.form-criar_produto-radio {
+  float: left;
+  font-size:14px ;
+  padding:4px;
+  align-items: flex-start;
+  font-weight: 500;
+  text-align: initial;
+  margin-left: 250px;
+  margin-top: -42px;
+}
+.form-criar_produto-familia{
+  height: 150px;
+}
+.form-criar_produto-familia p{
+  width: 260px;
+}
 /*-------------------Form listar receitas - sugestões ----------------------*/
 
 .flex-box_receita {
@@ -1234,4 +1300,25 @@ p.form-criar_produto-button {
   padding: 5px 100px;
 }
 
+/*------------------- Form listar estatistica ----------------------*/
 
+.estatistica{
+  margin: 50px;
+}
+.row_estatitica{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+}
+.row_estatitica:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.collumn_50{
+  width: 50%;
+  display: flex;
+  float: left;
+  flex-direction: column;
+}

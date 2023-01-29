@@ -14,10 +14,10 @@
     //Falta a componente de PHP e database (Isert e update) Criar action
     ?>
 
-    <div class="form-criar_produto"> //TODO #71 editar para criar produto
+    <div class="form-criar_produto"> <!--//TODO #71 editar para criar produto-->
         <h2>Editar Produto:</h2>
 
-        <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_criar_produto.php">
+        <form method="post" action="<?php echo $path2root; ?>acoes/cliente/action_editar_produto.php">
             <p><label for="nome"> Nome:</label> <input type="text" name=nome value="<?php echo $nome; ?>" /> </p>
             <p><label for="family"> Familia:</label> <input type="text" name="family" value="<?php echo $family; ?>" /> </p>
             <p><label for="price"> Preço:</label> <input type="text" name="price" value="<?php echo $price; ?>" /> </p>

@@ -39,7 +39,7 @@
           if (getUserTypebyID($_SESSION['user'])=="Técnico" || getUserTypebyID($_SESSION['user'])=="Gestor")
             echo '<a href="'.$path2root.'b_page">Produtos</a>';
           if (getUserTypebyID($_SESSION['user'])=="Gestor")
-            echo '<a href="'.$path2root.'b_page">Estatistica</a>';
+            echo '<a href="'.$path2root.'paginas_form\admin\listar_estatisticas.php">Estatistica</a>';
 
           echo '<a href="'.$path2root.'acoes\geral\action_logout.php">Logout</a>';
 
