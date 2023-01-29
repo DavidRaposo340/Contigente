@@ -122,6 +122,7 @@
             
             if ( !empty($_SESSION['searchbar_filter']) ) {
                 $list_products=getProductbyFilter($_SESSION['searchbar_filter']);
+                $_SESSION['searchbar_filter'] = NULL;
             }
             else{
                 $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
