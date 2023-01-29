@@ -117,7 +117,7 @@
             echo"<div class=\"table_style\">";
             echo "<table>";
             echo "<tr>";
-            echo "<th>ID</th><th>Nome</th><th>Família</th><th>Em Stock</th><th>Preço</th><th></th><th></th><th></th>";
+            echo "<th>ID</th><th>Nome</th><th>Família</th><th>Em Stock</th><th>Preço</th>";
             echo "</tr>";	
             
             $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );

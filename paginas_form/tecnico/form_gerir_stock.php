@@ -18,13 +18,15 @@
     ?>
   </div>
 
-  <div class="container-login">
-    <div class="form-login">
-      <h2>Gestão de stock do produto: <?php echo $nome; ?></h2> //
-        <h4>Indique a quantidade do produto  <?php echo $nome; ?> que foi adicionada ao armazém (de acordo com os dados do fornecedor)</h4>
+  <div class="container-gerir_stock">
+    <div class="form-gerir_stock">
+      <h2>Gestão de stock do produto: <?php echo $nome; ?></h2>
+        <h4>Indique a quantidade do produto  <?php echo $nome; ?> que foi adicionada ao armazém<br>(de acordo com os dados do fornecedor)</h4>
 
         <form method="post" action="<?php echo $path2root; ?>acoes/tecnico/action_gerir_stock.php">
-        
+
+        <p><label for="quantity"> Quantidade:</label> <input type="number" name="quantity" value="<?php echo $quantity; ?>" /> </p>
+
         <p><input name="checkbox_stock_confirmar" type="submit" value="Confirmar" /> </p>
         <input name="checkbox_stock_cancelar" type="submit" value="Cancelar"/> 
   </div>

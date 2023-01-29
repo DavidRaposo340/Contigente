@@ -1409,3 +1409,74 @@ p.form-criar_produto-button {
   border:1px solid;
   margin-top: 50px;
 }
+
+/*-------------Form Gestao de produto -----------*/
+
+.container-gerir_stock {
+  display: block;
+  align-items: center;
+  text-align: center;
+}
+
+.form-gerir_stock {
+  display: block;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+  width: 50%;
+  background-color: #e2e8ee;
+  border-radius: 20px;
+  padding-bottom: 10px;
+}
+
+.form-gerir_stock h2 {
+  padding: 40px;
+  padding-bottom: 20px;
+}
+.form-gerir_stock h4 {
+  padding: 40px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+.form-gerir_stock p {
+  margin-top: 20px;
+  padding: 25px;
+}
+
+.form-gerir_stock input[type=submit] {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 10px 10px;
+  background: #ff8e2b;
+  border: 0 none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 170px;
+}
+
+.form-gerir_stock input[type=submit]:hover {
+  background: #2E77AE;
+  transition: 0.4s;
+}
+
+.form-gerir_stock input[name=checkbox_stock_confirmar] {
+  background-color: #ff8e2b;
+}
+
+.form-gerir_stock input[name=checkbox_stock_cancelar] {
+  background-color: #0d2137;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
+.form-gerir_stock input[type=number]{
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 90px;
+}
