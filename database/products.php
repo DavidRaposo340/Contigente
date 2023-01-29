@@ -190,6 +190,23 @@
 		$row = pg_fetch_row($result);
 		return $row[0];
 	}
+
+	function getProductbyFilter($filtro_product){
+		global $conn;
+		$query = "	SELECT  products.id 			As   id, 
+							products.family_id 		As   familiaid,
+							products.quantity		As   quantity, 
+							products.price   		As   price, 
+							products.image_name 	AS 	 img_path,
+							products.name 			AS 	 nome,
+							family_products.name    AS   familia
+					FROM products INNER JOIN family_products
+					ON products.family_id=family_products.id
+					WHERE LOWER(products.name) LIKE LOWER('%".$filtro_product."%')
+				";
+			$result = pg_exec($conn, $query);
+			return $result;
+	}
 	
 
 	
