@@ -70,5 +70,25 @@
 			return $result;
 	}
 
+	function editConta($userID, $nome, $address, $email, $encrypt_pass, $no_gluten, $no_lact, $vegan){ 
+		global $conn;
+
+		$insertQuery = "UPDATE users 
+						SET name=$nome,
+							address=$address, 
+							email=$email,
+							password=$encrypt_pass, 
+							no_gluten=$no_gluten, 
+							no_lacti=$no_lact, 
+							vegan=$vegan
+						WHERE id ="  . $userID .";
+						"; 
+			
+
+		$result = pg_exec($conn, $insertQuery);
+	
+	}
+
+
 
 ?>
