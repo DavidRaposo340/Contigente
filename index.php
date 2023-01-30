@@ -55,16 +55,16 @@
 
       <button class="accordion">Elementos para Download</button>
         <div class="panel">
-          <p class="sub_accordion"> <a href="Relatorio_final.pptx"> Relatório PPT  </a>  </p> 
-          <p class="sub_accordion"> <a href="Projeto2.xlsx"> Relatório Excel  </a> </p>   
-          <p class="sub_accordion"> <a href="Projeto2.xlsx"> Código Zip  </a> </p>  
+          <p class="sub_accordion"> <a href="Relatorio_final.pptx" download> Relatório PPT  </a>  </p> 
+          <p class="sub_accordion"> <a href="Projeto2.xlsx" download> Relatório Excel  </a> </p>   
+          <p class="sub_accordion"> <a href="Codigo_zip.zip" download> Código Zip  </a> </p>  
         </div>
 
       <button class="accordion">Credencias de acesso</button>
         <div class="panel">
-          <p class="sub_accordion">  Conta de gestor <br> E-mail: admin@gmail.com Password:1234   </p> 
-          <p class="sub_accordion">  Conta de técnico <br> E-mail: tecnico@gmail.com Password:1234    </p> 
-          <p class="sub_accordion">  Conta de cliente <br> E-mail: david@gmail.com Password:1234    </p> 
+          <p class="sub_accordion">  Conta de gestor <br><br> E-mail: admin@gmail.com <br> Password:1234   </p> 
+          <p class="sub_accordion">  Conta de técnico <br><br> E-mail: tecnico@gmail.com <br> Password:1234    </p> 
+          <p class="sub_accordion">  Conta de cliente <br><br> E-mail: david@gmail.com <br> Password:1234    </p> 
  
         </div>
     </div>

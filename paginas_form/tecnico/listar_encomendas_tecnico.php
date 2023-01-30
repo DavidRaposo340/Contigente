@@ -56,7 +56,7 @@
             }
             echo "</td>";
             echo "<td>" . $row['total_price'] . " €</td>";
-            if($row['state']=="Entregue" || $row['state']=="Cancelada"){
+            if($row['state']=="Entregue" || $row['state']=="Cancelada" || (($row['state']=="Por Pagar") && ($row['user_id']!=$_SESSION['user'])) ){
                 echo "<td></td>";
             }
             else if(($row['state']=="Por Pagar") && ($row['user_id']==$_SESSION['user'])){

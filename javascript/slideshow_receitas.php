@@ -4,7 +4,10 @@
     <style>
       * {box-sizing: border-box}
       .mySlides {display: none}
-      img {vertical-align: middle;}
+      img {vertical-align: middle;
+        width: 100%;
+        max-height: 750px;
+        object-fit: contain;}
 
       /* Slideshow container */
       .slideshow-container {
@@ -27,13 +30,14 @@
         font-size: 18px;
         transition: 0.6s ease;
         border-radius: 0 3px 3px 0;
+        background-color: #ff8e2b;
         user-select: none;
         
       }
 
       /* Position the "next button" to the right */
       .next {
-        right: 0;
+        right: 30px;
         border-radius: 3px 0 0 3px;
       }
 
@@ -98,24 +102,32 @@
 
     <div class="mySlides fade">
       <div class="numbertext">1 / 4</div>
-      <img src="images/receitas/bolo.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=3" >
+        <img src="images/receitas/bolo.png">
+      </a>
       <div class="text">Caption 1</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">2 / 4</div>
-      <img src="images/receitas/muffins.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=4" >
+       <img src="images/receitas/muffins.png">
+      </a>
       <div class="text">Caption 2</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 4</div>
-      <img src="images/receitas/onepot.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=2" >
+        <img src="images/receitas/onepot.png">
+      </a>
       <div class="text">Caption 3</div>
     </div>
     <div class="mySlides fade">
       <div class="numbertext">4 / 4</div>
-      <img src="images/receitas/bolonhesa.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=1" >
+        <img src="images/receitas/bolonhesa.png">
+      </a>
       <div class="text">Caption 4</div>
     </div>
 
