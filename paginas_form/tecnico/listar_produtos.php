@@ -32,6 +32,7 @@
         if (!empty($_SESSION['vegan'])) 	        $vegan = $_SESSION['vegan']; 	            else $vegan = 0;       
         
     ?>
+
     <div class="all_filtros">
         <div class="pre_filtros">
             <p class="botao_filtro" onclick="hide_div('filtros_div')">Filtros <i class="fa-solid fa-filter"> </i>  </p>
@@ -110,8 +111,10 @@
 
     
     <div class="flex-box-encomendas">
-        <h2> Lista de Produtos: </h2>
-
+        <div class="flex-box-encomendas-upper">
+            <h2> Lista de Produtos: </h2>
+            <button onclick="location.href='<?php echo $path2root ?>paginas_form/tecnico/form_criar_produto.php';">Criar Produto</button>
+        </div>
         <?php	
 
             echo"<div class=\"table_style\">";
