@@ -55,9 +55,9 @@
 
       <button class="accordion">Elementos para Download</button>
         <div class="panel">
-          <p class="sub_accordion"> <a href="Relatorio_final.pptx"> Relatório PPT  </a>  </p> 
-          <p class="sub_accordion"> <a href="Projeto2.xlsx"> Relatório Excel  </a> </p>   
-          <p class="sub_accordion"> <a href="Codigo_zip.zip"> Código Zip  </a> </p>  
+          <p class="sub_accordion"> <a href="Relatorio_final.pptx" download> Relatório PPT  </a>  </p> 
+          <p class="sub_accordion"> <a href="Projeto2.xlsx" download> Relatório Excel  </a> </p>   
+          <p class="sub_accordion"> <a href="Codigo_zip.zip" download> Código Zip  </a> </p>  
         </div>
 
       <button class="accordion">Credencias de acesso</button>

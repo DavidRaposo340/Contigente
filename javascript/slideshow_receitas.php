@@ -98,24 +98,32 @@
 
     <div class="mySlides fade">
       <div class="numbertext">1 / 4</div>
-      <img src="images/receitas/bolo.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=3" >
+        <img src="images/receitas/bolo.jpg" style="width:100%">
+      </a>
       <div class="text">Caption 1</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">2 / 4</div>
-      <img src="images/receitas/muffins.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=4" >
+       <img src="images/receitas/muffins.jpg" style="width:100%">
+      </a>
       <div class="text">Caption 2</div>
     </div>
 
     <div class="mySlides fade">
       <div class="numbertext">3 / 4</div>
-      <img src="images/receitas/onepot.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=2" >
+        <img src="images/receitas/onepot.jpg" style="width:100%">
+      </a>
       <div class="text">Caption 3</div>
     </div>
     <div class="mySlides fade">
       <div class="numbertext">4 / 4</div>
-      <img src="images/receitas/bolonhesa.jpg" style="width:100%">
+      <a href="paginas_form/receita/listar_receita_info.php?id=1" >
+        <img src="images/receitas/bolonhesa.jpg" style="width:100%">
+      </a>
       <div class="text">Caption 4</div>
     </div>
 
