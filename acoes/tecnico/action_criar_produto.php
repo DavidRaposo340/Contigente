@@ -14,7 +14,6 @@ if (!empty($_POST['checkbox_cancelar'])) {
 if (!empty($_POST['checkbox_confirmar'])) {
     $nome = $_POST['nome'];
     $familia = $_POST['familia'];
-    echo $familia;
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
 
