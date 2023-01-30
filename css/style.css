@@ -50,7 +50,6 @@ p {
 .confirm_button:hover {
   transition-duration: 0.4s;
   background-color: #2E77AE;
-
 }
 
 .cancel_button {
@@ -914,16 +913,46 @@ p.form-register-button {
 }
 
 .flex-box-encomendas h2 {
-  font-size: 22px;
   margin-top: 20px;
   display: flex;
   justify-content: left;
-  margin-left: 250px;
-  width: 100%;
+  margin-left: 16%;
   font-size: 24px;
   display: flex;
   text-decoration: underline 4px #ff8e2b;
 }
+
+.flex-box-encomendas-upper{
+  width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-box-encomendas-upper h2{
+  width: 250px;
+}
+
+.flex-box-encomendas-upper button {
+  color: #ffffff;
+  border: none;
+  background: #ff8e2b;
+  width: 180px;
+  height: 50px;
+  padding: 4px 8px;
+  font-size: 19px;
+  font-weight: bold;
+  transition: 0.4s;
+  border-radius: 10px;
+  margin-right: 80px;
+  margin-top: 30px;
+}
+
+.flex-box-encomendas-upper button:hover {
+  background-color: #0d2137;
+  cursor: pointer;
+  color: #ffffff;
+}
+
 
 .table_style {
   margin-top: 50px;

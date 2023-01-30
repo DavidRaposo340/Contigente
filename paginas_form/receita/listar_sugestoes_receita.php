@@ -37,13 +37,6 @@
             echo '';
             echo '</p>';
             echo '';
-            echo '<!--Search Bar-->';
-            echo '<div class="search-container">';
-                echo '<form action="/action_search_recipe.php">';      
-                    echo '<input type="text" placeholder="Procurar receita..." name="search">';
-                    echo '<button type="submit"><i class="fa fa-search"></i></button>';
-                echo '</form>';
-            echo '</div>';
 
            // if ($user_logged == NULL) { //vai mostrar todas as receitas na tabela e se nao tiver restriçoes nenhumas
                 echo"<div class=\"generic_table_style\">";
