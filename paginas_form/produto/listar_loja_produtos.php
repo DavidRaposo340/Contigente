@@ -40,7 +40,7 @@
 
             <!--Search Bar-->
             <div class="search-container">
-                <form action="/action_page.php">
+                <form method="post" action="<?php echo $path2root; ?>acoes/produto/action_filtrar_searchbar.php">
                     <input type="text" placeholder="Procurar produto..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
@@ -127,8 +127,13 @@
     <div class="flex-box">
 
         <?php
-            
-            $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            if ( !empty($_SESSION['searchbar_filter']) ) {
+                $list_products=getProductbyFilter($_SESSION['searchbar_filter']);
+
+            }
+            else{
+                $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
+            }
             $row = pg_fetch_assoc($list_products);
             
             while (isset($row['id'])) {
