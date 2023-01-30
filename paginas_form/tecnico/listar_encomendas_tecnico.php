@@ -56,7 +56,10 @@
             }
             echo "</td>";
             echo "<td>" . $row['total_price'] . " €</td>";
-            echo "<td> <a href=\"" . $path2root . "acoes/cliente/action_pagar_encomenda.php?id=" . $row['id'] . "\"> Enviar </td>"; //TODO #69 Action para enviar encomenda
+            if($row['state']=="Entregue"){
+                echo "<td></td>";
+            }
+            else echo "<td> <a href=\"".$path2root."acoes/tecnico/action_enviar_encomenda.php?id=".$row['id']."\"> Enviar </td>"; //TODO #68 Action para efetuar pagamento
             echo "</tr>";
             $row = pg_fetch_assoc($list_orders);
         }
