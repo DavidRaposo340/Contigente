@@ -80,5 +80,9 @@ if (isset($_POST['checkbox_cancelar'])){
     header("Location: ".$path2root."index.php");
 }
 
+if (isset($_POST['checkbox_remover_conta'])){
+    header("Location: ".$path2root."acoes/cliente/action_remover_conta.php");
+}
+
 
 ?>

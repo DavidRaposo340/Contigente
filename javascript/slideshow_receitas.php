@@ -90,10 +90,6 @@
         to {opacity: 1}
       }
 
-      /* On smaller screens, decrease text size */
-      @media only screen and (max-width: 300px) {
-        .prev, .next,.text {font-size: 11px}
-      }
     </style>
   </head>
   <body>
@@ -101,21 +97,26 @@
     <div class="slideshow-container">
 
     <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="images/receitas/raviolis.png" style="width:100%">
-      <div class="text">Caption Text</div>
+      <div class="numbertext">1 / 4</div>
+      <img src="images/receitas/bolo.jpg" style="width:100%">
+      <div class="text">Caption 1</div>
     </div>
 
     <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="images/receitas/raviolis.png" style="width:100%">
-      <div class="text">Caption Two</div>
+      <div class="numbertext">2 / 4</div>
+      <img src="images/receitas/muffins.jpg" style="width:100%">
+      <div class="text">Caption 2</div>
     </div>
 
     <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="images/receitas/raviolis.png" style="width:100%">
-      <div class="text">Caption Three</div>
+      <div class="numbertext">3 / 4</div>
+      <img src="images/receitas/onepot.jpg" style="width:100%">
+      <div class="text">Caption 3</div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 4</div>
+      <img src="images/receitas/bolonhesa.jpg" style="width:100%">
+      <div class="text">Caption 4</div>
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -128,6 +129,7 @@
       <span class="dot" onclick="currentSlide(1)"></span> 
       <span class="dot" onclick="currentSlide(2)"></span> 
       <span class="dot" onclick="currentSlide(3)"></span> 
+      <span class="dot" onclick="currentSlide(4)"></span> 
     </div>
 
     <script>

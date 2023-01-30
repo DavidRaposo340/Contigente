@@ -56,10 +56,13 @@
             }
             echo "</td>";
             echo "<td>" . $row['total_price'] . " €</td>";
-            if($row['state']=="Entregue"){
+            if($row['state']=="Entregue" || $row['state']=="Cancelada"){
                 echo "<td></td>";
             }
-            else echo "<td> <a href=\"".$path2root."acoes/tecnico/action_enviar_encomenda.php?id=".$row['id']."\"> Enviar </td>"; //TODO #68 Action para efetuar pagamento
+            else if(($row['state']=="Por Pagar") && ($row['user_id']==$_SESSION['user'])){
+                echo "<td> <a href=\"".$path2root."acoes/tecnico/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>";            
+            }
+                else echo "<td> <a href=\"".$path2root."acoes/tecnico/action_enviar_encomenda.php?id=".$row['id']."\"> Enviar </td>"; //TODO #68 Action para efetuar pagamento
             echo "</tr>";
             $row = pg_fetch_assoc($list_orders);
         }

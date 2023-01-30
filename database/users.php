@@ -107,6 +107,39 @@
 	
 	}
 
+	function deleteUser($iduser){
+        global $conn;
+
+        $query = "    SELECT  orders.id   As   id
+                    FROM    orders
+                    WHERE   orders.user_id='".$iduser."'
+       ";
+        $result = pg_exec($conn, $query);
+        $row = pg_fetch_assoc($result);
+        $order_id = $row['id'];
+
+        $deleteQuery = "DELETE FROM orders_lines
+                        WHERE orders_lines.id_order='" . $order_id . "'
+           ";
+        pg_exec($conn, $deleteQuery);
+
+        $deleteQuery = "DELETE FROM orders
+                        WHERE orders.user_id='" . $iduser. "'
+           ";
+        pg_exec($conn, $deleteQuery);
+
+
+        $deleteQuery = "DELETE FROM shopping_cart
+                        WHERE shopping_cart.id_user='" . $iduser . "'
+           ";
+        pg_exec($conn, $deleteQuery);
+		
+		$deleteQuery = "DELETE FROM users
+						WHERE users.id='" . $iduser . "'
+						";
+
+		pg_exec($conn, $deleteQuery);
+    }
 
 
 ?>
