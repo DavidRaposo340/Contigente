@@ -14,8 +14,24 @@
     <?php
     $path2root = "../../";
     include("../../includes/navbar.php");
+    include_once "../../includes/opendb.php";
+    include_once "../../database/products.php";
 
-    //Falta a componente de PHP e database (Isert e update) Criar action
+    $id = $_GET ["id"];
+    
+    $product=getProductByID($id);
+
+    $row = pg_fetch_assoc($product);
+    $family=$row['familia'];
+    $quantity=$row['quantity'];
+    $price=$row['price'];
+    $img_path=$row['img_path'];
+    $nome=$row['nome'];
+    
+    $restrictions=getBoolRestrictionsofProductbyID($id);
+    $no_gluten=$restrictions['no_gluten'];
+    $no_lactose=$restrictions['no_lactose'];
+    $vegan=$restrictions['vegan'];
     ?>
 
     <div class="form-criar_produto"> <!--//TODO #71 editar para criar produto-->
@@ -30,13 +46,13 @@
 
             <div class="form-criar_produto-checkbox">
                 <h3>Alérgenos:</h2>
-                    <input type="checkbox" id="gluten" name="gluten" value="1">
-                    <label for="gluten"> Glúten</label><br>
+                    <input type="checkbox" id="gluten" name="gluten" value="1" <?php echo ($no_gluten=='t' ? 'checked' : '');?>>
+                    <label for="gluten"> Sem Glúten</label><br>
 
-                    <input type="checkbox" id="lactose" name="lactose" value="1">
-                    <label for="lactose"> Lactose</label><br>
+                    <input type="checkbox" id="lactose" name="lactose" value="1" <?php echo ($no_lactose=='t' ? 'checked' : '');?>>
+                    <label for="lactose"> Sem Lactose</label><br>
 
-                    <input type="checkbox" id="vegan" name="vegan" value="1">
+                    <input type="checkbox" id="vegan" name="vegan" value="1" <?php echo ($vegan=='t' ? 'checked' : '');?>>
                     <label for="vegan"> Vegan</label><br><br>
             </div>
 
