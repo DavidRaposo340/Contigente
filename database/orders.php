@@ -53,7 +53,8 @@
                             orders.total_price      AS   total_price,
                             orders.state            AS   state,
                             orders.date             As   date
-					FROM    orders;";
+					FROM    orders
+                    order by date DESC;";
 		$result = pg_exec($conn, $query);
         return $result;
     }
