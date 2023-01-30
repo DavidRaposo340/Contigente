@@ -9,9 +9,4 @@ include_once "../../database/users.php";
     $_SESSION['user'] = NULL;
     header("Location: ".$path2root."index.php");
 
-
-
-
-
-
 ?>
