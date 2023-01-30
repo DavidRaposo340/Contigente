@@ -60,7 +60,7 @@
                                 if ($familia==$row['name'])
                                     echo '<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" checked>';
                                 else
-                                    echo 's<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" >';
+                                    echo '<input type="radio" id="familia"  name="familia" value="'.$row['name'].'" >';
                                 echo '<label for="'.$row['name'].'"> '.$row['name'].'</label><br>';
                                 $row = pg_fetch_assoc($list_familias);
                             }
