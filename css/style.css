@@ -688,6 +688,7 @@ nav {
 }
 
 
+
 /*----------------- Form Criar Conta -----------------*/
 
 .form-register {
@@ -1044,6 +1045,10 @@ tr {
 }
 
 .form-editar input[name=checkbox_cancelar] {
+  background-color: #0d2137;
+}
+
+.form-editar input[name=checkbox_remover_conta] {
   background-color: #0d2137;
 }
 

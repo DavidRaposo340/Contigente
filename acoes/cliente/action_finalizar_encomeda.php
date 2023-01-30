@@ -72,7 +72,8 @@
     }
     else{
         deleteShoppingCart($id_user);
-       
+        $_SESSION['msgErro'] = "Produto(s) fora de stock";
+
         header("Location: ".$path2root."paginas_form/cliente/listar_carrinho.php");
     }
     

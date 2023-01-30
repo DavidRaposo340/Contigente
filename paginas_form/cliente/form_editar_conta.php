@@ -80,11 +80,11 @@
             </div>
 
             <p><input name="checkbox_confirmar" type="submit" value="Confirmar" /> </p>
-            <input name="checkbox_cancelar" type="submit" value="Cancelar" />
+            <p><input name="checkbox_cancelar" type="submit" value="Cancelar" /> </p>
+            <p><input name="checkbox_remover_conta" type="submit" value="Remover" /> </p>
 
+        </form>
     </div>
-
-    </form>
 
 </body>
 
