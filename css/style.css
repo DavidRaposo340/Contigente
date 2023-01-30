@@ -920,6 +920,7 @@ p.form-register-button {
   font-size: 24px;
   display: flex;
   text-decoration: underline 4px #ff8e2b;
+  width:100%;
 }
 
 .flex-box-encomendas-upper{
@@ -1277,14 +1278,6 @@ p.form-criar_produto-button {
 }
 /*-------------------Form listar receitas - sugestões ----------------------*/
 
-.flex-box_receita {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 250px 100px;
-
-}
-
 .cartao_receita {
   display: flex;
   flex-direction: column;
@@ -1329,6 +1322,7 @@ p.form-criar_produto-button {
   display: flex;
   flex-direction: row;
   width: 100%;
+
 }
 
 .cartao_botoes_receita button {
@@ -1339,14 +1333,38 @@ p.form-criar_produto-button {
   padding: 5px 10px;
   font-size: 14px;
   font-weight: bold;
+  border: none;
+  border-collapse: collapse;
+  cursor: pointer;
 }
 
 .esquerda_sugestoes {
-  width: 50%;
+  width: 100%;
   display: flex;
-  float: left;
   flex-direction: column;
+  align-items: center;
+  background-color: #e0eaf5;
+  padding-bottom: 100px;
 }
+
+.esquerda_sugestoes h1{
+  width:460px;
+  color: #0d2137;
+  padding: 15px;
+  font-size: 32px;
+  border-bottom: 5px solid #ff8e2b;
+  text-align: center;
+  max-width: none;
+  margin-top: 30px;
+}
+
+.esquerda_sugestoes p{
+  width:70%;
+  text-align: center;
+  max-width: none;
+  margin-top: 30px;
+}
+
 
 .direita_sugestoes {
   width: 50%;
@@ -1355,6 +1373,111 @@ p.form-criar_produto-button {
   flex-direction: column;
 }
 
+.flex-box-container{
+  display: block;
+  text-align: center;
+  margin: 150px 50px 100px 50px;
+}
+
+.flex-box-container p{
+  font-size: 18px;
+  padding: 10px;
+}
+
+.flex-box-container h3{
+  font-size: 26px;
+  text-decoration: underline 2px #ff8e2b;
+}
+
+.flex-box-container h1{
+  width:60%;
+  color: #0d2137;
+  padding: 15px;
+  font-size: 32px;
+  border-bottom: 5px solid #ff8e2b;
+  border-color: #ff8e2b;
+  text-align: center;
+}
+
+.flex-box-container h4{
+  font-size: 25px;
+}
+
+.flex-box_receita {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 100px 300px;
+}
+
+.sugestoes_table_style {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 950px;
+  border: none;
+}
+
+.sugestoes_table_style table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+}
+
+.sugestoes_table_style table th {
+  padding: 13px 25px;
+  font-size: 16px;
+  background-color: #2E77AE;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.sugestoes_table_style table,
+th,
+td,
+tr {
+  text-decoration: none;
+}
+
+.sugestoes_table_style table td {
+  padding: 10px 25px;
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sugestoes_table_style tr:nth-child(2n) {
+  background: rgb(235, 235, 235)
+}
+
+.sugestoes_table_style tr:nth-child(2n+1) {
+  background: rgb(210, 210, 210)
+}
+
+.sugestoes_table_style button {
+  font-size: 15px;
+  border: none 0px;
+  transition-duration: 0.4s;
+  font-weight: 700;
+  background-color: #0d2137;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.sugestoes_table_style button:hover {
+  transition-duration: 0.4s;
+  background-color: #2E77AE;
+  color: #ffffff;
+}
+.cartao_botoes_receita button:hover {
+background-color: #0d2137;
+color: #ffffff;
+}
 /*------------------- Form listar info receita ----------------------*/
 .row_title_img {
   display: flex;
