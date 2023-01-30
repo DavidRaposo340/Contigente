@@ -40,6 +40,7 @@
                             orders.date             As   date
 					FROM    orders
 					WHERE   orders.user_id='".$idUser."'
+                    order by date DESC;
 				";
 		$result = pg_exec($conn, $query);
         return $result;

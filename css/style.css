@@ -371,6 +371,7 @@ nav {
   transition: 0.4s;
   display: flex;
   flex-direction: column; 
+  align-items:center;
 }
 .sub_accordion_intro img{
 width: 50%;

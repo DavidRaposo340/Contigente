@@ -84,9 +84,9 @@
                     if ($no_gluten == 't') {
                         echo "- Intolerante a glúten <br>";
                     }
-                    //if ($no_lacti == 't') {
+                    if ($no_lacti == 't') {
                         echo "- Intolerante a laticínios <br>";
-                    //}
+                    }
                     if ($vegan == 't') {
                         echo "- Vegan <br>";
                     }

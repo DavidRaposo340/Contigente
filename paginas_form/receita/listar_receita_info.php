@@ -54,7 +54,7 @@
             </p>
         </div>
         <div class="column_img">
-            <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>">
+            <img src="<?php echo $path2root ?>images\<?php echo $row['img_path'] ?>" alt="<?php echo $row['nome'] ?>" style="max-height: 900px;">
         </div>
         
     </div>
