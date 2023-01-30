@@ -358,6 +358,29 @@ nav {
   overflow: hidden;
 }
 
+.sub_accordion_intro {
+  background-color: #2e77ae;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  transition: 0.4s;
+  display: flex;
+  flex-direction: column; 
+}
+.sub_accordion_intro img{
+width: 50%;
+height: auto;
+}
+.sub_accordion_intro:hover {
+  background-color: #e0eaf5;
+  color: rgb(0, 0, 0);
+}
+
 .sub_accordion {
   background-color: #2e77ae;
   ;
