@@ -107,6 +107,16 @@
 	
 	}
 
+	function deleteUser($iduser){
+        global $conn;
+
+        $deleteQuery = "DELETE FROM users
+                        WHERE users.id='" . $iduser . "'
+                       ";
+
+        pg_exec($conn, $deleteQuery);
+    }
+
 
 
 ?>

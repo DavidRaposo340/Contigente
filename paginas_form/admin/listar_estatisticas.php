@@ -50,9 +50,10 @@
                 ?>
             </div>
             <div class="collumn_50">
-            <button class="confirm_button" onclick="location.href='../../';"> Gerar Relatorio </button>
+            <button id="button_pdf" class="confirm_button" > Gerar Relatorio </button>
             </div>
         </div>
+
 
         <div class="row_estatitica">
             <div class="collumn_50">
@@ -89,7 +90,9 @@
                 <canvas id="chartTopVendasCanvas"></canvas>
             </div>
         </div>
+        
 
+    
         
         <div class="row_estatitica">
             <div class="collumn_50">
@@ -151,6 +154,8 @@
     </div>
 
     <!-- Boa pratica executar os scripts mesmo antes do fim do body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="<?php echo $path2root ?>javascript/relatorio_pdf.js"></script>
     <!--include the Chart.JS library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <script src="<?php echo $path2root ?>javascript/top_vendas_chart.js"></script>
