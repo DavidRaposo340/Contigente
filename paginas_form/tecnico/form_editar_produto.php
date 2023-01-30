@@ -43,21 +43,18 @@
             <div class="form-criar_produto-familia">
             <p><label for="family"> Familia:</label>
             <div class="form-criar_produto-radio">
-                <input type="radio" id="familia" name="familia" value="todas" <?php echo ($family == "todas" ? 'checked' : ''); ?>>
-                <label for="todas"> Todas as familias</label><br>
                 <?php
-
-                $list_familias = getFamilyProducts();
-                $row = pg_fetch_assoc($list_familias);
-
-                while (isset($row['id'])) {
-                    if ($family == $row['name'])
-                        echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" checked>';
-                    else
-                        echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" >';
-                    echo '<label for="' . $row['name'] . '"> ' . $row['name'] . '</label><br>';
+                    $list_familias = getFamilyProducts();
                     $row = pg_fetch_assoc($list_familias);
-                }
+
+                    while (isset($row['id'])) {
+                        if ($family == $row['name'])
+                            echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" checked>';
+                        else
+                            echo '<input type="radio" id="familia"  name="familia" value="' . $row['name'] . '" >';
+                        echo '<label for="' . $row['name'] . '"> ' . $row['name'] . '</label><br>';
+                        $row = pg_fetch_assoc($list_familias);
+                    }
                 ?>
             </div>
             </p>

@@ -42,17 +42,30 @@
 
       <button class="accordion">Sobre nós</button>
         <div class="panel">
-          <button class="sub_accordion"> David Raposo</button>  
-          <button class="sub_accordion"> Tiago Correia</button>  
-          <button class="sub_accordion"> Telma Moreira</button>  
+          <p class="sub_accordion_intro"> David Raposo <br> <a href="mailto:up201806281@edu.fe.up.pt"> up201806281@edu.fe.up.pt </a> 
+            <img src="images\autores\david.png">
+          </p>  
+          <p class="sub_accordion_intro"> Tiago Correia <br> <a href="mailto:up201806248@edu.fe.up.pt"> up201806248@edu.fe.up.pt </a>
+            <img src="images\autores\tiago.png">
+          </p>  
+          <p class="sub_accordion_intro"> Telma Moreira <br> <a href="mailto:up201806586@edu.fe.up.pt"> up201806586@edu.fe.up.pt </a> 
+            <img src="images\autores\telma.png">
+          </p>  
         </div>
 
       <button class="accordion">Elementos para Download</button>
         <div class="panel">
-          <button class="sub_accordion"> Relatório   </button>  
-          <button class="sub_accordion"> Código Zip  </button>  
-          <button class="sub_accordion"> CSS         </button>  
-          <button class="sub_accordion"> Outro??     </button>    
+          <p class="sub_accordion"> <a href="Relatorio_final.pptx"> Relatório PPT  </a>  </p> 
+          <p class="sub_accordion"> <a href="Projeto2.xlsx"> Relatório Excel  </a> </p>   
+          <p class="sub_accordion"> <a href="Projeto2.xlsx"> Código Zip  </a> </p>  
+        </div>
+
+      <button class="accordion">Credencias de acesso</button>
+        <div class="panel">
+          <p class="sub_accordion">  Conta de gestor <br> E-mail: admin@gmail.com Password:1234   </p> 
+          <p class="sub_accordion">  Conta de técnico <br> E-mail: tecnico@gmail.com Password:1234    </p> 
+          <p class="sub_accordion">  Conta de cliente <br> E-mail: david@gmail.com Password:1234    </p> 
+ 
         </div>
     </div>
     
