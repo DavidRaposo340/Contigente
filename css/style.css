@@ -1194,7 +1194,6 @@ tr {
 
 .form-criar_produto-checkbox {
   margin-top: 10px;
-  padding-bottom: 20px;
 }
 
 .form-criar_produto-checkbox label {
@@ -1234,7 +1233,19 @@ p.form-criar_produto-button {
 .form-criar_produto-familia p {
   width: 260px;
 }
+.aviso-editar_produto {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+}
 
+.aviso-editar_produto p{
+  padding-bottom: 10px;
+  text-align: center;
+  color: rgb(0, 127, 13);
+}
 /*-------------------Form listar receitas - sugestões ----------------------*/
 
 .flex-box_receita {
