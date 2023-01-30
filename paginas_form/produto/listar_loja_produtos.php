@@ -97,11 +97,15 @@
                     <div class="panel">
                         <!--  Range slider  -->
                         <div data-role="rangeslider">
-                            <label for="price-min">Preço mínimo :</label>
-                            <input type="range" name="price-min" id="price-min" value=<?php echo $price_min;?> min="0" max="50">
+                            <label for="price-min">Mínimo :</label>
+                            <input type="range" name="price-min" id="price-min" value=<?php echo $price_min;?> min="0" max="10" onchange="updateRangeSlider1(this.value);">
+                            <input type="text" style="width: 50px;" id="textInputSlider1" value="0">
                             <br>
-                            <label for="price-max">Preço máximo:</label>
-                            <input type="range" name="price-max" id="price-max" value=<?php echo $price_max;?> min="0" max="50">
+                            <br>
+                            
+                            <label for="price-max">Máximo:</label>
+                            <input type="range" name="price-max" id="price-max" value=<?php echo $price_max;?> min="0" max="15" onchange="updateRangeSlider2(this.value);">
+                            <input type="text" style="width: 50px;" id="textInputSlider2" value="15">
                         </div>    
                     </div> 
 
@@ -129,7 +133,7 @@
         <?php
             if ( !empty($_SESSION['searchbar_filter']) ) {
                 $list_products=getProductbyFilter($_SESSION['searchbar_filter']);
-
+                $_SESSION['searchbar_filter'] = NULL;
             }
             else{
                 $list_products = getAllProducts($familia, $no_gluten, $no_lact, $vegan, $price_min, $price_max );
@@ -173,6 +177,8 @@
     <script src="<?php echo $path2root ?>javascript\accordion_button.js"></script>
     <script src="<?php echo $path2root ?>javascript\hide_div.js"></script>
     <script src="<?php echo $path2root ?>javascript\confirm_button.js"></script>
+    <script src="<?php echo $path2root ?>javascript\range_slider.js"></script>
+    
 </body>
 
 </html>

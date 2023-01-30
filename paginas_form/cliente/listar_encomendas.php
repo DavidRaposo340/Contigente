@@ -60,7 +60,7 @@
                 }
                 echo"</td>";
                 echo "<td>".$row['total_price']." €</td>";
-                if($row['state']=="Pago"){
+                if($row['state']=="Pago" || $row['state']=="Entregue" || $row['state']=="Cancelada"){
                     echo "<td></td>";
                 }
                 else echo "<td> <a href=\"".$path2root."acoes/cliente/action_pagar_encomenda.php?id=".$row['id']."\"> Pagar </td>"; //TODO #68 Action para efetuar pagamento
