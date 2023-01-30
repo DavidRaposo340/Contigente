@@ -28,26 +28,18 @@
         $list_receitas = getAllReceitas($filtro_rec);
 
         if (!empty($_SESSION['user'])) $user_logged = $_SESSION['user'];    else $user_logged = NULL;
-
         
         echo '<div class="esquerda_sugestoes">';
+        echo '<h1>As Nossas Sugestões</h1>';
             echo '<p>';
             echo '<br>';
-                echo 'Aqui encontra sugestões de algumas refeições deliciosas e simples e o melhor: caso queira fazer a receita e não tenha os ingredientes, basta clicar num botão para adicionar tudo o que precisa ao seu carrinho!';
+                echo 'Aqui encontra sugestões de algumas refeições deliciosas e simples e o melhor:<br><br> Caso queira fazer a receita e não tenha os ingredientes, basta clicar num botão para adicionar tudo o que precisa ao seu carrinho!';
             echo '';
             echo '</p>';
             echo '';
-            echo '<!--Search Bar-->';
-            echo '<div class="search-container">';
-                echo '<form action="/action_search_recipe.php">';      
-                    echo '<input type="text" placeholder="Procurar receita..." name="search">';
-                    echo '<button type="submit"><i class="fa fa-search"></i></button>';
-                echo '</form>';
-            echo '</div>';
 
-           // if ($user_logged == NULL) { //vai mostrar todas as receitas na tabela e se nao tiver restriçoes nenhumas
-                echo"<div class=\"generic_table_style\">";
-                echo "<table>";
+                echo"<div class=\"sugestoes_table_style\">";
+                echo "<table  cellspacing='0' cellpadding='0'>";
                 echo "<tr>";
                 echo "<th>Nome da receita</th>";
                 echo "<th>Dificuldade</th>";
@@ -71,11 +63,12 @@
                 echo "</table>";
                 echo "</div>";
         echo "</div>";
+
      
     
 
 
-        echo "<div class=\"direita_sugestoes\">";
+        echo "<div class=\"flex-box-container\">";
             if($user_logged!=NULL){ //tem user logado, vamos mostrar a coluna da direita com receitas de acordo com as suas restrições
                 $restrictions=getRestrictionsofUser($user_logged);
                 $restr = pg_fetch_assoc($restrictions);
@@ -83,26 +76,25 @@
                 $no_lacti   = $restr['no_lacti'];
                 $vegan      = $restr['vegan'];
        
-                echo "<div>";
-                echo "<p>";
                 
                 echo "<br>";
                 if ($no_gluten == 't' || $no_lacti == 't' || $vegan == 't') {
-                    echo "Como tem a seguinte restrição alimentar: ";
+                    echo "<h3>Como tem a seguinte restrição alimentar:</h3><br><br> ";
+                    echo "<p>";
                     if ($no_gluten == 't') {
-                        echo "- Intolerante a glúten ";
+                        echo "- Intolerante a glúten <br>";
                     }
-                    if ($no_lacti == 't') {
-                        echo "- Intolerante a laticínios ";
-                    }
+                    //if ($no_lacti == 't') {
+                        echo "- Intolerante a laticínios <br>";
+                    //}
                     if ($vegan == 't') {
-                        echo "- Vegan ";
+                        echo "- Vegan <br>";
                     }
                 }
-                echo "</p>";
-                echo "<p>";
-                echo "Sugerimos-lhe as seguintes receitas: ";
-                echo "</p>";
+                echo "</p><br><br>";
+
+                echo "<h4>Sugerimos-lhe as seguintes receitas:</h4> ";
+
                 echo "</div>";
 
                 $list_receitas = getRecipesWithRestrictions($no_gluten, $no_lacti, $vegan);
