@@ -25,7 +25,6 @@
     $quantity = "";
 
     $_SESSION['nome'] = NULL;
-
     $_SESSION['price'] = NULL;
     $_SESSION['quantity'] = NULL;
 

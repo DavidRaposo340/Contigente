@@ -110,6 +110,7 @@
 	function deleteUser($iduser){
         global $conn;
 
+
         $query = "    SELECT  orders.id   As   id
                     FROM    orders
                     WHERE   orders.user_id='".$iduser."'
@@ -140,6 +141,7 @@
 
 		pg_exec($conn, $deleteQuery);
     }
+
 
 
 ?>

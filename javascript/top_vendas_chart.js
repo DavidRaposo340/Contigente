@@ -1,9 +1,21 @@
 
 function showTopVendasChart(type) {
+    const fillColor = "#3e95cd";
+        const plugin = {
+            id: 'custom_canvas_background_color',
+            beforeDraw: (chart) => {
+            const {ctx} = chart;
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.fillStyle = 'white'; 
+            ctx.fillRect(0, 0, chart.width, chart.height);
+            ctx.restore();
+            }
+        };
 
     var chartType = type;			//chartType is char type selected by the user in the combo
     var canvas 	  = document.getElementById("chartTopVendasCanvas");						//canvas is the HTML element where the chart will be drawn
-
+    canvas.style.backgroundColor = "red";
     var request = new XMLHttpRequest();
     
     //Callback function
@@ -31,7 +43,9 @@ function showTopVendasChart(type) {
             //Create and configure the chart object
             new Chart(canvas, {													
                 type: chartType,
+                plugins: [plugin],
                 data: {
+                    fill: true,
                     labels:xValues,
                     datasets:[{
                         data:yValues,
@@ -47,15 +61,18 @@ function showTopVendasChart(type) {
                     //responsive: true
                 }
             }) //end of configuration of the new Chart() object
-
-        } //end of if (readystate = 4 and status = 200)
-    } //end of function invoked onreadystatechange()
-
+            setTimeout(function() {
+                var dataUrl = canvas.toDataURL();
+                window.ImageData = dataUrl;
+              }, 500);
+        } 
+    } 
 
     // invocation of the web service that retrieves the arrays totalSalesAmount[] and month[] (Y and X axis of the chart)
     var data = "../../javascript/top_vendas_chart_generate_data.php";
     request.open("GET",data, true);
     request.send();
-
 }
 
+
+   

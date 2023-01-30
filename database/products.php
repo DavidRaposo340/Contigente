@@ -51,7 +51,18 @@
 		$result = pg_exec($conn, $query);
 		return $result;
 	}
+	
+	function getFamilyIDbyName($family){
+		global $conn;
+		$query = "	SELECT  family_products.id   As   family_id
+					FROM 	family_products 
+					WHERE 	family_products.name		=	'".$family."';
 
+				";
+		$result = pg_exec($conn, $query);
+		$row = pg_fetch_assoc($result);
+		return $row['family_id'];
+	}
 
 	function updateProductPrice($id, $newprice){ 
 		global $conn;
@@ -64,14 +75,18 @@
 
 	}
 
-	function editProduct($id, $price, $imagePath, $name){ //pus so os campos que acho que podem ser editados, apesar de nos mockups ter a familia e assim... 
+	function editProduct($id, $familiaid, $quantity, $price, $no_gluten, $no_lact, $vegan, $nome){ 
 		global $conn;
 
 		$updateQuery = "UPDATE products 
-						SET price = '$price', 
-							image_name = '$imagePath', 
-							name = '$name'
-						WHERE id = $id
+						SET 	price 		='".$price."', 
+								family_id 	='".$familiaid."', 
+								quantity 	='".$quantity."',
+								no_gluten 	='".$no_gluten."',
+								no_lacti 	='".$no_lact."',
+								vegan 		='".$vegan."',
+								name 		='".$nome."'
+						WHERE	id 			='".$id."';
 						";
 
 		$result = pg_exec($conn, $updateQuery);
@@ -95,7 +110,7 @@
 				";
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_assoc($result);
-		return $row[0];
+		return $row['price'];
 	}
 
 	function getQuantityofProductbyID($id){ 
@@ -107,7 +122,6 @@
 
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_assoc($result);
-		echo $row['quant'];
 		return $row['quant'];
 	}
 
@@ -153,7 +167,7 @@
 
 		$query = "SELECT products.no_gluten AS no_gluten,
 						 products.no_lacti  AS no_lactose,
-						 products.no_lacti  AS vegan
+						 products.vegan  AS vegan
 					FROM products
 					WHERE id =".$id.";";
 
@@ -208,8 +222,8 @@
 
 		$query = "	SELECT name as nome		
 					FROM products
-					WHERE id ="  . $idProduct.";
-				 ;";
+					WHERE id ='". $idProduct."';
+				 ";
 
 		$result = pg_exec($conn, $query);
 		$row = pg_fetch_row($result);
